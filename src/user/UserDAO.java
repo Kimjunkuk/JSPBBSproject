@@ -11,11 +11,12 @@ public class UserDAO {
 	private PreparedStatement pstmt;
 	private ResultSet rs;
 	
+	
 	//»ý¼ºÀÚ
 	public UserDAO() {
 		try {
-			
-			String dbURL ="jdbc:mysql://localhost:3306/BBS";
+			//67.167.223.168
+			String dbURL ="jdbc:mysql://localhost:3306/BBS?autoReconnect=true&amp;useSSL=false";
 			String dbID = "root";
 			String dbPassword = "dosxmffj505@";
 			Class.forName("com.mysql.jdbc.Driver");

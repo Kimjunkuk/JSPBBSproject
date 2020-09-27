@@ -54,6 +54,7 @@
 			<ul class="nav navbar-nav">
 				<li class="active"><a href="index.jsp">main</a></li>
 				<li><a href="skillbbs.jsp">Skills Inventory</a></li>
+				<li><a href="assignments.jsp">Assignments</a></li>
 			</ul>
 			
 			<%

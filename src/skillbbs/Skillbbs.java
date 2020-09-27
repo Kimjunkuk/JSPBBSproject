@@ -9,7 +9,15 @@ public class Skillbbs {
 	private String skillbbsContent;
 	private int skillbbsAvailable;
 	
+	private String saveFileName;//09182020 이미지 업로드를 위한 DTO
+	
 
+	public String getSaveFileName() {
+		return saveFileName;
+	}//09182020 이미지 업로드를 위한 DTO
+	public void setSaveFileName(String saveFileName) {
+		this.saveFileName = saveFileName;
+	}//09182020 이미지 업로드를 위한 DTO
 	public int getSkillbbsID() {
 		return skillbbsID;
 	}

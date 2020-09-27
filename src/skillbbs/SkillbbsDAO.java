@@ -17,7 +17,7 @@ public class SkillbbsDAO {
 	public SkillbbsDAO() {
 		try {
 			
-			String dbURL ="jdbc:mysql://localhost:3306/BBS";
+			String dbURL ="jdbc:mysql://localhost:3306/BBS?autoReconnect=true&amp;useSSL=false";
 			String dbID = "root";
 			String dbPassword = "dosxmffj505@";
 			Class.forName("com.mysql.jdbc.Driver");
@@ -212,5 +212,8 @@ public class SkillbbsDAO {
 		return -1; //데이터베이스 오류
 	
 	}
+	
+	
+	
 	
 }

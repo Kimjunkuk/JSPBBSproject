@@ -2,11 +2,8 @@
 	pageEncoding="UTF-8"%>
 	
 <%@ page import="java.io.PrintWriter" %>
-
-<%@ page import="skillbbs.SkillbbsDAO" %>
-<%@ page import="skillbbs.Skillbbs" %>
-<%@ page import="java.util.ArrayList" %>
-
+<%@ page import="RealTime.realtime" %>
+<%@ page import="java.util.*" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -21,29 +18,35 @@
 <!--This title tag shows us about what kind of website is-->
 <title>JSP BBS Project</title>
 
-<style type="text/css">
-	a, a:hover{
-		color: #000000;
-		text-decoration: none;
-	}
-</style>
-
 </head>
+<script type="text/javascript">
 
-<body> 
+function go_time(){
+
+var now = new Date();
+
+var year = now.getFullYear(); //년
+var month = now.getMonth(); //월
+var day = now.getDay();  //일
+var hour = now.getHours();  //시
+var min = now.getMinutes();  //분
+var sec = now.getSeconds();  //초
+
+document.getElementById("clock").innerHTML 
+= year+"year "+ month+"month "+day+"day "+hour+":"+min+":"+sec
+//id가 clock인 html에 현재시각을 넣음
+
+setTimeout("go_time()", 1000);
+//1초마다 해당 펑션을 실행함.
+}	
+</script>
+
+<body onload="go_time()"> 
 
 	<%
 		String userID = null;
 		if(session.getAttribute("userID") != null){
 			userID = (String) session.getAttribute("userID");
-		}
-		
-		
-		int pageNumber  = 1;
-		
-		if (request.getParameter("pageNumber") != null){
-			//parseInt는 데이터를 Integer type으로 변경해주는 함수 이다. 
-			pageNumber = Integer.parseInt(request.getParameter("pageNumber"));
 		}
 	
 	%>
@@ -72,9 +75,8 @@
 		</div>
 		<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 			<ul class="nav navbar-nav">
-				<li><a href="index.jsp">main</a></li>
-				<li class="active"><a href="skillbbs.jsp">Skills Inventory</a></li>
-				<li><a href="assignments.jsp">Assignments</a></li>
+				<li class="active"><a href="index.jsp">main</a></li>
+				<li><a href="skillbbs.jsp">Skills Inventory</a></li>
 			</ul>
 			
 			<%
@@ -118,68 +120,34 @@
 			
 			
 		</div>
+
 	</nav>
 	
-	<div class="container">
-	
-		<!-- striped는 홍수와 짝수가 번갈아가면서 색상이 변경되도록 해주어 가독성을 높여주는 요소 -->
-		<div class="row">
-			<table class="table table-striped" style=" border: 1px soid #dddddd">
-				<thead>
-					<tr>
-						<th style="background-color: #eeeeee; text-align: center;">번호</th>
-						<th style="background-color: #eeeeee; text-align: center;">제목</th>
-						<th style="background-color: #eeeeee; text-align: center;">작성자</th>
-						<th style="background-color: #eeeeee; text-align: center;">작성일</th>
-					</tr>
-				</thead>
-				<tbody>
-				
-					<%
-						SkillbbsDAO skillbbsDAO = new SkillbbsDAO();
-						ArrayList<Skillbbs> list = skillbbsDAO.getList(pageNumber);
-						for(int i = 0; i<list.size(); i++){
-					%>
-						<tr>
-							<td style="text-align: center;"><%= list.get(i).getSkillbbsID() %></td>
-							
-							<td><a href="view.jsp?skillbbsID=<%= list.get(i).getSkillbbsID() %>"><%= list.get(i).getSkillbbsTitle().replaceAll(" ","&nbsp;").replaceAll("<","&lt;").replaceAll(">","&gt;").replaceAll("\n","<br>") %></a><!-- 제목을 눌렀을때 해당게시글의  페이지로 이동 시킴, 해당 게시글 번호를 매개변수로 처리할 수 있도록 함 --></td>
-							<td style="text-align: center;"><%= list.get(i).getUserID() %></td>
-							
-							<!-- substring 함수를 이용하여 데이터를 형식을 원하는 형식으로 잘라 표현  -->
-							<td style="text-align: center;"><%= list.get(i).getSkillbbsDate().substring(0, 11) + list.get(i).getSkillbbsDate().substring(11, 13) + "시"  + list.get(i).getSkillbbsDate().substring(14, 16) + "분" %></td>
-						</tr>	
-					<% 
-						}
-					%>
+	<div>
+		<input type='button' value='Back'onclick="location.href='assignments.jsp'" /><br>
+		<h3>연습문제 2번입니다.</h3><br>
+		<% 
+		
+			Date varTime = new Date();
 
-				</tbody>
+			out.println("<br>" + "현제" + "<br>" + "서버의" + "<br>" + "시간은" + "<br>" + varTime + "<br>" + "입니다"+"<br>");
 			
-			</table>
-			
-			<% 
-				if(pageNumber != 1){					
-			%>
-			    <!-- 페이지넘버 변수에 담긴 값에서 1을 뺀 값만큼 페이지 이동  -->
-				<a href="skillbbs.jsp?pageNumber=<%=pageNumber -1 %>" class="btn btn-success btn-arrow-left">Previous</a>
-			<%
-				} if(skillbbsDAO.nextPage(pageNumber + 1)){
-					//다음페이지가 존재 한다면 
-			%>
-				<a href="skillbbs.jsp?pageNumber=<%=pageNumber + 1 %>" class="btn btn-success btn-arrow-left">Next</a>
-			<%
-				}
-			%>
-						
-			<a href="write.jsp" class="btn btn-primary pull-right">Write</a>
-		</div>
+			out.println("<br>"+"그리고 현제 서버의 시간은 이렇게 흘러 가고 있습니다 :"+"<div id="+"clock"+"></div>");
+		%>
+		
+
+	
 	</div>
+	
+
+
 
 
 
 	<!--Animation-->
 	<script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
 	<script src="js/bootstrap.js"></script>
+
 
 
 </body>
