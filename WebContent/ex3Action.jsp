@@ -2,7 +2,6 @@
 	pageEncoding="UTF-8"%>
 	
 <%@ page import="java.io.PrintWriter" %>
-<%@ page import="RealTime.realtime" %>
 <%@ page import="java.util.*" %>
 <!DOCTYPE html>
 <html>
@@ -19,29 +18,8 @@
 <title>JSP BBS Project</title>
 
 </head>
-<script type="text/javascript">
 
-function go_time(){
-
-var now = new Date();
-
-var year = now.getFullYear(); //년
-var month = now.getMonth(); //월
-var day = now.getDay();  //일
-var hour = now.getHours();  //시
-var min = now.getMinutes();  //분
-var sec = now.getSeconds();  //초
-
-document.getElementById("clock").innerHTML 
-= year+"year "+ month+"month "+day+"day "+hour+":"+min+":"+sec
-//id가 clock인 html에 현재시각을 넣음
-
-setTimeout("go_time()", 1000);
-//1초마다 해당 펑션을 실행함.
-}	
-</script>
-
-<body onload="go_time()"> 
+<body> 
 
 	<%
 		String userID = null;
@@ -122,33 +100,53 @@ setTimeout("go_time()", 1000);
 		</div>
 
 	</nav>
-	
 	<div>
-		<input type='button' value='Back'onclick="location.href='assignments.jsp'" /><br>
-		<h3>연습문제 2번입니다.</h3><br>
-		<% 
-		
-		
-			Date varTime = new Date();
+		<input type='button' value='Back' onclick="location.href='assignments.jsp'"/>
+		<h3>연습문제 3번입니다.</h3><br>
 
-			out.println("<br>" + "현제" + "<br>" + "서버의" + "<br>" + "시간은" + "<br>" + varTime + "<br>" + "입니다"+"<br>");
+		
+	 	<%
+	 	
+
+	 	String num1 = request.getParameter("num1");
+
+		String num2 = request.getParameter("num2");
+		
+		if(num1.equals("") || num2.equals("")){
+			out.println("값이 정확히 입력 되지 않았습니다."+"<br>"+"값을 정확히 입력해주시면 감사하겠습니다.");
+		}
+		
+		else{
 			
-			out.println("<br>"+"그리고 현제 서버의 시간은 이렇게 흘러 가고 있습니다 :"+"<div id="+"clock"+"></div>");
-		%>
+			int num3 = Integer.parseInt(num1);
+
+			int num4 = Integer.parseInt(num2);
+			
+			out.println("나눌 대상값 : " + num3+"<br>"); 
+
+
+			out.println("나눌 값 : " + num4+"<br>");
+
+
+			out.println("나눈 결과 : " + (num3/num4)+"<br>");
+			
+
+			out.println("나머지 : " + (num3%num4));
+	 	}
 		
+	 		
 
-	
+	 	
+	 	%>
+
+
+		
 	</div>
-	
-
-
-
 
 
 	<!--Animation-->
 	<script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
 	<script src="js/bootstrap.js"></script>
-
 
 
 </body>

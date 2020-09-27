@@ -2,6 +2,7 @@
 	pageEncoding="UTF-8"%>
 	
 <%@ page import="java.io.PrintWriter" %>
+<%@ page import="java.util.*" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -101,7 +102,63 @@
 	</nav>
 	<div>
 		<input type='button' value='Back' onclick="location.href='assignments.jsp'"/>
-		<p>3</p>
+		<h3>연습문제 3번입니다.</h3><br>
+		
+		<%
+		
+
+		
+		int intVar1 = 20;
+		int intVar2 = 4;
+		
+		int intResult1 = intVar1/intVar2;
+		int intResult2 = intVar1%intVar2;
+		
+		out.println("몫은"+intResult1+"입니다."+"<br>"+"나머지는"+intResult2+"입니다."+"<br>");
+		
+	
+		%>
+		<h3>나누기 입력값 연산 기능입니다.</h3>
+		<form action="ex3Action.jsp" method="post">
+
+			<!--action은 서버 쪽 주소(jsp로 구성), 여기에서는 html에 보냄-->
+
+			<table>
+
+				<tr>
+
+					<td>나눌 대상값 입력!!!</td>
+
+					<td>
+					
+					<input type="number" name="num1" id="num1"> 
+					<!-- 서버에서는 name으로, 자바스크립트는 id로 인식하므로 둘의 이름을 같게 명시해야 한다-->
+
+					</td>
+
+				</tr>
+
+				<tr>
+
+					<td>나눌 숫자를 입력해 주세요!!!</td>
+
+					<td><input type="number" name="num2" id="num2"></td>
+
+				</tr>
+
+				<tr>
+
+					<td colspan="2"></td>
+					<!--컬럼 2칸 합치기-->
+
+					<td><input type="submit" value="나누기"></td>
+
+				</tr>
+
+			</table>
+
+		</form>
+
 	</div>
 
 
