@@ -17,10 +17,15 @@ public class SkillbbsDAO {
 	public SkillbbsDAO() {
 		try {
 			
-			String dbURL ="jdbc:mysql://localhost:3306/BBS?autoReconnect=true&amp;useSSL=false";
+			Class.forName("org.mariadb.jdbc.Driver");
+			String dbURL ="jdbc:mariadb://localhost:3306/BBS?autoReconnect=true&amp;useSSL=false";
+			//?autoReconnect=true&amp;useSSL=false
+			//?serverTimezone=Asia/Seoul&useSSL=false
+			//?autoReconnect=true&amp;useSSL=false
+			//DB에 중복값이 있을경우에도 해당 오류 발생되는것으로 판단됨
 			String dbID = "root";
-			String dbPassword = "dosxmffj505@";
-			Class.forName("com.mysql.jdbc.Driver");
+			String dbPassword = "Dosxmffj505@#";
+			
 			
 			conn = DriverManager.getConnection(dbURL, dbID, dbPassword);
 		} catch (Exception e){

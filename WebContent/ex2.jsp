@@ -16,7 +16,7 @@
 <link rel="stylesheet" href="css/bootstrap.css">
 
 <!--This title tag shows us about what kind of website is-->
-<title>JSP BBS Project</title>
+<title>문제2 - 김준국</title>
 
 </head>
 <script type="text/javascript">

@@ -4,28 +4,67 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 
 public class UserDAO {
 	
-	private Connection conn;
-	private PreparedStatement pstmt;
-	private ResultSet rs;
+	//09272020_private Connection conn;
+	//09272020_private PreparedStatement pstmt;
+	//09272020_private ResultSet rs;
+    //String driver = "org.mariadb.jdbc.Driver";
+    Connection conn;
+    PreparedStatement pstmt;
+    ResultSet rs;
 	
-	
-	//생성자
+//	//생성자
+//	public UserDAO() {
+//		try {
+//			//67.167.223.168
+//			//Class.forName("org.mariadb.jdbc.Driver");
+//			Class.forName(driver);
+//			conn = DriverManager.getConnection(
+//					"jdbc:mariadb://localhost:3306/BBS",
+//					"mason",
+//					"Dosxmffj505@#"
+//					);
+//			//String dbURL ="jdbc:mariadb://localhost:3336/BBS";
+//			//?autoReconnect=true&amp;useSSL=false
+//			//String dbID = "root";
+//			//String dbPassword = "Dosxmffj505@#";
+//			
+//			
+//			//conn = DriverManager.getConnection(dbURL, dbID, dbPassword);
+//		} catch (ClassNotFoundException e){
+//			System.out.println("드라이버 로드 실패");
+//			e.printStackTrace();
+//		} catch (SQLException e) {
+//			System.out.println("DB 접속실패");
+//			e.printStackTrace();
+//		}
+//		
+
+	 
 	public UserDAO() {
 		try {
-			//67.167.223.168
-			String dbURL ="jdbc:mysql://localhost:3306/BBS?autoReconnect=true&amp;useSSL=false";
+			
+			Class.forName("org.mariadb.jdbc.Driver");
+			String dbURL ="jdbc:mariadb://localhost:3306/BBS?autoReconnect=true&amp;useSSL=false";
+			//?autoReconnect=true&amp;useSSL=false
+			//?serverTimezone=Asia/Seoul&useSSL=false
+			//?autoReconnect=true&amp;useSSL=false
+			//DB에 중복값이 있을경우에도 해당 오류 발생되는것으로 판단됨
 			String dbID = "root";
-			String dbPassword = "dosxmffj505@";
-			Class.forName("com.mysql.jdbc.Driver");
+			String dbPassword = "Dosxmffj505@#";
+			
 			
 			conn = DriverManager.getConnection(dbURL, dbID, dbPassword);
+			
 		} catch (Exception e){
 			e.printStackTrace();
 		}
 	}
+	
+
 	
 	public int login(String userID, String userPassword) {
 		String SQL = "SELECT userPassword FROM USER WHERE userID = ?";
