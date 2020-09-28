@@ -48,7 +48,7 @@ public class UserDAO {
 		try {
 			
 			Class.forName("org.mariadb.jdbc.Driver");
-			String dbURL ="jdbc:mariadb://localhost:3306/BBS?autoReconnect=true&amp;useSSL=false";
+			String dbURL ="jdbc:mariadb://67.167.223.168:3306/BBS?autoReconnect=true&amp;useSSL=false";
 			//?autoReconnect=true&amp;useSSL=false
 			//?serverTimezone=Asia/Seoul&useSSL=false
 			//?autoReconnect=true&amp;useSSL=false
@@ -86,7 +86,7 @@ public class UserDAO {
 		}catch(Exception e) {
 			e.printStackTrace();
 		}
-		return -2; //데이터 베이스 오류 오후
+		return -2; //데이터 베이스 오류
 	}
 	
 	//User클래스를 이용하여 만들어질 수 있는 하나의 인스턴스 

@@ -87,6 +87,7 @@
 			id="bs-example-navbar-collapse-1">
 			<ul class="nav navbar-nav">
 				<li><a href="index.jsp">main</a></li>
+				<li><a href="http://masonlaboratory.com/">MasonLAB</a></li>
 				<li class="active"><a href="skillbbs.jsp">Skills Inventory</a></li>
 			</ul>
 
