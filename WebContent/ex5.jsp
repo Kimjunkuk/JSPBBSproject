@@ -102,8 +102,8 @@
 	</nav>
 	<div>
 		<input type='button' value='Back' onclick="location.href='assignments.jsp'"/>
-		<h3>연습문제 4번입니다.</h3><br>
-		
+		<h3>연습문제 5번입니다.</h3><br>
+
 		<%
 		String[][] strPerson = new String[4][3];
 		
@@ -121,13 +121,14 @@
 		strPerson[3][2] = "사원";
 		
 		for(int i=0; i<=3 ; i++){
-			out.println(strPerson[i][0]+"<br>");
+			
+			for(int j=0; j<=2 ; j++){
+				
+				out.println(strPerson[i][j]);
+			}
+			out.println("<br>");
 		}
-		
-		for(int i=0; i<=3 ; i++){
-			out.println(strPerson[i][1]+"<br>");
-		}
-		
+
 		%>
 	</div>
 
