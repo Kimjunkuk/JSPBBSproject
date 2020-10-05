@@ -9,7 +9,8 @@ public class Skillbbs {
 	private String skillbbsContent;
 	private int skillbbsAvailable;
 	
-	private String saveFileName;//09182020 이미지 업로드를 위한 DTO
+	private String saveFileName;//09182020 이미지 업로드를 위한 DTO(Database Transfer Object)
+	
 	
 
 	public String getSaveFileName() {
@@ -54,6 +55,8 @@ public class Skillbbs {
 	public void setSkillbbsAvailable(int skillbbsAvailable) {
 		this.skillbbsAvailable = skillbbsAvailable;
 	}
+	
+	
 	
 
 }

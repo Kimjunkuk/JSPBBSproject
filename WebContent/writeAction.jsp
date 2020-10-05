@@ -2,6 +2,11 @@
     pageEncoding="UTF-8"%>
 <%@ page import="skillbbs.SkillbbsDAO" %>
 <%@ page import="java.io.PrintWriter" %>
+
+<%@ page import="file.FileDAO" %>
+<%@ page import="java.io.File" %>
+
+
 <% request.setCharacterEncoding("UTF-8"); %>
 <jsp:useBean id="skillbbs" class="skillbbs.Skillbbs" scope="page" />
 <jsp:setProperty name="skillbbs" property="skillbbsTitle" />

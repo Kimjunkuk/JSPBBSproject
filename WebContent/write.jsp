@@ -104,7 +104,8 @@
 	
 		<!-- striped는 홍수와 짝수가 번갈아가면서 색상이 변경되도록 해주어 가독성을 높여주는 요소 -->
 		<div class="row">
-			<form method="post" action="writeAction.jsp"><!-- writeAction페이지로 데이터 송부 -->
+			<form method="post" action="writeAction.jsp" enctype="multipart/from-data">
+			<!-- writeAction페이지로 데이터 송부 + multipart/from-data : multipart클래스와 매칭 되는 타입-->
 				<table class="table table-striped" style="text-align: center; border: 1px solid #dddddd">
 					<thead>
 						<tr>
@@ -115,6 +116,9 @@
 					<tbody>
 						<tr>
 							<td><input type="text" class="form-control" placeholder="글 제목" name="skillbbsTitle" maxlength="50"></input></td>
+						</tr>
+						<tr>
+							<td><input type="file" name="file" placeholder="File"></input></td>
 						</tr>
 						<tr>
 							<td><textarea class="form-control" placeholder="글 내용" name="skillbbsContent" maxlength="2048" style="height:350px;"></textarea></td>
