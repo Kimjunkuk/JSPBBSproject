@@ -11,8 +11,9 @@ public class Skillbbs {
 	
 	private String saveFileName;//09182020 이미지 업로드를 위한 DTO(Database Transfer Object)
 	
+	private int skillbbsCnt; //12022020 조회수 증가시키기 위한 변수 
 	
-
+	
 	public String getSaveFileName() {
 		return saveFileName;
 	}//09182020 이미지 업로드를 위한 DTO
@@ -55,8 +56,11 @@ public class Skillbbs {
 	public void setSkillbbsAvailable(int skillbbsAvailable) {
 		this.skillbbsAvailable = skillbbsAvailable;
 	}
+	public int getSkillbbsCnt() {
+		return skillbbsCnt;
+	}//12022020 조회수 증가시키기 위한 getter
+	public void setSkillbbsCnt(int skillbbsCnt) {
+		this.skillbbsCnt = skillbbsCnt;
+	}//12022020 조회수 증가시키기 위한 setter
 	
-	
-	
-
 }

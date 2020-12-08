@@ -54,7 +54,8 @@
 			<ul class="nav navbar-nav">
 				<li><a href="index.jsp">main</a></li>
 				<li><a href="http://masonlaboratory.com/">MasonLAB</a></li>
-				<li class="active"><a href="skillbbs.jsp">Skills Inventory</a></li>
+				<li><a href="skillbbs.jsp">Skills Inventory</a></li>
+				<li><a href="assignments.jsp">Assignments</a></li>
 			</ul>
 			
 			<%
@@ -115,13 +116,13 @@
 					</thead>
 					<tbody>
 						<tr>
-							<td><input type="text" class="form-control" placeholder="글 제목" name="skillbbsTitle" maxlength="50"></input></td>
+							<td><input type="text" class="form-control" placeholder="글 제목" name="skillbbsTitle" maxlength="200"></input></td>
 						</tr>
 						<tr>
 							<td><input type="file" name="file" placeholder="File"></input></td>
 						</tr>
 						<tr>
-							<td><textarea class="form-control" placeholder="글 내용" name="skillbbsContent" maxlength="2048" style="height:350px;"></textarea></td>
+							<td><textarea class="form-control" placeholder="글 내용" name="skillbbsContent" maxlength="4096" style="height:350px;"></textarea></td>
 						</tr>
 					</tbody>
 				</table>

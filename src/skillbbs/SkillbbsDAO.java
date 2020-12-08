@@ -69,7 +69,7 @@ public class SkillbbsDAO {
 	}
 	
 	public int write(String skillbbsTitle, String userID, String skillbbsContent) {
-		String SQL = "INSERT INTO SKILLBBS VALUES (?, ?, ?, ?, ?, ?)";
+		String SQL = "INSERT INTO SKILLBBS VALUES (?, ?, ?, ?, ?, ?, ?)";
 		try {
 			PreparedStatement pstmt = conn.prepareStatement(SQL); //SQL문장을 실행 준비단계로 설정함
 			
@@ -80,6 +80,7 @@ public class SkillbbsDAO {
 			pstmt.setString(4, getDate());
 			pstmt.setString(5, skillbbsContent);
 			pstmt.setInt(6, 1);
+			pstmt.setInt(7, 0);
 	
 			return pstmt.executeUpdate(); //첫번째 게시물인 경우
 			
@@ -89,6 +90,7 @@ public class SkillbbsDAO {
 		return -1; //데이터베이스 오류
 	}
 	
+	//skillbbsID 기준 내림차순 정렬 함수(쿼리 : DESC)
 	public ArrayList<Skillbbs> getList(int pageNumber){
 		
 		//DESC LIMIT : 한페이지 노출 게시물 수 // skillbbsAvailable =1  삭제되지 않은 게시물만 노출 시킬것 
@@ -108,13 +110,14 @@ public class SkillbbsDAO {
 				Skillbbs skillbbs = new Skillbbs();
 				
 				//위의 SQL쿼리에서 skillbbs에 담긴 모든 속성을 다 빼올 것이기 때문에 아래와 같이 작성되었다. 
-				//아래와 같이 Get으로 데이터를 전부 받아서 위의 skillbbs에 담아주는것이다.
+				//아래와 같이 Get으로 데이터를 전부 받아서 위의 skillbbs로 시작하는 변수에 담아주는것이다.
 				skillbbs.setSkillbbsID(rs.getInt(1)); 
 				skillbbs.setSkillbbsTitle(rs.getString(2)); 
 				skillbbs.setUserID(rs.getString(3)); 
 				skillbbs.setSkillbbsDate(rs.getString(4)); 
 				skillbbs.setSkillbbsContent(rs.getString(5)); 
-				skillbbs.setSkillbbsAvailable(rs.getInt(6)); 
+				skillbbs.setSkillbbsAvailable(rs.getInt(6));
+				skillbbs.setSkillbbsCnt(rs.getInt(7)); 
 				list.add(skillbbs);//리스트에 해당 인스턴스를 담아서 반환한다
 			}
 			
@@ -169,7 +172,8 @@ public class SkillbbsDAO {
 				skillbbs.setUserID(rs.getString(3)); 
 				skillbbs.setSkillbbsDate(rs.getString(4)); 
 				skillbbs.setSkillbbsContent(rs.getString(5)); 
-				skillbbs.setSkillbbsAvailable(rs.getInt(6)); 
+				skillbbs.setSkillbbsAvailable(rs.getInt(6));
+				skillbbs.setSkillbbsCnt(rs.getInt(7)); 
 				return skillbbs;
 		
 			}
@@ -218,7 +222,360 @@ public class SkillbbsDAO {
 	
 	}
 	
+	//조회수 증가 함수
+	public int updateBoardCnt(int skillbbsID) {
+		//특정 아이디에 해당하는 조회수를 1증가 시키겠다는 내용
+		String SQL = "UPDATE SKILLBBS SET skillbbsCnt = skillbbsCnt+1 WHERE skillbbsID=?";
+
+		try {
+			PreparedStatement pstmt = conn.prepareStatement(SQL); //SQL문장을 실행 준비단계로 설정함
+
+			pstmt.setInt(1, skillbbsID);
+
+			return pstmt.executeUpdate(); 
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return -1; //데이터베이스 오류
+	}
 	
+	//skillbbsID 기준 오름 차순 정렬 함수 (쿼리:ASC)
+	public ArrayList<Skillbbs> downgetList(int pageNumber){
+		
+		// LIMIT : 한페이지 노출 게시물 수 // skillbbsAvailable =1  삭제되지 않은 게시물만 노출 시킬것 
+		String SQL = "SELECT * FROM SKILLBBS WHERE skillbbsID < ? AND skillbbsAvailable = 1 ORDER BY skillbbsID ASC LIMIT 10";
+		
+		//skillbbs에서 나올 수 있는 인스턴스를 보관하는 ArrayList생성 
+		ArrayList<Skillbbs> list = new ArrayList<Skillbbs>();
+		
+		try {
+			PreparedStatement pstmt = conn.prepareStatement(SQL); //SQL문장을 실행 준비단계로 설정함
+			
+			//getNext는 그다음으로 작성될 글의 번호를 의미한다. 이와같이 표현하지 않으면 작성글이 5개가 넘어갈때 마다 다음 페이지로 넘어가게 되는 문제가 발생하게 된다.
+			pstmt.setInt(1, getNext() - (pageNumber - 1 ) * 10);
+			
+			rs = pstmt.executeQuery();
+			while (rs.next()) {
+				Skillbbs skillbbs = new Skillbbs();
+				
+				//위의 SQL쿼리에서 skillbbs에 담긴 모든 속성을 다 빼올 것이기 때문에 아래와 같이 작성되었다. 
+				//아래와 같이 Get으로 데이터를 전부 받아서 위의 skillbbs로 시작하는 변수에 담아주는것이다.
+				skillbbs.setSkillbbsID(rs.getInt(1)); 
+				skillbbs.setSkillbbsTitle(rs.getString(2)); 
+				skillbbs.setUserID(rs.getString(3)); 
+				skillbbs.setSkillbbsDate(rs.getString(4)); 
+				skillbbs.setSkillbbsContent(rs.getString(5)); 
+				skillbbs.setSkillbbsAvailable(rs.getInt(6));
+				skillbbs.setSkillbbsCnt(rs.getInt(7)); 
+				list.add(skillbbs);//리스트에 해당 인스턴스를 담아서 반환한다
+			}
+			
+		}catch(Exception e) {
+			e.printStackTrace();
+		}
+		return list; // ArrayList 함수는 리스트를 리턴한다
+	}
 	
+	//skillbbsTitle 기준 내림 차순 정렬 함수 (쿼리:DESC)
+	public ArrayList<Skillbbs> upSkillbbstitle(int pageNumber){
+		
+		// LIMIT : 한페이지 노출 게시물 수 // skillbbsAvailable =1  삭제되지 않은 게시물만 노출 시킬것 
+		String SQL = "SELECT * FROM SKILLBBS WHERE skillbbsID < ? AND skillbbsAvailable = 1 ORDER BY skillbbsTitle DESC LIMIT 10";
+		
+		//skillbbs에서 나올 수 있는 인스턴스를 보관하는 ArrayList생성 
+		ArrayList<Skillbbs> list = new ArrayList<Skillbbs>();
+		
+		try {
+			PreparedStatement pstmt = conn.prepareStatement(SQL); //SQL문장을 실행 준비단계로 설정함
+			
+			//getNext는 그다음으로 작성될 글의 번호를 의미한다. 이와같이 표현하지 않으면 작성글이 5개가 넘어갈때 마다 다음 페이지로 넘어가게 되는 문제가 발생하게 된다.
+			pstmt.setInt(1, getNext() - (pageNumber - 1 ) * 10);
+			
+			rs = pstmt.executeQuery();
+			while (rs.next()) {
+				Skillbbs skillbbs = new Skillbbs();
+				
+				//위의 SQL쿼리에서 skillbbs에 담긴 모든 속성을 다 빼올 것이기 때문에 아래와 같이 작성되었다. 
+				//아래와 같이 Get으로 데이터를 전부 받아서 위의 skillbbs로 시작하는 변수에 담아주는것이다.
+				skillbbs.setSkillbbsID(rs.getInt(1)); 
+				skillbbs.setSkillbbsTitle(rs.getString(2)); 
+				skillbbs.setUserID(rs.getString(3)); 
+				skillbbs.setSkillbbsDate(rs.getString(4)); 
+				skillbbs.setSkillbbsContent(rs.getString(5)); 
+				skillbbs.setSkillbbsAvailable(rs.getInt(6));
+				skillbbs.setSkillbbsCnt(rs.getInt(7)); 
+				list.add(skillbbs);//리스트에 해당 인스턴스를 담아서 반환한다
+			}
+
+			
+		}catch(Exception e) {
+			e.printStackTrace();
+		}
+		return list; // ArrayList 함수는 리스트를 리턴한다
+	}
+	
+	//skillbbsTitle 기준 오름 차순 정렬 함수 (쿼리:ASC)
+	public ArrayList<Skillbbs> downSkillbbstitle(int pageNumber){
+		
+		// LIMIT : 한페이지 노출 게시물 수 // skillbbsAvailable =1  삭제되지 않은 게시물만 노출 시킬것 
+		String SQL = "SELECT * FROM SKILLBBS WHERE skillbbsID < ? AND skillbbsAvailable = 1 ORDER BY skillbbsTitle ASC LIMIT 10";
+		
+		//skillbbs에서 나올 수 있는 인스턴스를 보관하는 ArrayList생성 
+		ArrayList<Skillbbs> list = new ArrayList<Skillbbs>();
+		
+		try {
+			PreparedStatement pstmt = conn.prepareStatement(SQL); //SQL문장을 실행 준비단계로 설정함
+			
+			//getNext는 그다음으로 작성될 글의 번호를 의미한다. 이와같이 표현하지 않으면 작성글이 5개가 넘어갈때 마다 다음 페이지로 넘어가게 되는 문제가 발생하게 된다.
+			pstmt.setInt(1, getNext() - (pageNumber - 1 ) * 10);
+			
+			rs = pstmt.executeQuery();
+			while (rs.next()) {
+				Skillbbs skillbbs = new Skillbbs();
+				
+				//위의 SQL쿼리에서 skillbbs에 담긴 모든 속성을 다 빼올 것이기 때문에 아래와 같이 작성되었다. 
+				//아래와 같이 Get으로 데이터를 전부 받아서 위의 skillbbs로 시작하는 변수에 담아주는것이다.
+				skillbbs.setSkillbbsID(rs.getInt(1)); 
+				skillbbs.setSkillbbsTitle(rs.getString(2)); 
+				skillbbs.setUserID(rs.getString(3)); 
+				skillbbs.setSkillbbsDate(rs.getString(4)); 
+				skillbbs.setSkillbbsContent(rs.getString(5)); 
+				skillbbs.setSkillbbsAvailable(rs.getInt(6));
+				skillbbs.setSkillbbsCnt(rs.getInt(7)); 
+				list.add(skillbbs);//리스트에 해당 인스턴스를 담아서 반환한다
+			}
+
+			
+		}catch(Exception e) {
+			e.printStackTrace();
+		}
+		return list; // ArrayList 함수는 리스트를 리턴한다
+	}
+	
+	//userID 기준 오름 차순 정렬 함수 (쿼리:ASC)
+	public ArrayList<Skillbbs> upuserID(int pageNumber){
+		
+		// LIMIT : 한페이지 노출 게시물 수 // skillbbsAvailable =1  삭제되지 않은 게시물만 노출 시킬것 
+		String SQL = "SELECT * FROM SKILLBBS WHERE skillbbsID < ? AND skillbbsAvailable = 1 ORDER BY userID ASC LIMIT 10";
+		
+		//skillbbs에서 나올 수 있는 인스턴스를 보관하는 ArrayList생성 
+		ArrayList<Skillbbs> list = new ArrayList<Skillbbs>();
+		
+		try {
+			PreparedStatement pstmt = conn.prepareStatement(SQL); //SQL문장을 실행 준비단계로 설정함
+			
+			//getNext는 그다음으로 작성될 글의 번호를 의미한다. 이와같이 표현하지 않으면 작성글이 5개가 넘어갈때 마다 다음 페이지로 넘어가게 되는 문제가 발생하게 된다.
+			pstmt.setInt(1, getNext() - (pageNumber - 1 ) * 10);
+			
+			rs = pstmt.executeQuery();
+			while (rs.next()) {
+				Skillbbs skillbbs = new Skillbbs();
+				
+				//위의 SQL쿼리에서 skillbbs에 담긴 모든 속성을 다 빼올 것이기 때문에 아래와 같이 작성되었다. 
+				//아래와 같이 Get으로 데이터를 전부 받아서 위의 skillbbs로 시작하는 변수에 담아주는것이다.
+				skillbbs.setSkillbbsID(rs.getInt(1)); 
+				skillbbs.setSkillbbsTitle(rs.getString(2)); 
+				skillbbs.setUserID(rs.getString(3)); 
+				skillbbs.setSkillbbsDate(rs.getString(4)); 
+				skillbbs.setSkillbbsContent(rs.getString(5)); 
+				skillbbs.setSkillbbsAvailable(rs.getInt(6));
+				skillbbs.setSkillbbsCnt(rs.getInt(7)); 
+				list.add(skillbbs);//리스트에 해당 인스턴스를 담아서 반환한다
+			}
+
+			
+		}catch(Exception e) {
+			e.printStackTrace();
+		}
+		return list; // ArrayList 함수는 리스트를 리턴한다
+	}
+	
+	//userID 기준 내림 차순 정렬 함수 (쿼리:DESC)
+	public ArrayList<Skillbbs> downuserID(int pageNumber){
+		
+		// LIMIT : 한페이지 노출 게시물 수 // skillbbsAvailable =1  삭제되지 않은 게시물만 노출 시킬것 
+		String SQL = "SELECT * FROM SKILLBBS WHERE skillbbsID < ? AND skillbbsAvailable = 1 ORDER BY userID DESC LIMIT 10";
+		
+		//skillbbs에서 나올 수 있는 인스턴스를 보관하는 ArrayList생성 
+		ArrayList<Skillbbs> list = new ArrayList<Skillbbs>();
+		
+		try {
+			PreparedStatement pstmt = conn.prepareStatement(SQL); //SQL문장을 실행 준비단계로 설정함
+			
+			//getNext는 그다음으로 작성될 글의 번호를 의미한다. 이와같이 표현하지 않으면 작성글이 5개가 넘어갈때 마다 다음 페이지로 넘어가게 되는 문제가 발생하게 된다.
+			pstmt.setInt(1, getNext() - (pageNumber - 1 ) * 10);
+			
+			rs = pstmt.executeQuery();
+			while (rs.next()) {
+				Skillbbs skillbbs = new Skillbbs();
+				
+				//위의 SQL쿼리에서 skillbbs에 담긴 모든 속성을 다 빼올 것이기 때문에 아래와 같이 작성되었다. 
+				//아래와 같이 Get으로 데이터를 전부 받아서 위의 skillbbs로 시작하는 변수에 담아주는것이다.
+				skillbbs.setSkillbbsID(rs.getInt(1)); 
+				skillbbs.setSkillbbsTitle(rs.getString(2)); 
+				skillbbs.setUserID(rs.getString(3)); 
+				skillbbs.setSkillbbsDate(rs.getString(4)); 
+				skillbbs.setSkillbbsContent(rs.getString(5)); 
+				skillbbs.setSkillbbsAvailable(rs.getInt(6));
+				skillbbs.setSkillbbsCnt(rs.getInt(7)); 
+				list.add(skillbbs);//리스트에 해당 인스턴스를 담아서 반환한다
+			}
+
+			
+		}catch(Exception e) {
+			e.printStackTrace();
+		}
+		return list; // ArrayList 함수는 리스트를 리턴한다
+	}
+	
+	//skillbbsDate 기준 오름 차순 정렬 함수 (쿼리:ASC)
+	public ArrayList<Skillbbs> upskillbbsDate(int pageNumber){
+		
+		// LIMIT : 한페이지 노출 게시물 수 // skillbbsAvailable =1  삭제되지 않은 게시물만 노출 시킬것 
+		String SQL = "SELECT * FROM SKILLBBS WHERE skillbbsID < ? AND skillbbsAvailable = 1 ORDER BY skillbbsDate ASC LIMIT 10";
+		
+		//skillbbs에서 나올 수 있는 인스턴스를 보관하는 ArrayList생성 
+		ArrayList<Skillbbs> list = new ArrayList<Skillbbs>();
+		
+		try {
+			PreparedStatement pstmt = conn.prepareStatement(SQL); //SQL문장을 실행 준비단계로 설정함
+			
+			//getNext는 그다음으로 작성될 글의 번호를 의미한다. 이와같이 표현하지 않으면 작성글이 5개가 넘어갈때 마다 다음 페이지로 넘어가게 되는 문제가 발생하게 된다.
+			pstmt.setInt(1, getNext() - (pageNumber - 1 ) * 10);
+			
+			rs = pstmt.executeQuery();
+			while (rs.next()) {
+				Skillbbs skillbbs = new Skillbbs();
+				
+				//위의 SQL쿼리에서 skillbbs에 담긴 모든 속성을 다 빼올 것이기 때문에 아래와 같이 작성되었다. 
+				//아래와 같이 Get으로 데이터를 전부 받아서 위의 skillbbs로 시작하는 변수에 담아주는것이다.
+				skillbbs.setSkillbbsID(rs.getInt(1)); 
+				skillbbs.setSkillbbsTitle(rs.getString(2)); 
+				skillbbs.setUserID(rs.getString(3)); 
+				skillbbs.setSkillbbsDate(rs.getString(4)); 
+				skillbbs.setSkillbbsContent(rs.getString(5)); 
+				skillbbs.setSkillbbsAvailable(rs.getInt(6));
+				skillbbs.setSkillbbsCnt(rs.getInt(7)); 
+				list.add(skillbbs);//리스트에 해당 인스턴스를 담아서 반환한다
+			}
+
+			
+		}catch(Exception e) {
+			e.printStackTrace();
+		}
+		return list; // ArrayList 함수는 리스트를 리턴한다
+	}
+	
+	//skillbbsDate 기준 내림 차순 정렬 함수 (쿼리:DESC)
+	public ArrayList<Skillbbs> downskillbbsDate(int pageNumber){
+		
+		// LIMIT : 한페이지 노출 게시물 수 // skillbbsAvailable =1  삭제되지 않은 게시물만 노출 시킬것 
+		String SQL = "SELECT * FROM SKILLBBS WHERE skillbbsID < ? AND skillbbsAvailable = 1 ORDER BY skillbbsDate DESC LIMIT 10";
+		
+		//skillbbs에서 나올 수 있는 인스턴스를 보관하는 ArrayList생성 
+		ArrayList<Skillbbs> list = new ArrayList<Skillbbs>();
+		
+		try {
+			PreparedStatement pstmt = conn.prepareStatement(SQL); //SQL문장을 실행 준비단계로 설정함
+			
+			//getNext는 그다음으로 작성될 글의 번호를 의미한다. 이와같이 표현하지 않으면 작성글이 5개가 넘어갈때 마다 다음 페이지로 넘어가게 되는 문제가 발생하게 된다.
+			pstmt.setInt(1, getNext() - (pageNumber - 1 ) * 10);
+			
+			rs = pstmt.executeQuery();
+			while (rs.next()) {
+				Skillbbs skillbbs = new Skillbbs();
+				
+				//위의 SQL쿼리에서 skillbbs에 담긴 모든 속성을 다 빼올 것이기 때문에 아래와 같이 작성되었다. 
+				//아래와 같이 Get으로 데이터를 전부 받아서 위의 skillbbs로 시작하는 변수에 담아주는것이다.
+				skillbbs.setSkillbbsID(rs.getInt(1)); 
+				skillbbs.setSkillbbsTitle(rs.getString(2)); 
+				skillbbs.setUserID(rs.getString(3)); 
+				skillbbs.setSkillbbsDate(rs.getString(4)); 
+				skillbbs.setSkillbbsContent(rs.getString(5)); 
+				skillbbs.setSkillbbsAvailable(rs.getInt(6));
+				skillbbs.setSkillbbsCnt(rs.getInt(7)); 
+				list.add(skillbbs);//리스트에 해당 인스턴스를 담아서 반환한다
+			}
+			
+		}catch(Exception e) {
+			e.printStackTrace();
+		}
+		return list; // ArrayList 함수는 리스트를 리턴한다
+	}
+	
+	//skillbbsCnt 기준 오름 차순 정렬 함수 (쿼리:ASC)
+	public ArrayList<Skillbbs> upskillbbsCnt(int pageNumber){
+		
+		// LIMIT : 한페이지 노출 게시물 수 // skillbbsAvailable =1  삭제되지 않은 게시물만 노출 시킬것 
+		String SQL = "SELECT * FROM SKILLBBS WHERE skillbbsID < ? AND skillbbsAvailable = 1 ORDER BY skillbbsCnt ASC LIMIT 10";
+		
+		//skillbbs에서 나올 수 있는 인스턴스를 보관하는 ArrayList생성 
+		ArrayList<Skillbbs> list = new ArrayList<Skillbbs>();
+		
+		try {
+			PreparedStatement pstmt = conn.prepareStatement(SQL); //SQL문장을 실행 준비단계로 설정함
+			
+			//getNext는 그다음으로 작성될 글의 번호를 의미한다. 이와같이 표현하지 않으면 작성글이 5개가 넘어갈때 마다 다음 페이지로 넘어가게 되는 문제가 발생하게 된다.
+			pstmt.setInt(1, getNext() - (pageNumber - 1 ) * 10);
+			
+			rs = pstmt.executeQuery();
+			while (rs.next()) {
+				Skillbbs skillbbs = new Skillbbs();
+				
+				//위의 SQL쿼리에서 skillbbs에 담긴 모든 속성을 다 빼올 것이기 때문에 아래와 같이 작성되었다. 
+				//아래와 같이 Get으로 데이터를 전부 받아서 위의 skillbbs로 시작하는 변수에 담아주는것이다.
+				skillbbs.setSkillbbsID(rs.getInt(1)); 
+				skillbbs.setSkillbbsTitle(rs.getString(2)); 
+				skillbbs.setUserID(rs.getString(3)); 
+				skillbbs.setSkillbbsDate(rs.getString(4)); 
+				skillbbs.setSkillbbsContent(rs.getString(5)); 
+				skillbbs.setSkillbbsAvailable(rs.getInt(6));
+				skillbbs.setSkillbbsCnt(rs.getInt(7)); 
+				list.add(skillbbs);//리스트에 해당 인스턴스를 담아서 반환한다
+			}
+			
+		}catch(Exception e) {
+			e.printStackTrace();
+		}
+		return list; // ArrayList 함수는 리스트를 리턴한다
+	}
+	
+	//skillbbsDate 기준 내림 차순 정렬 함수 (쿼리:DESC)
+	public ArrayList<Skillbbs> downskillbbsCnt(int pageNumber){
+		
+		// LIMIT : 한페이지 노출 게시물 수 // skillbbsAvailable =1  삭제되지 않은 게시물만 노출 시킬것 
+		String SQL = "SELECT * FROM SKILLBBS WHERE skillbbsID < ? AND skillbbsAvailable = 1 ORDER BY skillbbsCnt DESC LIMIT 10";
+		
+		//skillbbs에서 나올 수 있는 인스턴스를 보관하는 ArrayList생성 
+		ArrayList<Skillbbs> list = new ArrayList<Skillbbs>();
+		
+		try {
+			PreparedStatement pstmt = conn.prepareStatement(SQL); //SQL문장을 실행 준비단계로 설정함
+			
+			//getNext는 그다음으로 작성될 글의 번호를 의미한다. 이와같이 표현하지 않으면 작성글이 5개가 넘어갈때 마다 다음 페이지로 넘어가게 되는 문제가 발생하게 된다.
+			pstmt.setInt(1, getNext() - (pageNumber - 1 ) * 10);
+			
+			rs = pstmt.executeQuery();
+			while (rs.next()) {
+				Skillbbs skillbbs = new Skillbbs();
+				
+				//위의 SQL쿼리에서 skillbbs에 담긴 모든 속성을 다 빼올 것이기 때문에 아래와 같이 작성되었다. 
+				//아래와 같이 Get으로 데이터를 전부 받아서 위의 skillbbs로 시작하는 변수에 담아주는것이다.
+				skillbbs.setSkillbbsID(rs.getInt(1)); 
+				skillbbs.setSkillbbsTitle(rs.getString(2)); 
+				skillbbs.setUserID(rs.getString(3)); 
+				skillbbs.setSkillbbsDate(rs.getString(4)); 
+				skillbbs.setSkillbbsContent(rs.getString(5)); 
+				skillbbs.setSkillbbsAvailable(rs.getInt(6));
+				skillbbs.setSkillbbsCnt(rs.getInt(7)); 
+				list.add(skillbbs);//리스트에 해당 인스턴스를 담아서 반환한다
+			}
+			
+		}catch(Exception e) {
+			e.printStackTrace();
+		}
+		return list; // ArrayList 함수는 리스트를 리턴한다
+	}
 	
 }

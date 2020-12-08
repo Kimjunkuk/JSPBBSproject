@@ -43,6 +43,9 @@
 		
 		//해당글의 구체적인 내용 가져오기
 		Skillbbs skillbbs = new SkillbbsDAO().getSkillbbs(skillbbsID);
+        SkillbbsDAO skillbbsDAO = new SkillbbsDAO();
+        skillbbsDAO.updateBoardCnt(skillbbsID);
+
 	
 	%>
 
@@ -72,7 +75,8 @@
 			<ul class="nav navbar-nav">
 				<li><a href="index.jsp">main</a></li>
 				<li><a href="http://masonlaboratory.com/">MasonLAB</a></li>
-				<li class="active"><a href="skillbbs.jsp">Skills Inventory</a></li>
+				<li><a href="skillbbs.jsp">Skills Inventory</a></li>
+				<li><a href="assignments.jsp">Assignments</a></li>
 			</ul>
 			
 			<%
@@ -135,16 +139,20 @@
 				</thead>
 				<tbody>
 					<tr>
-						<td style="width: 20%; text-align: center;">글 제목</td>
+						<td style=" text-align: center;">글 제목</td>
 						<td colspan="2" style="text-align: left;"><%= skillbbs.getSkillbbsTitle().replaceAll(" ","&nbsp;").replaceAll("<","&lt;").replaceAll(">","&gt;").replaceAll("\n","<br>") %></td>
 					</tr>
 					<tr>
-						<td style="text-align: center;">작성자</td>
+						<td style=" text-align: center;">작성자</td>
 						<td colspan="2" style="text-align: left;"><%=skillbbs.getUserID()%></td>
 					</tr>
 					<tr>
 						<td style="text-align: center;">작성 일자</td>
 						<td colspan="2" style="text-align: left;"><%= skillbbs.getSkillbbsDate().substring(0, 11) + skillbbs.getSkillbbsDate().substring(11, 13) + "시"  + skillbbs.getSkillbbsDate().substring(14, 16) + "분" %></td>
+					</tr>
+					<tr>
+						<td style="text-align: center;">조회수</td>
+						<td colspan="2" style="text-align: left;"><%= skillbbs.getSkillbbsCnt() %></td>
 					</tr>
 					<tr>
 						<td style="text-align: center;">내용</td> 

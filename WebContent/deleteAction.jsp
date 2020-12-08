@@ -69,7 +69,7 @@
                 script.println("</script>");
             }
             
-            //글쓰기가 성공했을 경후 진행
+            //글삭제가 성공했을 경후 진행
             else {
                 PrintWriter script = response.getWriter();
                 script.println("<script>");

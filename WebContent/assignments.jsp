@@ -107,7 +107,11 @@
 		<input type='button' value='Assignment(과제) ex4' style='width:100%; margin-bottom:10px;' onclick="location.href='ex4.jsp'"/>
 		<input type='button' value='Assignment(과제) ex5' style='width:100%; margin-bottom:10px;' onclick="location.href='ex5.jsp'"/>
 		<input type='button' value='Assignment(과제) ex6' style='width:100%; margin-bottom:10px;' onclick="location.href='ex6.jsp'"/>
-		<input type='button' value='Assignment(과제) ex7' style='width:100%;' onclick="location.href='ex7.jsp'"/>
+		<input type='button' value='Assignment(과제) ex7' style='width:100%; margin-bottom:10px;' onclick="location.href='ex7.jsp'"/>
+		<input type='button' value='Assignment(예제) ex8' style='width:100%; margin-bottom:10px;' onclick="location.href='ex8.jsp'"/>
+		<input type='button' value='Assignment(예제) ex9' style='width:100%; margin-bottom:10px;' onclick="location.href='ex9.jsp'"/>
+		<input type='button' value='Assignment(예제) ex10' style='width:100%; margin-bottom:10px;' onclick="location.href='ex10.jsp'"/>
+		<input type='button' value='Assignment(예제) ex11' style='width:100%; 'onclick="location.href='ex11.jsp'"/>
 	</div>
 
 

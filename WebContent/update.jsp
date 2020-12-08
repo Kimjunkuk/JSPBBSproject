@@ -88,7 +88,8 @@
 			<ul class="nav navbar-nav">
 				<li><a href="index.jsp">main</a></li>
 				<li><a href="http://masonlaboratory.com/">MasonLAB</a></li>
-				<li class="active"><a href="skillbbs.jsp">Skills Inventory</a></li>
+				<li><a href="skillbbs.jsp">Skills Inventory</a></li>
+				<li><a href="assignments.jsp">Assignments</a></li>
 			</ul>
 
 			<ul class="nav navbar-nav navbar-right">
@@ -121,10 +122,10 @@
 					</thead>
 					<tbody>
 						<tr>
-							<td><!-- updataAction페이지의 매개변수값으로 넘어간다 --><input type="text" class="form-control" placeholder="글 제목" name="skillbbsTitle" maxlength="50" value="<%= skillbbs.getSkillbbsTitle() %>"><!-- skillbbs.getSkillbbsTitle()를 통해 수정전 내용 확인 할 수 있도록 함 --></input></td>
+							<td><!-- updataAction페이지의 매개변수값으로 넘어간다 --><input type="text" class="form-control" placeholder="글 제목" name="skillbbsTitle" maxlength="200" value="<%= skillbbs.getSkillbbsTitle() %>"><!-- skillbbs.getSkillbbsTitle()를 통해 수정전 내용 확인 할 수 있도록 함 --></input></td>
 						</tr>
 						<tr>
-							<td><!-- updataAction페이지의 매개변수값으로 넘어간다 --><textarea class="form-control" placeholder="글 내용" name="skillbbsContent" maxlength="2048" style="height:350px;"><%= skillbbs.getSkillbbsContent() %></textarea></td>
+							<td><!-- updataAction페이지의 매개변수값으로 넘어간다 --><textarea class="form-control" placeholder="글 내용" name="skillbbsContent" maxlength="4096" style="height:350px;"><%= skillbbs.getSkillbbsContent() %></textarea></td>
 						</tr>
 					</tbody>
 				</table>

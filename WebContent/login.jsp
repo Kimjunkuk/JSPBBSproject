@@ -42,9 +42,10 @@
 		</div>
 		<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 			<ul class="nav navbar-nav">
-				<li><a href="main.jsp">main</a></li>
+				<li><a href="index.jsp">main</a></li>
 				<li><a href="http://masonlaboratory.com/">MasonLAB</a></li>
 				<li><a href="skillbbs.jsp">Skills Inventory</a></li>
+				<li><a href="assignments.jsp">Assignments</a></li>
 			</ul>
 			<ul class="nav navbar-nav navbar-right">
 				<!--Create Drop down button on Nav Bar-->
