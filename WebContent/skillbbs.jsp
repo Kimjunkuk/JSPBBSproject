@@ -125,7 +125,24 @@
 	
 		<!-- striped는 홀수와 짝수가 번갈아가면서 색상이 변경되도록 해주어 가독성을 높여주는 요소 -->
 		<div class="row">
-			<table class="table table-striped" style=" border: 1px soid #dddddd">
+			<form method="post" action="skillbbs.jsp?sort_type=searchresult" enctype="multipart/from-data"><!-- 검색 인자 입력 구간  -->
+				<table style="float:right;">
+					<tbody>
+						<tr>
+							<th>
+							    <select name="search_type">
+							       <option value="skillbbsTitle">TitleName</option> 
+							       <option value="userID">UserID</option> 
+							       <option value="skillbbsContent">Contents</option> 
+							    </select>
+							</th>
+							<th><input type="text" name="search_string" size=20></th>
+							<th><input type="submit" value = "Search"></th>
+						</tr>
+					</tbody>
+				</table>
+			</form> 
+			<table class="table table-striped" style=" border: 1px soid #dddddd;">
 				<thead>
 					<tr>
 						<th style="background-color: #eeeeee; text-align: center; width: 10%;">번호  <a href="skillbbs.jsp?sort_type=upnumber">▲</a><a href="skillbbs.jsp?sort_type=downnumber">▼</a></th>
@@ -142,12 +159,15 @@
 			             //반복문이 0부터 데이터가 담겨있는 크기 만큼 반복하며 데이터를 가져와 보여주게 되어있다. 결과적으로 내림차순으로 데이터가 정렬되게 되는것이다.
 			             //컬럼 또는 버튼 클릭시 오름차순 내림 차순 으로 정렬하게 만들기 위해서는 어떻게 해야하는가?
 			             //1.클릭이 수행되었을때 실행되는 아이콘을 각각의 컬럼 마다 2개씩 생성 (오름차순, 내림차순)
-			             //1-1.번호 오름 차순 버튼 클릭시 큰수 부터 작으수로 배열
-			             //1-2.번호 내림 차순 버튼 클릭시 작은 수 부터 큰수로 배열 
-			             //1-3.타이틀 
+
 			             SkillbbsDAO skillbbsDAO = new SkillbbsDAO();
+					
+						 // 전달받은 값 받아오기
 			             String strSortType = request.getParameter("sort_type");
-     
+
+			             String strType = request.getParameter("search_type");
+			             String strString = request.getParameter("search_string");
+			             
 			             if(strSortType==null){
 			            	 
 							 ArrayList<Skillbbs> list = skillbbsDAO.getList(pageNumber);
@@ -334,12 +354,27 @@
 								</tr>
 			            		<% }%>
 			            		
-			            	<% }%>
-			            			
+			            	<% }else if(strSortType.equals("searchresult")){
 
+								ArrayList<Skillbbs> list = skillbbsDAO.searchresultlist(pageNumber, strType, strString);
+								 
+			            		for(int i = 0; i<list.size(); i++){%>
+			            		<tr>
+									<td style="text-align: center;"><%= list.get(i).getSkillbbsID() %></td>
+									<!-- 제목의 최대길이를 제한하여 초과할결우 숨김 처리  -->
+									<td style="max-width: 100px; overflow: hidden; white-space: nowrap; text-overflow: ellipsis;"><a href="view.jsp?skillbbsID=<%= list.get(i).getSkillbbsID() %>"><%= list.get(i).getSkillbbsTitle().replaceAll(" ","&nbsp;").replaceAll("<","&lt;").replaceAll(">","&gt;").replaceAll("\n","<br>") %></a><!-- 제목을 눌렀을때 해당게시글의  페이지로 이동 시킴, 해당 게시글 번호를 매개변수로 처리할 수 있도록 함 --></td>
+									<td style="text-align: center;"><%= list.get(i).getUserID() %></td>
+									
+									<!-- substring 함수를 이용하여 데이터를 형식을 원하는 형식으로 잘라 표현  -->
+									<td style="text-align: center;"><%= list.get(i).getSkillbbsDate().substring(0, 11) + list.get(i).getSkillbbsDate().substring(11, 13) + "시"  + list.get(i).getSkillbbsDate().substring(14, 16) + "분" %></td>
+									<td style="text-align: center;"><%= list.get(i).getSkillbbsCnt() %></td>
+								</tr>
+			            		<% }%>
+			            		
+			            	<% }%>
 
 				</tbody>
-			
+				
 			</table>
 			
 			<% 
