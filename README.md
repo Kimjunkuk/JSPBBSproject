@@ -3,7 +3,7 @@ JSPBBSproject
 
 Project Auth
 
-Pair programming project by Therése Larsson & Rebeka Kovačič
+Pair programming project by JUNKUK KIM
 
 A fullstack project including signup and login forms, API with authentication and an authenticated endpoint with its content visible upon logging in. 🔐
 
