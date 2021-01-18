@@ -17,7 +17,7 @@ how to think about security and defensive design when building frontend or backe
 how to build a frontend and backend at the same time
 ✔️ Features
 
-## : Frontend:
+## :heavy_check_mark: Frontend:
 
 a registration/sign up form which sends a POST request to API endpoint for registration
 login form sending a POST request to an endpoint for login, to authenticate a returning user
@@ -35,13 +35,13 @@ validated user password
 validated user email input using regex
 
 
-## : Future improvements
+## :chart_with_upwards_trend: Future improvements
 
 hiding the status message, when switching between the forms
 when registering, displaying error messages from the API next to the input field which has the error
 add more routes, perhaps even a POST route to create new objects in our database as a logged-in user
 
-## :Tech used
+## :robot: Tech used
 
 JavaScript
 
@@ -55,6 +55,6 @@ MariaDB
 
 Apache Tomcat
 
-## : View it live
+## :eyes: View it live
 Backend: 
 Frontend: 
