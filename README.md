@@ -7,6 +7,7 @@ Pair programming project by Therése Larsson & Rebeka Kovačič
 A fullstack project including signup and login forms, API with authentication and an authenticated endpoint with its content visible upon logging in. 🔐
 
 🧠 Learning objectives
+
 how to build a registration flow
 how to handle authentication, both in the frontend and in the backend
 how to authenticate users using tokens
