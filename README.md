@@ -17,17 +17,19 @@ how to think about security and defensive design when building frontend or backe
 how to build a frontend and backend at the same time
 ✔️ Features
 
-## :heavy_check_mark: Frontend:
+## :heavy_check_mark: 
+
+Frontend:
 
 a registration/sign up form which sends a POST request to API endpoint for registration
 login form sending a POST request to an endpoint for login, to authenticate a returning user
 authenticated message revealed upon successful loggin in
 validated password and email
 displaying a status message when signing and/or logging in
+
 Backend:
 
-## :API route to register
-
+API route to register
 API route to login
 an authenticated endpoint returning 401 (auth failed) if trying to be accessed by invalid access token or without it
 passwords in the database encrypted with bcrypt
