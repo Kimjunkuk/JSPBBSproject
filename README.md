@@ -56,5 +56,4 @@ MariaDB
 Apache Tomcat
 
 ## :eyes: View it live
-Backend: 
-Frontend: 
+Link : http://masonlaboratory.com/
