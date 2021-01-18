@@ -2,6 +2,7 @@
 JSPBBSproject
 
 Project Auth
+
 Pair programming project by Therése Larsson & Rebeka Kovačič
 
 A fullstack project including signup and login forms, API with authentication and an authenticated endpoint with its content visible upon logging in. 🔐
@@ -15,6 +16,7 @@ how to securely store passwords in our database
 how to think about security and defensive design when building frontend or backend code
 how to build a frontend and backend at the same time
 ✔️ Features
+
 Frontend:
 
 a registration/sign up form which sends a POST request to API endpoint for registration
@@ -25,6 +27,7 @@ displaying a status message when signing and/or logging in
 Backend:
 
 API route to register
+
 API route to login
 an authenticated endpoint returning 401 (auth failed) if trying to be accessed by invalid access token or without it
 passwords in the database encrypted with bcrypt
@@ -32,11 +35,13 @@ validated user password
 validated user email input using regex
 
 📈 Future improvements
+
 hiding the status message, when switching between the forms
 when registering, displaying error messages from the API next to the input field which has the error
 add more routes, perhaps even a POST route to create new objects in our database as a logged-in user
 
 🤖 Tech used
+
 JavaScript
 HTML, CSS
 bootstrap 4.3v
