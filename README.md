@@ -7,7 +7,7 @@ Pair programming project by JUNKUK KIM
 
 A fullstack project including signup and login forms, API with authentication and an authenticated endpoint with its content visible upon logging in. 🔐
 
-## : Learning objectives
+## :brain:Learning objectives
 
 how to build a registration flow
 how to handle authentication, both in the frontend and in the backend
