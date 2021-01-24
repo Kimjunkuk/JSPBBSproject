@@ -29,77 +29,117 @@
 	%>
 
 	<!--Navigation Bar Section-->
-	<nav class="navbar navbar-default">
+	<nav class="navbar navbar-default" style="float: left;">
 
 		<!--Navi Bar Contents Section-->
 		<div class="navbar-header">
 
 			<!--This button tag is defined right side line button-->
-			<button type="button" class="navbar-toggle collapsed"
+			<!-- <button type="button" class="navbar-toggle collapsed"
 				data-toggle="collapse" data-target="#bs-example-navbar-collapse-1"
 				aria-expanded="false">
 				
 				<!--This span tag shows us the line on the line button and I added one more line-->
+			<!--<span class="icon-bar"></span>
 				<span class="icon-bar"></span>
 				<span class="icon-bar"></span>
 				<span class="icon-bar"></span>
-				<span class="icon-bar"></span>
-			</button>
+			</button> -->
 
 			<!--해당 a태그에 작성된 내용이 네비바 위에 사이트 제목처럼 노출된다
 			This a tag show us at Navbar about something contents what we write -->
-			<a class="navbar-brand" href="index.jsp">JSP BBS Project_MasonKim</a>
+
 		</div>
-		<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+
+		<!--Navigation Bar Section-->
+		<ul class="nav nav-tabs">
+			<li class="nav-item"><a class="nav-link active" href="index.jsp">HOME</a>
+			</li>
+			<%
+				if (userID == null) {
+			%>
+			<li class="nav-item dropdown"><a
+				class="nav-link dropdown-toggle" data-toggle="dropdown" href="#"
+				role="button" aria-haspopup="true" aria-expanded="false">CONNECT</a>
+				<div class="dropdown-menu">
+					<a class="dropdown-item" href="login.jsp">LOGIN</a> <a
+						class="dropdown-item" href="join.jsp">JOIN</a>
+				</div></li>
+			<%
+				} else {
+			%>
+			<li class="nav-item dropdown"><a
+				class="nav-link dropdown-toggle" data-toggle="dropdown" href="#"
+				role="button" aria-haspopup="true" aria-expanded="false">MY PAGE</a>
+				<div class="dropdown-menu">
+					<a class="dropdown-item" href="#">MY PROFILE</a> <a
+						class="dropdown-item" href="logoutAction.jsp">LOGOUT</a>
+				</div></li>
+			<%
+				}
+			%>
+			<li class="nav-item dropdown"><a
+				class="nav-link dropdown-toggle" data-toggle="dropdown" href="#"
+				role="button" aria-haspopup="true" aria-expanded="false">MENU</a>
+				<div class="dropdown-menu">
+					<a class="dropdown-item" href="projects.jsp">PROJECTS</a> <a
+						class="dropdown-item" href="skillbbs.jsp">TOOLBOX</a> <a
+						class="dropdown-item" href="bbjun.jsp">BB&JUN</a> <a
+						class="dropdown-item" href="assignments.jsp">ASSIGNMENTS</a>
+					<div class="dropdown-divider"></div>
+					<a class="dropdown-item" href="#">Separated link</a>
+				</div></li>
+		</ul>
+
+		<!--011720201_Mason>> Make this NAV section to commant<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 			<ul class="nav navbar-nav">
-				<li class="active"><a href="index.jsp">main</a></li>
-				<li><a href="http://masonlaboratory.com/">MasonLAB</a></li>
-				<li><a href="skillbbs.jsp">Skills Inventory</a></li>
+				<li class="active"><a href="index.jsp">HOME</a></li>
+				<li><a href="projects.jsp"></a></li>
+				<li><a href="skillbbs.jsp">Toolbox</a></li>
+				<li><a href="assignments.jsp">Assignments</a></li>
 			</ul>
 			
-			<%
-				if(userID == null){
+	//if(userID == null){
 			%>
 				<ul class="nav navbar-nav navbar-right">
 					<!--Create Drop down button on Nav Bar-->
-					<li class="dropdown">
+		<!--<li class="dropdown">
 						<!--# <= Meaning is No link-->
-						<a href="#" class="dropdown-toggle"
+		<!--<a href="#" class="dropdown-toggle"
 							data-toggle="dropdown" role="button" aria-haspopup="true"
 							aria-expanded="false">Connect<span class="caret"></span></a>
 						<ul class="dropdown-menu">
 							<!--Active : 현제 선택이 되었다.-->
-							<!--<li class="active"><a href="index.jsp">login</a></li>-->
+		<!--<li class="active"><a href="index.jsp">login</a></li>
 							<li><a href="login.jsp">login</a></li>
 							<li><a href="join.jsp">Join</a></li>
 						</ul>
 					</li>
 				</ul>
-			<% 
-				} else {
+	//} else {
 			%>
 				<ul class="nav navbar-nav navbar-right">
 					<!--Create Drop down button on Nav Bar-->
-					<li class="dropdown">
+		<!--<li class="dropdown">
 						<!--# <= Meaning is No link-->
-						<a href="#" class="dropdown-toggle"
+		<!--<a href="#" class="dropdown-toggle"
 							data-toggle="dropdown" role="button" aria-haspopup="true"
 							aria-expanded="false">My page<span class="caret"></span></a>
 						<ul class="dropdown-menu">
 							<!--Active : 현제 선택이 되었다.-->
-							<!--<li class="active"><a href="index.jsp">login</a></li>-->
+		<!--<li class="active"><a href="index.jsp">login</a></li>
 							<li><a href="logoutAction.jsp">logOut</a></li>
 						</ul>
 					</li>
 				</ul>
-			<%
-				}
+	//}
 			%>
 			
 			
-		</div>
-
+		</div>-->
 	</nav>
+	
+	
 	<div>
 		<input type='button' value='Back' onclick="location.href='assignments.jsp'"/>
 		<h3>연습문제 5번입니다.</h3><br>

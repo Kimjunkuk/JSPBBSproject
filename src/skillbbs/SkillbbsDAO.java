@@ -150,6 +150,27 @@ public class SkillbbsDAO {
 	}
 	
 	
+	// 총 레코드의 수를 구하기 위한 함수 
+	public int getCount(int pageNumber) {
+		//DESC:내림 차순 정렬  LIMIT : 한페이지 노출 게시물 수 // skillbbsAvailable =1  삭제되지 않은 게시물만 노출 시킬것 
+		int count=0;
+		String SQL = "SELECT count(*) FROM SKILLBBS WHERE skillbbsAvailable = 1 ";
+		try {
+			PreparedStatement pstmt = conn.prepareStatement(SQL); //SQL문장을 실행 준비단계로 설정함
+			
+			
+			rs = pstmt.executeQuery();
+			if (rs.next()) {
+				count = rs.getInt(1);
+			}
+			
+		}catch(Exception e) {
+			e.printStackTrace();
+		}
+		return count; // ArrayList 함수는 리스트를 리턴한다
+	}
+	
+	
 	//view를 눌렀을때 게시글을 가져오는 함수
 	public Skillbbs getSkillbbs(int skillbbsID) {
 		//skillbbsID에 해당하는 게시글의 번호를 넣어서 그값을 SQL에 담아 그대로 가져오는것이다 

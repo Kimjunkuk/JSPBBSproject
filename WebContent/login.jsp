@@ -38,7 +38,7 @@
 
 			<!--해당 a태그에 작성된 내용이 네비바 위에 사이트 제목처럼 노출된다
 			This a tag show us at Navbar about something contents what we write -->
-			<a class="navbar-brand" href="main.jsp">JSP BBS Project_MasonKim</a>
+			<a class="navbar-brand" href="index.jsp">JSP BBS Project_MasonKim</a>
 		</div>
 		<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 			<ul class="nav navbar-nav">
