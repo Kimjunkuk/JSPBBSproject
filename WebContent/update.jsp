@@ -1,60 +1,59 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-	
-<%@ page import="java.io.PrintWriter" %>
 
-<%@ page import="skillbbs.Skillbbs" %>
-<%@ page import="skillbbs.SkillbbsDAO" %>
+<%@ page import="java.io.PrintWriter"%>
+
+<%@ page import="skillbbs.Skillbbs"%>
+<%@ page import="skillbbs.SkillbbsDAO"%>
 <!DOCTYPE html>
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 
 <!--This meta tag defines web pages size that can resize web pages depends on device screen size-->
-<meta name="viewport" content="width=device-width", initial-scale="1">
+<meta name="viewport" content="width=device-width" , initial-scale="1">
 
 <!--This link tag make this web site can use bootstrap's css-->
-<link rel="stylesheet" href="css/bootstrap-grid.css">
-<link rel="stylesheet" href="css/bootstrap-reboot.css">
+
 <link rel="stylesheet" href="css/bootstrap.css">
-<link rel="stylesheet" href="css/bootstrap.min.css">
+
 
 <!--This title tag shows us about what kind of website is-->
 <title>JSP BBS Project</title>
 
 </head>
 
-<body> 
+<body>
 
 	<%
 		String userID = null;
-		if(session.getAttribute("userID") != null){
+		if (session.getAttribute("userID") != null) {
 			userID = (String) session.getAttribute("userID");
 		}
-		if(userID == null){
+		if (userID == null) {
 			PrintWriter script = response.getWriter();
 			script.println("<script>");
 			script.println("alert('You have to login first!')");
 			script.println("location.href = 'login.jsp'");
 			script.println("</script>");
 		}
-		
+
 		int skillbbsID = 0;
 		//sillbbsID의 내용이 존재하는지 확인 만약 존재한다면 아래 실행(계정 로그인이 되어 있는지 확인)
-		if(request.getParameter("skillbbsID") != null){
+		if (request.getParameter("skillbbsID") != null) {
 			skillbbsID = Integer.parseInt(request.getParameter("skillbbsID"));
 		}
-		if(skillbbsID == 0){
+		if (skillbbsID == 0) {
 			PrintWriter script = response.getWriter();
 			script.println("<script>");
 			script.println("alert('This article is not valid.')");
 			script.println("location.href = 'skillbbs.jsp'");
 			script.println("</script>");
 		}
-		
+
 		Skillbbs skillbbs = new SkillbbsDAO().getSkillbbs(skillbbsID);
-		
-		if(!userID.equals(skillbbs.getUserID())){
+
+		if (!userID.equals(skillbbs.getUserID())) {
 			//세션의 있는 값과 이글을 작성한 사람이 맞는지 검토
 			PrintWriter script = response.getWriter();
 			script.println("<script>");
@@ -63,10 +62,10 @@
 			script.println("</script>");
 		}
 	%>
+<div style="float: center; margin:0; padding:0;">
 
 	<!--Navigation Bar Section-->
-	<!--Navigation Bar Section-->
-	<nav class="navbar navbar-default" >
+	<nav class="navbar navbar-default">
 
 		<!--Navi Bar Contents Section-->
 		<div class="navbar-header">
@@ -90,7 +89,7 @@
 
 		<!--Navigation Bar Section-->
 		<ul class="nav nav-tabs">
-			<li class="nav-item"><a class="nav-link active" href="index.jsp">HOME</a>
+			<li class="nav-item"><a class="nav-link " href="index.jsp">HOME</a>
 			</li>
 			<%
 				if (userID == null) {
@@ -115,7 +114,7 @@
 			<%
 				}
 			%>
-			<li class="nav-item dropdown"><a
+			<li class="nav-item dropdown active"><a
 				class="nav-link dropdown-toggle" data-toggle="dropdown" href="#"
 				role="button" aria-haspopup="true" aria-expanded="false">MENU</a>
 				<div class="dropdown-menu">
@@ -175,33 +174,52 @@
 			
 		</div>-->
 	</nav>
-	
+
 	<div class="container">
-	
+
 		<!-- striped는 홍수와 짝수가 번갈아가면서 색상이 변경되도록 해주어 가독성을 높여주는 요소 -->
 		<div class="row">
-			<form method="post" action="updateAction.jsp?skillbbsID=<%= skillbbsID %>"><!-- updateAction페이지로 데이터 송부 -->
-				<table class="table table-striped" style="text-align: center; border: 1px solid #dddddd">
+			<form method="post"
+				action="updateAction.jsp?skillbbsID=<%=skillbbsID%>">
+				<!-- updateAction페이지로 데이터 송부 -->
+				<table class="table table-striped"
+					style="text-align: center; border: 1px solid #dddddd;  width:600px; margin-left:auto; margin-right:auto;">
 					<thead>
 						<tr>
 							<!-- colspan : 열의 개수를 지정한다 -->
-							<th colspan="2" style="background-color: #eeeeee; text-align: center;">게시판 글 수정 양식</th>
+							<th colspan="2"
+								style="background-color: #eeeeee; text-align: center;">Update
+								form</th>
 						</tr>
 					</thead>
-					<tbody style="width:100%">
+					<tbody>
 						<tr>
-							<td><!-- updataAction페이지의 매개변수값으로 넘어간다 --><input type="text" class="form-control" placeholder="글 제목" name="skillbbsTitle" maxlength="200" value="<%= skillbbs.getSkillbbsTitle() %>"><!-- skillbbs.getSkillbbsTitle()를 통해 수정전 내용 확인 할 수 있도록 함 --></input></td>
+							<td>
+								<!-- updataAction페이지의 매개변수값으로 넘어간다 -->
+								<input type="text" class="form-control" placeholder="글 제목"
+								name="skillbbsTitle" maxlength="200"
+								value="<%=skillbbs.getSkillbbsTitle()%>">
+							<!-- skillbbs.getSkillbbsTitle()를 통해 수정전 내용 확인 할 수 있도록 함 -->
+								</input>
+							</td>
 						</tr>
 						<tr>
-							<td><!-- updataAction페이지의 매개변수값으로 넘어간다 --><textarea class="form-control" placeholder="글 내용" name="skillbbsContent" maxlength="4096" style="height:350px;"><%= skillbbs.getSkillbbsContent() %></textarea></td>
+							<td>
+								<!-- updataAction페이지의 매개변수값으로 넘어간다 -->
+								<textarea class="form-control" placeholder="글 내용"
+									name="skillbbsContent" maxlength="4096" style="height: 350px;"><%=skillbbs.getSkillbbsContent()%></textarea>
+							</td>
 						</tr>
 					</tbody>
 				</table>
-				<input type="submit" class="btn btn-primary pull-right" value="Update">
+				<input type="submit" class="btn btn-primary pull-right"
+					value="Update">
 			</form>
 		</div>
 	</div>
 
+
+</div>
 
 
 	<!--Animation-->

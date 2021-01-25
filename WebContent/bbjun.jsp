@@ -38,10 +38,27 @@ a, a:hover {
 <body>
 
 	<%
+		//Bilqess 의 계정과 JUNKUK의 계정만 접속이 가능하도록 계정 식별 함
 		String userID = null;
+		String mason = "mason";
 		if (session.getAttribute("userID") != null) {
 			userID = (String) session.getAttribute("userID");
 		}
+		else if (userID != mason) {
+			PrintWriter script = response.getWriter();
+			script.println("<script>");
+			script.println("alert('You don't have permission')");
+			script.println("location.href = 'login.jsp'");
+			script.println("</script>");
+		}
+		if (userID == null) {
+			PrintWriter script = response.getWriter();
+			script.println("<script>");
+			script.println("alert('You don't have permission')");
+			script.println("location.href = 'login.jsp'");
+			script.println("</script>");
+		}
+
 		//SkillbbsDAO 클래스에 있는 updateBoardCnt메소드 호출	
 		SkillbbsDAO skillbbsDAO = new SkillbbsDAO();
 		int pageNumber = 1;
