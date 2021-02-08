@@ -18,7 +18,7 @@ public class SkillbbsDAO {
 		try {
 			
 			Class.forName("org.mariadb.jdbc.Driver");
-			String dbURL ="jdbc:mariadb://67.167.223.168:3306/BBS?autoReconnect=true&amp;useSSL=false";
+			String dbURL ="jdbc:mariadb://localhost:3306/BBS?autoReconnect=true&amp;useSSL=false";
 			//?autoReconnect=true&amp;useSSL=false
 			//?serverTimezone=Asia/Seoul&useSSL=false
 			//?autoReconnect=true&amp;useSSL=false
