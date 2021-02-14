@@ -29,6 +29,7 @@ a, a:hover {
 	color: #000000;
 	text-decoration: none;
 	span {color: red, text-decoration:underline;
+	text-color: white;
 }
 }
 </style>
@@ -56,35 +57,34 @@ a, a:hover {
 	%>
 
 	<!--Navigation Bar Section-->
-	<nav class="navbar navbar-default">
+	<!-- <nav class="navbar navbar-default">
 
 		<!--Navi Bar Contents Section-->
-		<div class="navbar-header">
+	<!--<div class="navbar-header">
 
 			<!--This button tag is defined right side line button-->
-			<!-- <button type="button" class="navbar-toggle collapsed"
+	<!-- <button type="button" class="navbar-toggle collapsed"
 				data-toggle="collapse" data-target="#bs-example-navbar-collapse-1"
 				aria-expanded="false">
 				
 				<!--This span tag shows us the line on the line button and I added one more line-->
-			<!--<span class="icon-bar"></span>
+	<!--<span class="icon-bar"></span>
 				<span class="icon-bar"></span>
 				<span class="icon-bar"></span>
 				<span class="icon-bar"></span>
 			</button> -->
 
-			<!--해당 a태그에 작성된 내용이 네비바 위에 사이트 제목처럼 노출된다
+	<!--해당 a태그에 작성된 내용이 네비바 위에 사이트 제목처럼 노출된다
 			This a tag show us at Navbar about something contents what we write -->
 
-		</div>
+	<!--</div>
 
 		<!--Navigation Bar Section-->
-		<ul class="nav nav-tabs">
+	<!--<ul class="nav nav-tabs">
 			<li class="nav-item"><a class="nav-link " href="index.jsp">HOME</a>
 			</li>
-			<%
-				if (userID == null) {
-			%>
+			//if (userID == null) {
+			//		//%>
 			<li class="nav-item dropdown"><a
 				class="nav-link dropdown-toggle" data-toggle="dropdown" href="#"
 				role="button" aria-haspopup="true" aria-expanded="false">CONNECT</a>
@@ -92,9 +92,8 @@ a, a:hover {
 					<a class="dropdown-item" href="login.jsp">LOGIN</a> <a
 						class="dropdown-item" href="join.jsp">JOIN</a>
 				</div></li>
-			<%
-				} else {
-			%>
+			//} else {
+			//		//%>
 			<li class="nav-item dropdown"><a
 				class="nav-link dropdown-toggle" data-toggle="dropdown" href="#"
 				role="button" aria-haspopup="true" aria-expanded="false">MY PAGE</a>
@@ -102,9 +101,8 @@ a, a:hover {
 					<a class="dropdown-item" href="#">MY PROFILE</a> <a
 						class="dropdown-item" href="logoutAction.jsp">LOGOUT</a>
 				</div></li>
-			<%
-				}
-			%>
+			//}
+			//		//%>
 			<li class="nav-item dropdown active"><a
 				class="nav-link dropdown-toggle" data-toggle="dropdown" href="#"
 				role="button" aria-haspopup="true" aria-expanded="false">MENU</a>
@@ -130,14 +128,14 @@ a, a:hover {
 			%>
 				<ul class="nav navbar-nav navbar-right">
 					<!--Create Drop down button on Nav Bar-->
-		<!--<li class="dropdown">
+	<!--<li class="dropdown">
 						<!--# <= Meaning is No link-->
-		<!--<a href="#" class="dropdown-toggle"
+	<!--<a href="#" class="dropdown-toggle"
 							data-toggle="dropdown" role="button" aria-haspopup="true"
 							aria-expanded="false">Connect<span class="caret"></span></a>
 						<ul class="dropdown-menu">
 							<!--Active : 현제 선택이 되었다.-->
-		<!--<li class="active"><a href="index.jsp">login</a></li>
+	<!--<li class="active"><a href="index.jsp">login</a></li>
 							<li><a href="login.jsp">login</a></li>
 							<li><a href="join.jsp">Join</a></li>
 						</ul>
@@ -147,14 +145,14 @@ a, a:hover {
 			%>
 				<ul class="nav navbar-nav navbar-right">
 					<!--Create Drop down button on Nav Bar-->
-		<!--<li class="dropdown">
+	<!--<li class="dropdown">
 						<!--# <= Meaning is No link-->
-		<!--<a href="#" class="dropdown-toggle"
+	<!--<a href="#" class="dropdown-toggle"
 							data-toggle="dropdown" role="button" aria-haspopup="true"
 							aria-expanded="false">My page<span class="caret"></span></a>
 						<ul class="dropdown-menu">
 							<!--Active : 현제 선택이 되었다.-->
-		<!--<li class="active"><a href="index.jsp">login</a></li>
+	<!--<li class="active"><a href="index.jsp">login</a></li>
 							<li><a href="logoutAction.jsp">logOut</a></li>
 						</ul>
 					</li>
@@ -164,10 +162,10 @@ a, a:hover {
 			
 			
 		</div>-->
-	</nav>
+	<!-- </nav>-->
 
-	<div class="container">
-		(총 레코드 수 :
+	<div class="p-3 mb-2 bg-dark text-white">
+		(TotalRecode :
 		<%=count%>)
 
 		<!-- striped는 홀수와 짝수가 번갈아가면서 색상이 변경되도록 해주어 가독성을 높여주는 요소 -->
@@ -189,32 +187,28 @@ a, a:hover {
 					</tbody>
 				</table>
 			</form>
-			<table class="table table-striped" style="border: 1px soid #dddddd;">
+			<table class="table table-striped p-3 mb-2 bg-dark text-white"
+				style="background-color: bg-dark; text-align: center;">
 				<thead>
 					<tr>
-						<th
-							style="background-color: #eeeeee; text-align: center; width: 10%;">번호
-							<a href="skillbbs.jsp?sort_type=upnumber">▲</a><a
+						<th style="width: 10%;">번호 <a
+							href="skillbbs.jsp?sort_type=upnumber">▲</a><a
 							href="skillbbs.jsp?sort_type=downnumber">▼</a>
 						</th>
-						<th
-							style="background-color: #eeeeee; text-align: center; width: 50%;">제목
-							<a href="skillbbs.jsp?sort_type=uptitle">▲</a><a
+						<th style="width: 50%;">제목 <a
+							href="skillbbs.jsp?sort_type=uptitle">▲</a><a
 							href="skillbbs.jsp?sort_type=downtitle">▼</a>
 						</th>
-						<th
-							style="background-color: #eeeeee; text-align: center; width: 15%;">작성자
-							<a href="skillbbs.jsp?sort_type=upname">▲</a><a
+						<th style="width: 15%;">작성자 <a
+							href="skillbbs.jsp?sort_type=upname">▲</a><a
 							href="skillbbs.jsp?sort_type=downname">▼</a>
 						</th>
-						<th
-							style="background-color: #eeeeee; text-align: center; width: 15%;">작성일
-							<a href="skillbbs.jsp?sort_type=update">▲</a><a
+						<th style="width: 15%;">작성일 <a
+							href="skillbbs.jsp?sort_type=update">▲</a><a
 							href="skillbbs.jsp?sort_type=downdate">▼</a>
 						</th>
-						<th
-							style="background-color: #eeeeee; text-align: center; width: 10%;">조회수
-							<a href="skillbbs.jsp?sort_type=upview">▲</a><a
+						<th style="width: 10%;">조회수 <a
+							href="skillbbs.jsp?sort_type=upview">▲</a><a
 							href="skillbbs.jsp?sort_type=downview">▼</a>
 						</th>
 					</tr>
@@ -249,7 +243,7 @@ a, a:hover {
 							for (int i = 0; i < list.size(); i++) {
 					%>
 					<tr>
-						<td style="text-align: center;"><%=list.get(i).getSkillbbsID()%></td>
+						<td style="text-align: left;"><%=list.get(i).getSkillbbsID()%></td>
 						<!-- 제목의 최대길이를 제한하여 초과할결우 숨김 처리  -->
 						<td
 							style="max-width: 100px; overflow: hidden; white-space: nowrap; text-overflow: ellipsis;"><a
@@ -258,9 +252,9 @@ a, a:hover {
 						<td style="text-align: center;"><%=list.get(i).getUserID()%></td>
 
 						<!-- substring 함수를 이용하여 데이터를 형식을 원하는 형식으로 잘라 표현  -->
-						<td style="text-align: center;"><%=list.get(i).getSkillbbsDate().substring(0, 11)
-							+ list.get(i).getSkillbbsDate().substring(11, 13) + "시"
-							+ list.get(i).getSkillbbsDate().substring(14, 16) + "분"%></td>
+						<td style="text-align: left;"><%=list.get(i).getSkillbbsDate().substring(0, 11)
+							+ list.get(i).getSkillbbsDate().substring(11, 13) + ":"
+							+ list.get(i).getSkillbbsDate().substring(14, 16) + ""%></td>
 						<td style="text-align: center;"><%=list.get(i).getSkillbbsCnt()%></td>
 					</tr>
 					<%
@@ -539,8 +533,7 @@ a, a:hover {
 						<td
 							style="max-width: 100px; overflow: hidden; white-space: nowrap; text-overflow: ellipsis;"><a
 							href="view.jsp?skillbbsID=<%=list.get(i).getSkillbbsID()%>"><%=list.get(i).getSkillbbsTitle().replaceAll(strString,
-							"<span style='color:red;'>" + strString + "</span>")%></a>
-							<!-- 제목을 눌렀을때 해당게시글의  페이지로 이동 시킴, 해당 게시글 번호를 매개변수로 처리할 수 있도록 함 --></td>
+							"<span style='color:red;'>" + strString + "</span>")%></a> <!-- 제목을 눌렀을때 해당게시글의  페이지로 이동 시킴, 해당 게시글 번호를 매개변수로 처리할 수 있도록 함 --></td>
 						<td style="text-align: center;"><%=list.get(i).getUserID()%></td>
 
 						<!-- substring 함수를 이용하여 데이터를 형식을 원하는 형식으로 잘라 표현  -->
@@ -560,8 +553,7 @@ a, a:hover {
 				</tbody>
 
 			</table>
-			<a href="skillbbs.jsp?pageNumber=<%=pageNumber = 1%>"
-				class="btn btn-success btn-arrow-left">First</a>
+			<a href="skillbbs.jsp?pageNumber=<%=pageNumber = 1%>">[First]</a>
 			<%
 				// 페이징  처리
 				if (count > 0) {
@@ -580,22 +572,19 @@ a, a:hover {
 
 					if (startPage > pageBlock) { // 페이지 블록수보다 startPage가 클경우 이전 링크 생성
 			%>
-			<a href="skillbbs.jsp?pageNumber=<%=startPage - 10%>"
-				class="btn btn-success btn-arrow-left">[이전]</a>
+			<a href="skillbbs.jsp?pageNumber=<%=startPage - 10%>">[이전]</a>
 			<%
 				}
 
 					for (int i = startPage; i <= endPage; i++) { // 페이지 블록 번호
 						if (i == currentPage) { // 첫번째 패이지
 			%>
-			<a href="skillbbs.jsp?pageNumber=<%=i%>"
-				class="btn btn-success btn-arrow-left">[<%=i%>]
+			<a href="skillbbs.jsp?pageNumber=<%=i%>">[<%=i%>]
 			</a>
 			<%
 				} else { // 현재 페이지가 아닌 경우 링크 설정
 			%>
-			<a href="skillbbs.jsp?pageNumber=<%=i%>"
-				class="btn btn-success btn-arrow-left">[<%=i%>]
+			<a href="skillbbs.jsp?pageNumber=<%=i%>">[<%=i%>]
 			</a>
 			<%
 				}
@@ -609,9 +598,8 @@ a, a:hover {
 				}
 				}
 			%>
-			<a href="skillbbs.jsp?pageNumber=<%=pageNumber = 4%>"
-				class="btn btn-success btn-arrow-left">Last</a> <a href="write.jsp"
-				class="btn btn-primary pull-right">Write</a>
+			<a href="skillbbs.jsp?pageNumber=<%=pageNumber = 4%>">[Last]</a> <a
+				href="write.jsp">[Write]</a>
 		</div>
 	</div>
 

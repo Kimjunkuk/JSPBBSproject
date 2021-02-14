@@ -19,60 +19,65 @@
 
 
 <!--This title tag shows us about what kind of website is-->
-<title>JSP BBS Project</title>
+<title>MasonLAB</title>
 
 </head>
 
 <body>
+	<div class="p-3 mb-2 bg-dark text-white">
 
-	<%
-		String userID = null;
-		if (session.getAttribute("userID") != null) {
-			userID = (String) session.getAttribute("userID");
-		}
-	%>
+		<%
+			String userID = null;
+			if (session.getAttribute("userID") != null) {
+				userID = (String) session.getAttribute("userID");
+			}
+		%>
 
-
-
-	<nav class="navbar navbar-default" style="float: left;">
 
 		<!--Navi Bar Contents Section-->
-		<div class="navbar-header">
+		<!-- <div class="navbar-header">
 
 			<!--This button tag is defined right side line button-->
-			<!-- <button type="button" class="navbar-toggle collapsed"
+		<!--<button type="button" class="navbar-toggle collapsed"
 				data-toggle="collapse" data-target="#bs-example-navbar-collapse-1"
 				aria-expanded="false">
 				
-				<!--This span tag shows us the line on the line button and I added one more line-->
-			<!--<span class="icon-bar"></span>
+			<!--This span tag shows us the line on the line button and I added one more line-->
+		<!--<span class="icon-bar"></span>
 				<span class="icon-bar"></span>
 				<span class="icon-bar"></span>
 				<span class="icon-bar"></span>
-			</button> -->
+			</button>
 
 			<!--해당 a태그에 작성된 내용이 네비바 위에 사이트 제목처럼 노출된다
 			This a tag show us at Navbar about something contents what we write -->
 
-		</div>
+		<!--</div>-->
 
 		<!--Navigation Bar Section-->
-		<ul class="nav nav-tabs">
-			<li class="nav-item"><a class="nav-link active" href="index.jsp">HOME</a>
-			</li>
+		<ul class="nav justify-content-center">
+			<li class="nav-item"><a class="nav-link active"
+				aria-current="page" href="index.jsp">HOME</a></li>
+			<li class="nav-item"><a class="nav-link" href="#">Link</a></li>
 			<%
 				if (userID == null) {
 			%>
-			<li class="nav-item dropdown"><a
+			<li class="nav-item"><a class="nav-link" href="login.jsp">LOGIN</a>
+			</li>
+			<li class="nav-item"><a class="nav-link" href="join.jsp">JOIN</a>
+			</li>
+			<!-- <li class="nav-item dropdown"><a
 				class="nav-link dropdown-toggle" data-toggle="dropdown" href="#"
 				role="button" aria-haspopup="true" aria-expanded="false">CONNECT</a>
 				<div class="dropdown-menu">
 					<a class="dropdown-item" href="login.jsp">LOGIN</a> <a
 						class="dropdown-item" href="join.jsp">JOIN</a>
-				</div></li>
+				</div></li> -->
 			<%
 				} else {
 			%>
+			<li class="nav-item"><a class="nav-link" href="#">MY PROFILE</a></li>
+			<li class="nav-item"><a class="nav-link" href="#">LOGOUT</a></li>
 			<li class="nav-item dropdown"><a
 				class="nav-link dropdown-toggle" data-toggle="dropdown" href="#"
 				role="button" aria-haspopup="true" aria-expanded="false">MY PAGE</a>
@@ -142,119 +147,16 @@
 			
 			
 		</div>-->
-	</nav>
 
-	<div>
-		<!-- 01172021_Mason>> github Octo Profile  -->
-		<iframe src="https://octoprofile.now.sh/user?id=KIMJUNKUK"
-			frameborder="0"
-			style="height: 1700px; width: 100%; overflow: hidden;"no"></iframe>
-	</div>
 
-	<div
-		style="margin-left: 30px; margin-right: 30px; margin-bottom: 60px; margin-top: 60px;">
-		<!-- 01172021_Mason>> About Mason section begin from here -->
-		<div class="card-deck">
-			<div class="card">
-				<a href="https://www.hackerrank.com/ehehwnwjs546?hr_r=1"><img
-					src="https://pathrise-website-guide-wp.s3.us-west-1.amazonaws.com/guides/wp-content/uploads/2019/05/22174532/hackerrank-logo.jpg"
-					class="card-img-top" alt="..."></a>
-				<div class="card-body">
-					<h5 class="card-title">Hackerrank</h5>
-					<p class="card-text">This is a wider card with supporting text
-						below as a natural lead-in to additional content. This content is
-						a little bit longer.</p>
-				</div>
-				<div class="card-footer">
-					<small class="text-muted">Last updated 3 mins ago</small>
-				</div>
-			</div>
-			<div class="card">
-				<a href="https://leetcode.com/Kimjunkuk/"><img
-					src="https://sarthak-sehgal.github.io/leetcode101/images/logo.png"
-					class="card-img-top" alt="..."></a>
-				<div class="card-body">
-					<h5 class="card-title">Leetcode</h5>
-					<p class="card-text">This card has supporting text below as a
-						natural lead-in to additional content.</p>
-				</div>
-				<div class="card-footer">
-					<small class="text-muted">Last updated 3 mins ago</small>
-				</div>
-			</div>
-			<div class="card">
-				<a href="www.linkedin.com/in/junkukkim"><img
-					src="https://lovetoteach87.com/wp-content/uploads/2016/12/linkedin-400850_1280.png"
-					class="card-img-top" alt="..."></a>
-				<div class="card-body">
-					<h5 class="card-title">Linkedin</h5>
-					<p class="card-text">This is a wider card with supporting text
-						below as a natural lead-in to additional content. This card has
-						even longer content than the first to show that equal height
-						action.</p>
-				</div>
-				<div class="card-footer">
-					<small class="text-muted">Last updated 3 mins ago</small>
-				</div>
-			</div>
+		<div>
+			<!-- 01172021_Mason>> github Octo Profile  -->
+			<iframe class="p-3 mb-2 bg-dark text-white" src="skillbbs.jsp" frameborder="0" scrolling="no"
+				width="100%" height="950px"></iframe>
 		</div>
-	</div>
 
-	<div
-		style="margin-left: 30px; margin-right: 30px; margin-bottom: 60px;">
-		<!-- 01172021_Mason>> About Mason section begin from here -->
-		<div class="card-deck">
-			<div class="card">
-				<a href="experience.jsp"><img
-					src="https://www.researchgate.net/profile/Raoof-Mostafazadeh/post/What-has-more-worth-intelligence-or-experience/attachment/59d61db679197b80779797e0/AS%3A272439999696900%401441966165259/image/Knowledge+and+Experience.jpg"
-					class="card-img-top" alt="..."></a>
-				<div class="card-body">
-					<h5 class="card-title">Experience</h5>
-					<p class="card-text">This is a wider card with supporting text
-						below as a natural lead-in to additional content. This content is
-						a little bit longer.</p>
-				</div>
-				<div class="card-footer">
-					<small class="text-muted">Last updated 3 mins ago</small>
-				</div>
-			</div>
-			<div class="card">
-				<img
-					src="https://img.matomo.org/spai/w_1029+q_lossless+ret_img+to_webp/https://static.matomo.org/wp-content/uploads/2019/02/education-analytics.png"
-					class="card-img-top" alt="...">
-				<div class="card-body">
-					<h5 class="card-title">Education</h5>
-					<p class="card-text">This card has supporting text below as a
-						natural lead-in to additional content.</p>
-				</div>
-				<div class="card-footer">
-					<small class="text-muted">Last updated 3 mins ago</small>
-				</div>
-			</div>
-			<div class="card">
-				<img
-					src="https://media0.giphy.com/media/XoM4M6KfItzpfAqbU9/giphy.gif"
-					class="card-img-top" alt="...">
-				<div class="card-body">
-					<h5 class="card-title">Award</h5>
-					<p class="card-text">This is a wider card with supporting text
-						below as a natural lead-in to additional content. This card has
-						even longer content than the first to show that equal height
-						action.</p>
-				</div>
-				<div class="card-footer">
-					<small class="text-muted">Last updated 3 mins ago</small>
-				</div>
-			</div>
-		</div>
-	</div>
-
-
-
-	<!--Animation-->
-	<script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
-	<script src="js/bootstrap.js"></script>
-
-
+		<!--Animation-->
+		<script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+		<script src="js/bootstrap.js"></script>
 </body>
 </html>
