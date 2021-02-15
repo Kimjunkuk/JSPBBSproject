@@ -16,21 +16,21 @@
 
 </head>
 
-<body> 
+<body class="p-3 mb-2 bg-dark text-white"> 
 
 	<!--Navigation Bar Section-->
-	<nav class="navbar navbar-default">
+	<!-- <nav class="navbar navbar-default">
 
 		<!--Navi Bar Contents Section-->
-		<div class="navbar-header">
+		<!--<div class="navbar-header">
 
 			<!--This button tag is defined right side line button-->
-			<button type="button" class="navbar-toggle collapsed"
+			<!--<button type="button" class="navbar-toggle collapsed"
 				data-toggle="collapse" data-target="#bs-example-navbar-collapse-1"
 				aria-expanded="false">
 				
 				<!--This span tag shows us the line on the line button and I added one more line-->
-				<span class="icon-bar"></span>
+				<!--<span class="icon-bar"></span>
 				<span class="icon-bar"></span>
 				<span class="icon-bar"></span>
 				<span class="icon-bar"></span>
@@ -38,7 +38,7 @@
 
 			<!--해당 a태그에 작성된 내용이 네비바 위에 사이트 제목처럼 노출된다
 			This a tag show us at Navbar about something contents what we write -->
-			<a class="navbar-brand" href="index.jsp">JSP BBS Project_MasonKim</a>
+			<!--<a class="navbar-brand" href="index.jsp">JSP BBS Project_MasonKim</a>
 		</div>
 		<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 			<ul class="nav navbar-nav">
@@ -49,23 +49,23 @@
 			</ul>
 			<ul class="nav navbar-nav navbar-right">
 				<!--Create Drop down button on Nav Bar-->
-				<li class="dropdown">
+				<!--<li class="dropdown">
 					<!--# <= Meaning is No link-->
-					<a href="#" class="dropdown-toggle"
+					<!--<a href="#" class="dropdown-toggle"
 						data-toggle="dropdown" role="button" aria-haspopup="true"
 						aria-expanded="false">Connect<span class="caret"></span></a>
 					<ul class="dropdown-menu">
 						<!--Active : 현제 선택이 되었다.-->
-						<li class="active"><a href="index.jsp">Main</a></li>
+						<!--<li class="active"><a href="index.jsp">Main</a></li>
 						<li><a href="join.jsp">Join</a></li>
 					</ul>
 				</li>
 			</ul>
 		</div>
-	</nav>
+	</nav> -->
 	
 	<!--Login Form Section below-->
-	<div class="container">
+	<div class="container p-3 mb-2 bg-dark text-white" style="display: flex; height: 100vh; justify-content: center; align-items: center;">
 		<div class="col-lg-4"></div>
 
 		<!--Loing Form contents below-->

@@ -130,8 +130,8 @@
 			<%
 				}
 			%>
-
-			<input type="submit" value="[write]">
+			<a href="write.jsp">[Write]</a> 
+			<!-- <input type="submit" value="[write]"> -->
 
 		</div>
 	</div>

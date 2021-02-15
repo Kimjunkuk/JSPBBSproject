@@ -74,8 +74,8 @@
 			<li class="nav-item"><a class="nav-link active"
 				aria-current="page" href="index.jsp">Home</a></li>
 			<li class="nav-item"><a class="nav-link" href="projects.jsp">Projects</a></li>
-			<li class="nav-item"><a class="nav-link" href="#">WorkExperiencee</a></li>
-			<li class="nav-item"><a class="nav-link" href="#">Assignments</a></li>
+			<li class="nav-item"><a class="nav-link" href="workexperience.jsp">WorkExperience</a></li>
+			<li class="nav-item"><a class="nav-link" href="assignments.jsp">Assignments</a></li>
 			<%
 				if (userID == null) {
 			%>
@@ -93,8 +93,8 @@
 			<%
 				} else {
 			%>
-			<li class="nav-item"><a class="nav-link" href="#">MY PROFILE</a></li>
-			<li class="nav-item"><a class="nav-link" href="#">LOGOUT</a></li>
+			<li class="nav-item"><a class="nav-link" href="#">MyProfile</a></li>
+			<li class="nav-item"><a class="nav-link" href="#">Logout</a></li>
 
 			<%
 				}
