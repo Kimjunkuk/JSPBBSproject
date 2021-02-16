@@ -43,7 +43,7 @@
 			PrintWriter script = response.getWriter();
 			script.println("<script>");
 			script.println("alert('This article is not valid.')");
-			script.println("location.href = 'skillbbs.jsp'");
+			script.println("location.href = 'index.jsp'");
 			script.println("</script>");
 		}
 
@@ -53,7 +53,7 @@
 			PrintWriter script = response.getWriter();
 			script.println("<script>");
 			script.println("alert('You don't have Permission')");
-			script.println("location.href = 'skillbbs.jsp'");
+			script.println("location.href = 'index.jsp'");
 			script.println("</script>");
 		} else{
 	    	
@@ -86,7 +86,7 @@
 	            else {
 	                PrintWriter script = response.getWriter();
 	                script.println("<script>");
-	                script.println("location.href ='skillbbs.jsp'");
+	                script.println("location.href ='index.jsp'");
 	                script.println("</script>");
 	                
 	            }

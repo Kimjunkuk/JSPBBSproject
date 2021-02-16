@@ -74,7 +74,8 @@
 			<li class="nav-item"><a class="nav-link active"
 				aria-current="page" href="index.jsp">Home</a></li>
 			<li class="nav-item"><a class="nav-link" href="projects.jsp">Projects</a></li>
-			<li class="nav-item"><a class="nav-link" href="workexperience.jsp">WorkExperience</a></li>
+			<li class="nav-item"><a class="nav-link"
+				href="workexperience.jsp">WorkExperience</a></li>
 			<li class="nav-item"><a class="nav-link" href="assignments.jsp">Assignments</a></li>
 			<%
 				if (userID == null) {
@@ -94,12 +95,13 @@
 				} else {
 			%>
 			<li class="nav-item"><a class="nav-link" href="#">MyProfile</a></li>
-			<li class="nav-item"><a class="nav-link" href="#">Logout</a></li>
+			<li class="nav-item"><a class="nav-link" href="logoutAction.jsp">Logout</a></li>
 
 			<%
 				}
 			%>
 		</ul>
+
 
 		<!--011720201_Mason>> Make this NAV section to commant<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 			<ul class="nav navbar-nav">
@@ -148,10 +150,19 @@
 			
 		</div>-->
 	</div>
+	<div>
+		<h1>MasonKim(JUNKUK KIM)</h1>
+		<img
+			src="https://media-exp1.licdn.com/dms/image/C5603AQGuB2YVhAxCQA/profile-displayphoto-shrink_400_400/0/1608133987518?e=1619049600&v=beta&t=eEIpu4Jnvm6-RhXSTqusyeO4OTMwpUk8p0eM15jUn-E"
+			style="border-radius: 50%; border: 5px solid blue; width: auto; height: auto;">
+
+	</div>
 
 
 	<div class="p-3 mb-2 bg-dark text-white">
-	<div><h1>ToolBox</h1></div>
+		<div>
+			<h1>ToolBox</h1>
+		</div>
 		(TotalRecode :
 		<%=count%>)
 

@@ -19,11 +19,11 @@
 
 
 <!--This title tag shows us about what kind of website is-->
-<title>JSP BBS Project</title>
+<title>MasonLAB</title>
 
 </head>
 
-<body>
+<body class="p-3 mb-2 bg-dark text-white">
 
 	<%
 		String userID = null;
@@ -62,38 +62,37 @@
 			script.println("</script>");
 		}
 	%>
-<div style="float: center; margin:0; padding:0;">
+	<div class="p-3 mb-2 bg-dark text-white">
 
-	<!--Navigation Bar Section-->
-	<nav class="navbar navbar-default">
+		<!--Navigation Bar Section-->
+		<!--<nav class="navbar navbar-default">
 
 		<!--Navi Bar Contents Section-->
-		<div class="navbar-header">
+		<!--<div class="navbar-header">
 
 			<!--This button tag is defined right side line button-->
-			<!-- <button type="button" class="navbar-toggle collapsed"
+		<!-- <button type="button" class="navbar-toggle collapsed"
 				data-toggle="collapse" data-target="#bs-example-navbar-collapse-1"
 				aria-expanded="false">
 				
 				<!--This span tag shows us the line on the line button and I added one more line-->
-			<!--<span class="icon-bar"></span>
+		<!--<span class="icon-bar"></span>
 				<span class="icon-bar"></span>
 				<span class="icon-bar"></span>
 				<span class="icon-bar"></span>
 			</button> -->
 
-			<!--해당 a태그에 작성된 내용이 네비바 위에 사이트 제목처럼 노출된다
+		<!--해당 a태그에 작성된 내용이 네비바 위에 사이트 제목처럼 노출된다
 			This a tag show us at Navbar about something contents what we write -->
 
-		</div>
+		<!--</div>
 
 		<!--Navigation Bar Section-->
-		<ul class="nav nav-tabs">
+		<!--<ul class="nav nav-tabs">
 			<li class="nav-item"><a class="nav-link " href="index.jsp">HOME</a>
 			</li>
-			<%
-				if (userID == null) {
-			%>
+			//if (userID == null) {
+			//		//%>
 			<li class="nav-item dropdown"><a
 				class="nav-link dropdown-toggle" data-toggle="dropdown" href="#"
 				role="button" aria-haspopup="true" aria-expanded="false">CONNECT</a>
@@ -101,9 +100,8 @@
 					<a class="dropdown-item" href="login.jsp">LOGIN</a> <a
 						class="dropdown-item" href="join.jsp">JOIN</a>
 				</div></li>
-			<%
-				} else {
-			%>
+			//} else {
+			//		//%>
 			<li class="nav-item dropdown"><a
 				class="nav-link dropdown-toggle" data-toggle="dropdown" href="#"
 				role="button" aria-haspopup="true" aria-expanded="false">MY PAGE</a>
@@ -111,9 +109,8 @@
 					<a class="dropdown-item" href="#">MY PROFILE</a> <a
 						class="dropdown-item" href="logoutAction.jsp">LOGOUT</a>
 				</div></li>
-			<%
-				}
-			%>
+			//}
+			//		//%>
 			<li class="nav-item dropdown active"><a
 				class="nav-link dropdown-toggle" data-toggle="dropdown" href="#"
 				role="button" aria-haspopup="true" aria-expanded="false">MENU</a>
@@ -173,53 +170,64 @@
 			
 			
 		</div>-->
-	</nav>
+		<!--</nav>-->
+		<div>
+			<ul class="nav justify-content-center">
+				<li class="nav-item"><a class="nav-link active"
+					aria-current="page" href="index.jsp">Home</a></li>
+				<li class="nav-item"><a class="nav-link" href="projects.jsp">Projects</a></li>
+				<li class="nav-item"><a class="nav-link" href="workexperience.jsp">WorkExperiencee</a></li>
+				<li class="nav-item"><a class="nav-link" href="assignments.jsp">Assignments</a></li>
 
-	<div class="container">
+				<li class="nav-item"><a class="nav-link" href="#">MyProfile</a></li>
+				<li class="nav-item"><a class="nav-link" href="logoutAction.jsp">Logout</a></li>
 
-		<!-- striped는 홍수와 짝수가 번갈아가면서 색상이 변경되도록 해주어 가독성을 높여주는 요소 -->
-		<div class="row">
-			<form method="post"
-				action="updateAction.jsp?skillbbsID=<%=skillbbsID%>">
-				<!-- updateAction페이지로 데이터 송부 -->
-				<table class="table table-striped"
-					style="text-align: center; border: 1px solid #dddddd;  width:600px; margin-left:auto; margin-right:auto;">
-					<thead>
-						<tr>
-							<!-- colspan : 열의 개수를 지정한다 -->
-							<th colspan="2"
-								style="background-color: #eeeeee; text-align: center;">Update
-								form</th>
-						</tr>
-					</thead>
-					<tbody>
-						<tr>
-							<td>
-								<!-- updataAction페이지의 매개변수값으로 넘어간다 -->
-								<input type="text" class="form-control" placeholder="글 제목"
-								name="skillbbsTitle" maxlength="200"
-								value="<%=skillbbs.getSkillbbsTitle()%>">
-							<!-- skillbbs.getSkillbbsTitle()를 통해 수정전 내용 확인 할 수 있도록 함 -->
-								</input>
-							</td>
-						</tr>
-						<tr>
-							<td>
-								<!-- updataAction페이지의 매개변수값으로 넘어간다 -->
-								<textarea class="form-control" placeholder="글 내용"
-									name="skillbbsContent" maxlength="4096" style="height: 350px;"><%=skillbbs.getSkillbbsContent()%></textarea>
-							</td>
-						</tr>
-					</tbody>
-				</table>
-				<input type="submit" class="btn btn-primary pull-right"
-					value="Update">
-			</form>
+			</ul>
 		</div>
+
+		<div class="container p-3 mb-2 bg-dark text-white"
+			style="display: flex; justify-content: center; align-items: center; margin-top: 0; padding-top: 0;">
+
+			<!-- striped는 홍수와 짝수가 번갈아가면서 색상이 변경되도록 해주어 가독성을 높여주는 요소 -->
+			<div class="p-3 mb-2 bg-dark text-white" style="width: 100%">
+				<form method="post"
+					action="updateAction.jsp?skillbbsID=<%=skillbbsID%>">
+					<!-- updateAction페이지로 데이터 송부 -->
+					<table class="table table-striped"
+						style="text-align: center; border: 1px solid #dddddd;">
+						<thead>
+							<tr>
+								<!-- colspan : 열의 개수를 지정한다 -->
+								<th style="background-color: #eeeeee; text-align: center;">Update
+									form</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td>
+									<!-- updataAction페이지의 매개변수값으로 넘어간다 --> <input type="text"
+									class="form-control" placeholder="글 제목" name="skillbbsTitle"
+									maxlength="200" value="<%=skillbbs.getSkillbbsTitle()%>">
+									<!-- skillbbs.getSkillbbsTitle()를 통해 수정전 내용 확인 할 수 있도록 함 -->
+								</td>
+							</tr>
+							<tr>
+								<td>
+									<!-- updataAction페이지의 매개변수값으로 넘어간다 --> <textarea
+										class="form-control" placeholder="글 내용" name="skillbbsContent"
+										maxlength="4096" style="height: 350px;"><%=skillbbs.getSkillbbsContent()%></textarea>
+								</td>
+							</tr>
+						</tbody>
+					</table>
+					<input type="submit" class="btn btn-primary pull-right"
+						value="Update">
+				</form>
+			</div>
+		</div>
+
+
 	</div>
-
-
-</div>
 
 
 	<!--Animation-->

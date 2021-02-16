@@ -52,8 +52,8 @@
 		<%
 			} else {
 		%>
-		<li class="nav-item"><a class="nav-link" href="#">MY PROFILE</a></li>
-		<li class="nav-item"><a class="nav-link" href="#">LOGOUT</a></li>
+		<li class="nav-item"><a class="nav-link" href="#">MyProfile</a></li>
+		<li class="nav-item"><a class="nav-link" href="logoutAction.jsp">Logout</a></li>
 
 		<%
 			}

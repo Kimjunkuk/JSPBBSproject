@@ -12,7 +12,7 @@
 <link rel="stylesheet" href="css/bootstrap.css">
 
 <!--This title tag shows us about what kind of website is-->
-<title>JSP BBS Project</title>
+<title>MasonLAB</title>
 
 </head>
 
@@ -64,8 +64,20 @@
 		</div>
 	</nav>-->
 	<!--Login Form Section below-->
+
+	<div>
+		<ul class="nav justify-content-center">
+			<li class="nav-item"><a class="nav-link active"
+				aria-current="page" href="index.jsp">Home</a></li>
+			<li class="nav-item"><a class="nav-link" href="projects.jsp">Projects</a></li>
+			<li class="nav-item"><a class="nav-link"
+				href="workexperience.jsp">WorkExperience</a></li>
+			<li class="nav-item"><a class="nav-link" href="assignments.jsp">Assignments</a></li>
+		</ul>
+	</div>
+	
 	<div class="container p-3 mb-2 bg-dark text-white"
-		style="display: flex; height: 100vh; justify-content: center; align-items: center;">
+		style="display: flex; justify-content: center; align-items: center;">
 
 		<!--Loing Form contents below-->
 		<div class="col-lg-4">
