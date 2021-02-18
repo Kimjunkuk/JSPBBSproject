@@ -19,12 +19,17 @@
 <link rel="stylesheet" href="css/bootstrap-reboot.css">
 <link rel="stylesheet" href="css/bootstrap.css">
 <link rel="stylesheet" href="css/bootstrap.min.css">
+<link rel="stylesheet"
+	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
 
 <!--This title tag shows us about what kind of website is-->
 <title>MasonLAB</title>
 
 </head>
+
+
+
 
 <body class="p-3 mb-2 bg-dark text-white">
 
@@ -49,27 +54,6 @@
 		%>
 
 
-		<!--Navi Bar Contents Section-->
-		<!-- <div class="navbar-header">
-
-			<!--This button tag is defined right side line button-->
-		<!--<button type="button" class="navbar-toggle collapsed"
-				data-toggle="collapse" data-target="#bs-example-navbar-collapse-1"
-				aria-expanded="false">
-				
-			<!--This span tag shows us the line on the line button and I added one more line-->
-		<!--<span class="icon-bar"></span>
-				<span class="icon-bar"></span>
-				<span class="icon-bar"></span>
-				<span class="icon-bar"></span>
-			</button>
-
-			<!--해당 a태그에 작성된 내용이 네비바 위에 사이트 제목처럼 노출된다
-			This a tag show us at Navbar about something contents what we write -->
-
-		<!--</div>-->
-
-		<!--Navigation Bar Section-->
 		<ul class="nav justify-content-center">
 			<li class="nav-item"><a class="nav-link active"
 				aria-current="page" href="index.jsp">Home</a></li>
@@ -84,13 +68,7 @@
 			</li>
 			<li class="nav-item"><a class="nav-link" href="join.jsp">Join</a>
 			</li>
-			<!-- <li class="nav-item dropdown"><a
-				class="nav-link dropdown-toggle" data-toggle="dropdown" href="#"
-				role="button" aria-haspopup="true" aria-expanded="false">CONNECT</a>
-				<div class="dropdown-menu">
-					<a class="dropdown-item" href="login.jsp">LOGIN</a> <a
-						class="dropdown-item" href="join.jsp">JOIN</a>
-				</div></li> -->
+
 			<%
 				} else {
 			%>
@@ -102,62 +80,34 @@
 			%>
 		</ul>
 
-
-		<!--011720201_Mason>> Make this NAV section to commant<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-			<ul class="nav navbar-nav">
-				<li class="active"><a href="index.jsp">HOME</a></li>
-				<li><a href="projects.jsp"></a></li>
-				<li><a href="skillbbs.jsp">Toolbox</a></li>
-				<li><a href="assignments.jsp">Assignments</a></li>
-			</ul>
-			
-	//if(userID == null){
-			%>
-				<ul class="nav navbar-nav navbar-right">
-					<!--Create Drop down button on Nav Bar-->
-		<!--<li class="dropdown">
-						<!--# <= Meaning is No link-->
-		<!--<a href="#" class="dropdown-toggle"
-							data-toggle="dropdown" role="button" aria-haspopup="true"
-							aria-expanded="false">Connect<span class="caret"></span></a>
-						<ul class="dropdown-menu">
-							<!--Active : 현제 선택이 되었다.-->
-		<!--<li class="active"><a href="index.jsp">login</a></li>
-							<li><a href="login.jsp">login</a></li>
-							<li><a href="join.jsp">Join</a></li>
-						</ul>
-					</li>
-				</ul>
-	//} else {
-			%>
-				<ul class="nav navbar-nav navbar-right">
-					<!--Create Drop down button on Nav Bar-->
-		<!--<li class="dropdown">
-						<!--# <= Meaning is No link-->
-		<!--<a href="#" class="dropdown-toggle"
-							data-toggle="dropdown" role="button" aria-haspopup="true"
-							aria-expanded="false">My page<span class="caret"></span></a>
-						<ul class="dropdown-menu">
-							<!--Active : 현제 선택이 되었다.-->
-		<!--<li class="active"><a href="index.jsp">login</a></li>
-							<li><a href="logoutAction.jsp">logOut</a></li>
-						</ul>
-					</li>
-				</ul>
-	//}
-			%>
-			
-			
-		</div>-->
-	</div>
-	<div>
-		<h1>MasonKim(JUNKUK KIM)</h1>
-		<img
-			src="https://media-exp1.licdn.com/dms/image/C5603AQGuB2YVhAxCQA/profile-displayphoto-shrink_400_400/0/1608133987518?e=1619049600&v=beta&t=eEIpu4Jnvm6-RhXSTqusyeO4OTMwpUk8p0eM15jUn-E"
-			style="border-radius: 50%; border: 5px solid blue; width: auto; height: auto;">
-
 	</div>
 
+
+
+
+	<div class="card mb-3 p-3 mb-2 bg-dark text-white"
+		style="max-width: 100%; border: 0;">
+		<div class="row g-0">
+			<div class="col-md-4">
+				<img
+					src="https://media-exp1.licdn.com/dms/image/C5603AQGuB2YVhAxCQA/profile-displayphoto-shrink_400_400/0/1608133987518?e=1619049600&v=beta&t=eEIpu4Jnvm6-RhXSTqusyeO4OTMwpUk8p0eM15jUn-E"
+					style="border-radius: 50%; border: 5px solid blue; width: auto; height: auto; max-width: 100%;">
+			</div>
+			<div class="col-md-8">
+				<div class="card-body">
+					<h1>MasonKim(JUNKUK KIM)</h1>
+					<p class="card-text" style="font-size: 19.2px">Hi, there!</p>
+					<p class="card-text" style="font-size: 19.2px">I'm a software
+						engineer.</p>
+					<p class="card-text" style="font-size: 19.2px">I make&maintain
+						websites and apps.</p>
+					<i class="fa fa-github" style="font-size: 36px; margin-right: 24px;"></i> <i
+						class="fa fa-linkedin-square" style="font-size: 36px;"></i>
+
+				</div>
+			</div>
+		</div>
+	</div>
 
 	<div class="p-3 mb-2 bg-dark text-white">
 		<div>

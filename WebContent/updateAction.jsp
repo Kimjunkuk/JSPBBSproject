@@ -9,7 +9,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>JSP BBS Project</title>
+    <title>MasonLAB</title>
 
     <!--java.io.PrintWriter : 자바 스크립스 문장을 작성하기위해 사용됨-->
     <!--request.setCharacterEncoding("UTF-8") : 건너오는 모든 데이터를 UTF-8로 받을 수 있도록 함-->
