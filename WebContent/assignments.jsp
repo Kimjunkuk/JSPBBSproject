@@ -21,177 +21,183 @@
 
 </head>
 
-<body>
+<body class="p-3 mb-2 bg-dark text-white">
 
-	<%
-		String userID = null;
-		if (session.getAttribute("userID") != null) {
-			userID = (String) session.getAttribute("userID");
-		}
-	%>
+	<div class="p-3 mb-2 bg-dark text-white">
 
-	<!--Navigation Bar Section-->
-	<nav class="navbar navbar-default" style="float: left;">
+		<%
+			String userID = null;
+			if (session.getAttribute("userID") != null) {
+				userID = (String) session.getAttribute("userID");
+			}
+		%>
 
-		<!--Navi Bar Contents Section-->
-		<div class="navbar-header">
 
-			<!--This button tag is defined right side line button-->
-			<!-- <button type="button" class="navbar-toggle collapsed"
-				data-toggle="collapse" data-target="#bs-example-navbar-collapse-1"
-				aria-expanded="false">
-				
-				<!--This span tag shows us the line on the line button and I added one more line-->
-			<!--<span class="icon-bar"></span>
-				<span class="icon-bar"></span>
-				<span class="icon-bar"></span>
-				<span class="icon-bar"></span>
-			</button> -->
-
-			<!--해당 a태그에 작성된 내용이 네비바 위에 사이트 제목처럼 노출된다
-			This a tag show us at Navbar about something contents what we write -->
-
-		</div>
-
-		<!--Navigation Bar Section-->
-		<ul class="nav nav-tabs">
-			<li class="nav-item"><a class="nav-link active" href="index.jsp">HOME</a>
-			</li>
+		<ul class="nav justify-content-center">
+			<li class="nav-item"><a class="nav-link active"
+				aria-current="page" href="index.jsp">Home</a></li>
+			<li class="nav-item"><a class="nav-link" href="projects.jsp">Projects</a></li>
+			<li class="nav-item"><a class="nav-link"
+				href="workexperience.jsp">WorkExperience</a></li>
+			<li class="nav-item"><a class="nav-link" href="assignments.jsp">Assignments</a></li>
 			<%
 				if (userID == null) {
 			%>
-			<li class="nav-item dropdown"><a
-				class="nav-link dropdown-toggle" data-toggle="dropdown" href="#"
-				role="button" aria-haspopup="true" aria-expanded="false">CONNECT</a>
-				<div class="dropdown-menu">
-					<a class="dropdown-item" href="login.jsp">LOGIN</a> <a
-						class="dropdown-item" href="join.jsp">JOIN</a>
-				</div></li>
+			<li class="nav-item"><a class="nav-link" href="login.jsp">Login</a>
+			</li>
+			<li class="nav-item"><a class="nav-link" href="join.jsp">Join</a>
+			</li>
+
 			<%
 				} else {
 			%>
-			<li class="nav-item dropdown"><a
-				class="nav-link dropdown-toggle" data-toggle="dropdown" href="#"
-				role="button" aria-haspopup="true" aria-expanded="false">MY PAGE</a>
-				<div class="dropdown-menu">
-					<a class="dropdown-item" href="#">MY PROFILE</a> <a
-						class="dropdown-item" href="logoutAction.jsp">LOGOUT</a>
-				</div></li>
+			<li class="nav-item"><a class="nav-link" href="#">MyProfile</a></li>
+			<li class="nav-item"><a class="nav-link" href="logoutAction.jsp">Logout</a></li>
+
 			<%
 				}
 			%>
-			<li class="nav-item dropdown"><a
-				class="nav-link dropdown-toggle" data-toggle="dropdown" href="#"
-				role="button" aria-haspopup="true" aria-expanded="false">MENU</a>
-				<div class="dropdown-menu">
-					<a class="dropdown-item" href="projects.jsp">PROJECTS</a> <a
-						class="dropdown-item" href="skillbbs.jsp">TOOLBOX</a> <a
-						class="dropdown-item" href="bbjun.jsp">BB&JUN</a> <a
-						class="dropdown-item" href="assignments.jsp">ASSIGNMENTS</a>
-					<div class="dropdown-divider"></div>
-					<a class="dropdown-item" href="#">Separated link</a>
-				</div></li>
 		</ul>
 
-		<!--011720201_Mason>> Make this NAV section to commant<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-			<ul class="nav navbar-nav">
-				<li class="active"><a href="index.jsp">HOME</a></li>
-				<li><a href="projects.jsp"></a></li>
-				<li><a href="skillbbs.jsp">Toolbox</a></li>
-				<li><a href="assignments.jsp">Assignments</a></li>
-			</ul>
-			
-	//if(userID == null){
-			%>
-				<ul class="nav navbar-nav navbar-right">
-					<!--Create Drop down button on Nav Bar-->
-		<!--<li class="dropdown">
-						<!--# <= Meaning is No link-->
-		<!--<a href="#" class="dropdown-toggle"
-							data-toggle="dropdown" role="button" aria-haspopup="true"
-							aria-expanded="false">Connect<span class="caret"></span></a>
-						<ul class="dropdown-menu">
-							<!--Active : 현제 선택이 되었다.-->
-		<!--<li class="active"><a href="index.jsp">login</a></li>
-							<li><a href="login.jsp">login</a></li>
-							<li><a href="join.jsp">Join</a></li>
-						</ul>
-					</li>
-				</ul>
-	//} else {
-			%>
-				<ul class="nav navbar-nav navbar-right">
-					<!--Create Drop down button on Nav Bar-->
-		<!--<li class="dropdown">
-						<!--# <= Meaning is No link-->
-		<!--<a href="#" class="dropdown-toggle"
-							data-toggle="dropdown" role="button" aria-haspopup="true"
-							aria-expanded="false">My page<span class="caret"></span></a>
-						<ul class="dropdown-menu">
-							<!--Active : 현제 선택이 되었다.-->
-		<!--<li class="active"><a href="index.jsp">login</a></li>
-							<li><a href="logoutAction.jsp">logOut</a></li>
-						</ul>
-					</li>
-				</ul>
-	//}
-			%>
-			
-			
-		</div>-->
-	</nav>
-	
-		<div style="width: 600px; float: center;">
-		<input type='button' value='Assignment(과제) ex1'
+	</div>
+
+	<div style="width: 600px; float: center;">
+		<input type='button' value='Assignment ex1'
 			style='width: 100%; margin-bottom: 10px;'
 			onclick="location.href='ex1.jsp'" /> <input type='button'
-			value='Assignment(과제) ex2' style='width: 100%; margin-bottom: 10px;'
+			value='Assignment ex2' style='width: 100%; margin-bottom: 10px;'
 			onclick="location.href='ex2.jsp'" /> <input type='button'
-			value='Assignment(과제) ex3' style='width: 100%; margin-bottom: 10px;'
+			value='Assignment ex3' style='width: 100%; margin-bottom: 10px;'
 			onclick="location.href='ex3.jsp'" /> <input type='button'
-			value='Assignment(과제) ex4' style='width: 100%; margin-bottom: 10px;'
+			value='Assignment ex4' style='width: 100%; margin-bottom: 10px;'
 			onclick="location.href='ex4.jsp'" /> <input type='button'
-			value='Assignment(과제) ex5' style='width: 100%; margin-bottom: 10px;'
+			value='Assignment ex5' style='width: 100%; margin-bottom: 10px;'
 			onclick="location.href='ex5.jsp'" /> <input type='button'
-			value='Assignment(과제) ex6' style='width: 100%; margin-bottom: 10px;'
+			value='Assignment ex6' style='width: 100%; margin-bottom: 10px;'
 			onclick="location.href='ex6.jsp'" /> <input type='button'
-			value='Assignment(과제) ex7' style='width: 100%; margin-bottom: 10px;'
+			value='Assignment ex7' style='width: 100%; margin-bottom: 10px;'
 			onclick="location.href='ex7.jsp'" /> <input type='button'
-			value='Assignment(예제) ex8' style='width: 100%; margin-bottom: 10px;'
+			value='Assignment ex8' style='width: 100%; margin-bottom: 10px;'
 			onclick="location.href='ex8.jsp'" /> <input type='button'
-			value='Assignment(예제) ex9' style='width: 100%; margin-bottom: 10px;'
+			value='Assignment ex9' style='width: 100%; margin-bottom: 10px;'
 			onclick="location.href='ex9.jsp'" /> <input type='button'
-			value='Assignment(예제) ex10' style='width: 100%; margin-bottom: 10px;'
+			value='Assignment ex10' style='width: 100%; margin-bottom: 10px;'
 			onclick="location.href='ex10.jsp'" /> <input type='button'
-			value='Assignment(예제) ex11' style='width: 100%;'
+			value='Assignment ex11' style='width: 100%;'
 			onclick="location.href='ex11.jsp'" />
 	</div>
-		
+
 	<div
 		style="margin-left: 30px; margin-right: 30px; margin-bottom: 60px; margin-top: 60px;">
 		<!-- 01172021_Mason>> About Mason section begin from here -->
-		<div class="card-deck">
+		<div class="card-deck" style="color: black;">
 			<div class="card border-dark mb-3" style="max-width: 18rem;">
-			  <div class="card-header">Header</div>
-			  <div class="card-body text-dark">
-			    <h5 class="card-title">Dark card title</h5>
-			    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-			  </div>
-			</div>	
+				<div class="card-header">Assignment ex1</div>
+				<div class="card-body text-dark">
+					<a href="ex1.jsp"><h5 class="card-title">Assignment ex1</h5></a>
+					<p class="card-text">JSP Basic</p>
+				</div>
+			</div>
 			<div class="card border-dark mb-3" style="max-width: 18rem;">
-			  <div class="card-header">Header</div>
-			  <div class="card-body text-dark">
-			    <h5 class="card-title">Dark card title</h5>
-			    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-			  </div>
-			</div>	
+				<div class="card-header">Assignment ex2</div>
+				<div class="card-body text-dark">
+					<a href="ex2.jsp"><h5 class="card-title">Assignment ex2</h5></a>
+					<p class="card-text">JSP Basic</p>
+				</div>
+			</div>
 			<div class="card border-dark mb-3" style="max-width: 18rem;">
-			  <div class="card-header">Header</div>
-			  <div class="card-body text-dark">
-			    <h5 class="card-title">Dark card title</h5>
-			    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-			  </div>
-			</div>	
+				<div class="card-header">Assignment ex3</div>
+				<div class="card-body text-dark">
+					<a href="ex3.jsp"><h5 class="card-title">Assignment ex3</h5></a>
+					<p class="card-text">JSP Basic</p>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div
+		style="margin-left: 30px; margin-right: 30px; margin-bottom: 60px; margin-top: 60px;">
+		<!-- 01172021_Mason>> About Mason section begin from here -->
+		<div class="card-deck" style="color: black;">
+			<div class="card border-dark mb-3" style="max-width: 18rem;">
+				<div class="card-header">Assignment ex4</div>
+				<div class="card-body text-dark">
+					<a href="ex4.jsp"><h5 class="card-title">Assignment ex4</h5></a>
+					<p class="card-text">JSP Basic</p>
+				</div>
+			</div>
+			<div class="card border-dark mb-3" style="max-width: 18rem;">
+				<div class="card-header">Assignment ex5</div>
+				<div class="card-body text-dark">
+					<a href="ex5.jsp"><h5 class="card-title">Assignment ex5</h5></a>
+					<p class="card-text">JSP Basic</p>
+				</div>
+			</div>
+			<div class="card border-dark mb-3" style="max-width: 18rem;">
+				<div class="card-header">Assignment ex6</div>
+				<div class="card-body text-dark">
+					<a href="ex6.jsp"><h5 class="card-title">Assignment ex6</h5></a>
+					<p class="card-text">JSP Basic</p>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div
+		style="margin-left: 30px; margin-right: 30px; margin-bottom: 60px; margin-top: 60px;">
+		<!-- 01172021_Mason>> About Mason section begin from here -->
+		<div class="card-deck" style="color: black;">
+			<div class="card border-dark mb-3" style="max-width: 18rem;">
+				<div class="card-header">Assignment ex7</div>
+				<div class="card-body text-dark">
+					<a href="ex7.jsp"><h5 class="card-title">Assignment ex7</h5></a>
+					<p class="card-text">JSP Basic</p>
+				</div>
+			</div>
+			<div class="card border-dark mb-3" style="max-width: 18rem;">
+				<div class="card-header">Assignment ex8</div>
+				<div class="card-body text-dark">
+					<a href="ex8.jsp"><h5 class="card-title">Assignment
+							ex8</h5></a>
+					<p class="card-text">JSP Basic</p>
+				</div>
+			</div>
+			<div class="card border-dark mb-3" style="max-width: 18rem;">
+				<div class="card-header">Assignment ex9</div>
+				<div class="card-body text-dark">
+					<a href="ex9.jsp"><h5 class="card-title">Assignment
+							ex9</h5></a>
+					<p class="card-text">JSP Basic</p>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div
+		style="margin-left: 30px; margin-right: 30px; margin-bottom: 60px; margin-top: 60px;">
+		<!-- 01172021_Mason>> About Mason section begin from here -->
+		<div class="card-deck" style="color: black;">
+			<div class="card border-dark mb-3" style="max-width: 18rem;">
+				<div class="card-header">Assignment ex10</div>
+				<div class="card-body text-dark">
+					<a href="ex10.jsp"><h5 class="card-title">Assignment ex10</h5></a>
+					<p class="card-text">JSP Basic</p>
+				</div>
+			</div>
+			<div class="card border-dark mb-3" style="max-width: 18rem;">
+				<div class="card-header">Assignment ex11</div>
+				<div class="card-body text-dark">
+					<a href="Assignment ex11"><h5 class="card-title">Assignment
+							ex11</h5></a>
+					<p class="card-text">Some quick example text to build on the
+						card title and make up the bulk of the card's content.</p>
+				</div>
+			</div>
+			<div class="card border-dark mb-3" style="max-width: 18rem;">
+				<div class="card-header">Assignment ex12</div>
+				<div class="card-body text-dark">
+					<h5 class="card-title">Dark card title</h5>
+					<p class="card-text">Some quick example text to build on the
+						card title and make up the bulk of the card's content.</p>
+				</div>
+			</div>
 		</div>
 	</div>
 

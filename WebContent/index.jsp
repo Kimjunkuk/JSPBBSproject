@@ -101,8 +101,8 @@
 						engineer.</p>
 					<p class="card-text" style="font-size: 19.2px">I make&maintain
 						websites and apps.</p>
-					<i class="fa fa-github" style="font-size: 36px; margin-right: 24px;"></i> <i
-						class="fa fa-linkedin-square" style="font-size: 36px;"></i>
+					<a href="https://github.com/Kimjunkuk"><i class="fa fa-github" style="font-size: 36px; margin-right: 24px;"></i></a> 
+					<a href="https://linkedin.com/in/junkukkim"><i class="fa fa-linkedin-square" style="font-size: 36px;"></i></a>
 
 				</div>
 			</div>
@@ -139,23 +139,23 @@
 				style="background-color: bg-dark; text-align: center;">
 				<thead>
 					<tr>
-						<th style="width: 10%;">번호 <a
+						<th style="width: 10%;">No <a
 							href="skillbbs.jsp?sort_type=upnumber">▲</a><a
 							href="skillbbs.jsp?sort_type=downnumber">▼</a>
 						</th>
-						<th style="width: 50%;">제목 <a
+						<th style="width: 50%;">Title<a
 							href="skillbbs.jsp?sort_type=uptitle">▲</a><a
 							href="skillbbs.jsp?sort_type=downtitle">▼</a>
 						</th>
-						<th style="width: 15%;">작성자 <a
+						<th style="width: 15%;">Author <a
 							href="skillbbs.jsp?sort_type=upname">▲</a><a
 							href="skillbbs.jsp?sort_type=downname">▼</a>
 						</th>
-						<th style="width: 15%;">작성일 <a
+						<th style="width: 15%;">Date<a
 							href="skillbbs.jsp?sort_type=update">▲</a><a
 							href="skillbbs.jsp?sort_type=downdate">▼</a>
 						</th>
-						<th style="width: 10%;">조회수 <a
+						<th style="width: 10%;">View<a
 							href="skillbbs.jsp?sort_type=upview">▲</a><a
 							href="skillbbs.jsp?sort_type=downview">▼</a>
 						</th>
