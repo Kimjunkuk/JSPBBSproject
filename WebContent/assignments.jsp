@@ -59,157 +59,120 @@
 			%>
 		</ul>
 
-	</div>
 
-	<div style="width: 600px; float: center;">
-		<input type='button' value='Assignment ex1'
-			style='width: 100%; margin-bottom: 10px;'
-			onclick="location.href='ex1.jsp'" /> <input type='button'
-			value='Assignment ex2' style='width: 100%; margin-bottom: 10px;'
-			onclick="location.href='ex2.jsp'" /> <input type='button'
-			value='Assignment ex3' style='width: 100%; margin-bottom: 10px;'
-			onclick="location.href='ex3.jsp'" /> <input type='button'
-			value='Assignment ex4' style='width: 100%; margin-bottom: 10px;'
-			onclick="location.href='ex4.jsp'" /> <input type='button'
-			value='Assignment ex5' style='width: 100%; margin-bottom: 10px;'
-			onclick="location.href='ex5.jsp'" /> <input type='button'
-			value='Assignment ex6' style='width: 100%; margin-bottom: 10px;'
-			onclick="location.href='ex6.jsp'" /> <input type='button'
-			value='Assignment ex7' style='width: 100%; margin-bottom: 10px;'
-			onclick="location.href='ex7.jsp'" /> <input type='button'
-			value='Assignment ex8' style='width: 100%; margin-bottom: 10px;'
-			onclick="location.href='ex8.jsp'" /> <input type='button'
-			value='Assignment ex9' style='width: 100%; margin-bottom: 10px;'
-			onclick="location.href='ex9.jsp'" /> <input type='button'
-			value='Assignment ex10' style='width: 100%; margin-bottom: 10px;'
-			onclick="location.href='ex10.jsp'" /> <input type='button'
-			value='Assignment ex11' style='width: 100%;'
-			onclick="location.href='ex11.jsp'" />
-	</div>
 
-	<div
-		style="margin-left: 30px; margin-right: 30px; margin-bottom: 60px; margin-top: 60px;">
-		<!-- 01172021_Mason>> About Mason section begin from here -->
-		<div class="card-deck" style="color: black;">
-			<div class="card border-dark mb-3" style="max-width: 18rem;">
-				<div class="card-header">Assignment ex1</div>
-				<div class="card-body text-dark">
-					<a href="ex1.jsp"><h5 class="card-title">Assignment ex1</h5></a>
-					<p class="card-text">JSP Basic</p>
+		<div style="margin-top:50px">
+			<!-- 01172021_Mason>> About Mason section begin from here -->
+			<div class="card-deck justify-content-center" style="color: black;">
+				<div class="card border-dark mb-3" style="max-width: 18rem;">
+					<div class="card-header">Assignment ex1</div>
+					<div class="card-body text-dark">
+						<a href="ex1.jsp"><h5 class="card-title">Assignment ex1</h5></a>
+						<p class="card-text">JSP Basic</p>
+					</div>
 				</div>
-			</div>
-			<div class="card border-dark mb-3" style="max-width: 18rem;">
-				<div class="card-header">Assignment ex2</div>
-				<div class="card-body text-dark">
-					<a href="ex2.jsp"><h5 class="card-title">Assignment ex2</h5></a>
-					<p class="card-text">JSP Basic</p>
+				<div class="card border-dark mb-3" style="max-width: 18rem;">
+					<div class="card-header">Assignment ex2</div>
+					<div class="card-body text-dark">
+						<a href="ex2.jsp"><h5 class="card-title">Assignment ex2</h5></a>
+						<p class="card-text">JSP Basic</p>
+					</div>
 				</div>
-			</div>
-			<div class="card border-dark mb-3" style="max-width: 18rem;">
-				<div class="card-header">Assignment ex3</div>
-				<div class="card-body text-dark">
-					<a href="ex3.jsp"><h5 class="card-title">Assignment ex3</h5></a>
-					<p class="card-text">JSP Basic</p>
+				<div class="card border-dark mb-3" style="max-width: 18rem;">
+					<div class="card-header">Assignment ex3</div>
+					<div class="card-body text-dark">
+						<a href="ex3.jsp"><h5 class="card-title">Assignment ex3</h5></a>
+						<p class="card-text">JSP Basic</p>
+					</div>
 				</div>
 			</div>
 		</div>
-	</div>
-	<div
-		style="margin-left: 30px; margin-right: 30px; margin-bottom: 60px; margin-top: 60px;">
-		<!-- 01172021_Mason>> About Mason section begin from here -->
-		<div class="card-deck" style="color: black;">
-			<div class="card border-dark mb-3" style="max-width: 18rem;">
-				<div class="card-header">Assignment ex4</div>
-				<div class="card-body text-dark">
-					<a href="ex4.jsp"><h5 class="card-title">Assignment ex4</h5></a>
-					<p class="card-text">JSP Basic</p>
+		<div>
+			<!-- 01172021_Mason>> About Mason section begin from here -->
+			<div class="card-deck justify-content-center" style="color: black;">
+				<div class="card border-dark mb-3" style="max-width: 18rem;">
+					<div class="card-header">Assignment ex4</div>
+					<div class="card-body text-dark">
+						<a href="ex4.jsp"><h5 class="card-title">Assignment ex4</h5></a>
+						<p class="card-text">JSP Basic</p>
+					</div>
 				</div>
-			</div>
-			<div class="card border-dark mb-3" style="max-width: 18rem;">
-				<div class="card-header">Assignment ex5</div>
-				<div class="card-body text-dark">
-					<a href="ex5.jsp"><h5 class="card-title">Assignment ex5</h5></a>
-					<p class="card-text">JSP Basic</p>
+				<div class="card border-dark mb-3" style="max-width: 18rem;">
+					<div class="card-header">Assignment ex5</div>
+					<div class="card-body text-dark">
+						<a href="ex5.jsp"><h5 class="card-title">Assignment ex5</h5></a>
+						<p class="card-text">JSP Basic</p>
+					</div>
 				</div>
-			</div>
-			<div class="card border-dark mb-3" style="max-width: 18rem;">
-				<div class="card-header">Assignment ex6</div>
-				<div class="card-body text-dark">
-					<a href="ex6.jsp"><h5 class="card-title">Assignment ex6</h5></a>
-					<p class="card-text">JSP Basic</p>
-				</div>
-			</div>
-		</div>
-	</div>
-	<div
-		style="margin-left: 30px; margin-right: 30px; margin-bottom: 60px; margin-top: 60px;">
-		<!-- 01172021_Mason>> About Mason section begin from here -->
-		<div class="card-deck" style="color: black;">
-			<div class="card border-dark mb-3" style="max-width: 18rem;">
-				<div class="card-header">Assignment ex7</div>
-				<div class="card-body text-dark">
-					<a href="ex7.jsp"><h5 class="card-title">Assignment ex7</h5></a>
-					<p class="card-text">JSP Basic</p>
-				</div>
-			</div>
-			<div class="card border-dark mb-3" style="max-width: 18rem;">
-				<div class="card-header">Assignment ex8</div>
-				<div class="card-body text-dark">
-					<a href="ex8.jsp"><h5 class="card-title">Assignment
-							ex8</h5></a>
-					<p class="card-text">JSP Basic</p>
-				</div>
-			</div>
-			<div class="card border-dark mb-3" style="max-width: 18rem;">
-				<div class="card-header">Assignment ex9</div>
-				<div class="card-body text-dark">
-					<a href="ex9.jsp"><h5 class="card-title">Assignment
-							ex9</h5></a>
-					<p class="card-text">JSP Basic</p>
+				<div class="card border-dark mb-3" style="max-width: 18rem;">
+					<div class="card-header">Assignment ex6</div>
+					<div class="card-body text-dark">
+						<a href="ex6.jsp"><h5 class="card-title">Assignment ex6</h5></a>
+						<p class="card-text">JSP Basic</p>
+					</div>
 				</div>
 			</div>
 		</div>
-	</div>
-	<div
-		style="margin-left: 30px; margin-right: 30px; margin-bottom: 60px; margin-top: 60px;">
-		<!-- 01172021_Mason>> About Mason section begin from here -->
-		<div class="card-deck" style="color: black;">
-			<div class="card border-dark mb-3" style="max-width: 18rem;">
-				<div class="card-header">Assignment ex10</div>
-				<div class="card-body text-dark">
-					<a href="ex10.jsp"><h5 class="card-title">Assignment ex10</h5></a>
-					<p class="card-text">JSP Basic</p>
+		<div>
+			<!-- 01172021_Mason>> About Mason section begin from here -->
+			<div class="card-deck justify-content-center" style="color: black;">
+				<div class="card border-dark mb-3" style="max-width: 18rem;">
+					<div class="card-header">Assignment ex7</div>
+					<div class="card-body text-dark">
+						<a href="ex7.jsp"><h5 class="card-title">Assignment ex7</h5></a>
+						<p class="card-text">JSP Basic</p>
+					</div>
 				</div>
-			</div>
-			<div class="card border-dark mb-3" style="max-width: 18rem;">
-				<div class="card-header">Assignment ex11</div>
-				<div class="card-body text-dark">
-					<a href="Assignment ex11"><h5 class="card-title">Assignment
-							ex11</h5></a>
-					<p class="card-text">Some quick example text to build on the
-						card title and make up the bulk of the card's content.</p>
+				<div class="card border-dark mb-3" style="max-width: 18rem;">
+					<div class="card-header">Assignment ex8</div>
+					<div class="card-body text-dark">
+						<a href="ex8.jsp"><h5 class="card-title">Assignment ex8</h5></a>
+						<p class="card-text">JSP Basic</p>
+					</div>
 				</div>
-			</div>
-			<div class="card border-dark mb-3" style="max-width: 18rem;">
-				<div class="card-header">Assignment ex12</div>
-				<div class="card-body text-dark">
-					<h5 class="card-title">Dark card title</h5>
-					<p class="card-text">Some quick example text to build on the
-						card title and make up the bulk of the card's content.</p>
+				<div class="card border-dark mb-3" style="max-width: 18rem;">
+					<div class="card-header">Assignment ex9</div>
+					<div class="card-body text-dark">
+						<a href="ex9.jsp"><h5 class="card-title">Assignment ex9</h5></a>
+						<p class="card-text">JSP Basic</p>
+					</div>
 				</div>
 			</div>
 		</div>
-	</div>
+		<div>
+			<!-- 01172021_Mason>> About Mason section begin from here -->
+			<div class="card-deck justify-content-center" style="color: black;">
+				<div class="card border-dark mb-3" style="max-width: 18rem;">
+					<div class="card-header">Assignment ex10</div>
+					<div class="card-body text-dark">
+						<a href="ex10.jsp"><h5 class="card-title">Assignment ex10</h5></a>
+						<p class="card-text">JSP Basic</p>
+					</div>
+				</div>
+				<div class="card border-dark mb-3" style="max-width: 18rem;">
+					<div class="card-header">Assignment ex11</div>
+					<div class="card-body text-dark">
+						<a href="ex11.jsp"><h5 class="card-title">Assignment ex11</h5></a>
+						<p class="card-text">JSP Basic</p>
+					</div>
+				</div>
+				<div class="card border-dark mb-3" style="max-width: 18rem;">
+					<div class="card-header">Assignment ex12</div>
+					<div class="card-body text-dark">
+						<h5 class="card-title">Assignment ex12</h5>
+						<p class="card-text">JSP Basic</p>
+					</div>
+				</div>
+			</div>
+		</div>
 
 
 
 
 
 
-	<!--Animation-->
-	<script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
-	<script src="js/bootstrap.js"></script>
-
-
+		<!--Animation-->
+		<script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+		<script src="js/bootstrap.js"></script>
 </body>
 </html>

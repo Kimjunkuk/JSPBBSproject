@@ -33,7 +33,8 @@
 		<li class="nav-item"><a class="nav-link active"
 			aria-current="page" href="index.jsp">Home</a></li>
 		<li class="nav-item"><a class="nav-link" href="projects.jsp">Projects</a></li>
-		<li class="nav-item"><a class="nav-link" href="workexperience.jsp">WorkExperiencee</a></li>
+		<li class="nav-item"><a class="nav-link"
+			href="workexperience.jsp">WorkExperiencee</a></li>
 		<li class="nav-item"><a class="nav-link" href="#">Assignments</a></li>
 		<%
 			if (userID == null) {
@@ -42,13 +43,6 @@
 		</li>
 		<li class="nav-item"><a class="nav-link" href="join.jsp">Join</a>
 		</li>
-		<!-- <li class="nav-item dropdown"><a
-				class="nav-link dropdown-toggle" data-toggle="dropdown" href="#"
-				role="button" aria-haspopup="true" aria-expanded="false">CONNECT</a>
-				<div class="dropdown-menu">
-					<a class="dropdown-item" href="login.jsp">LOGIN</a> <a
-						class="dropdown-item" href="join.jsp">JOIN</a>
-				</div></li> -->
 		<%
 			} else {
 		%>
@@ -59,6 +53,44 @@
 			}
 		%>
 	</ul>
+
+	<table style="width: 100%; margin-top:50px">
+		<tr style="vertical-align: top">
+			<td
+				style="width: 50%; border-right: 3px solid white; padding-right: 10px; text-align: justify">
+				<div class="col ">
+					<div class="card mb-3 p-3 mb-2 bg-dark text-white">
+						<img src="..." class="card-img-top" alt="...">
+						<div class="card-body">
+							<h5 class="card-title">Card title</h5>
+							<p class="card-text">This is a longer card with supporting
+								text below as a natural lead-in to additional content. This
+								content is a little bit longer.</p>
+						</div>
+					</div>
+				</div>
+			</td>
+			<td style="padding-left: 10px; width: 50%"></td>
+		</tr>
+		<tr style="vertical-align: top">
+			<td
+				style="width: 50%; border-right: 3px solid white; padding-right: 10px; text-align: justify">
+
+			</td>
+			<td style="padding-left: 10px; width: 50%">
+				<div class="col">
+					<div class="card mb-3 p-3 mb-2 bg-dark text-white">
+						<img src="..." class="card-img-top" alt="...">
+						<div class="card-body">
+							<h5 class="card-title">Card title</h5>
+							<p class="card-text">This is a longer card with supporting
+								text below as a natural lead-in to additional content.</p>
+						</div>
+					</div>
+				</div>
+			</td>
+		</tr>
+	</table>
 
 </body>
 </html>

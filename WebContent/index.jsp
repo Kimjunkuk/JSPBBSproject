@@ -99,7 +99,7 @@
 					<p class="card-text" style="font-size: 19.2px">Hi, there!</p>
 					<p class="card-text" style="font-size: 19.2px">I'm a software
 						engineer.</p>
-					<p class="card-text" style="font-size: 19.2px">I make&maintain
+					<p class="card-text" style="font-size: 19.2px">I make & maintain
 						websites and apps.</p>
 					<a href="https://github.com/Kimjunkuk"><i class="fa fa-github" style="font-size: 36px; margin-right: 24px;"></i></a> 
 					<a href="https://linkedin.com/in/junkukkim"><i class="fa fa-linkedin-square" style="font-size: 36px;"></i></a>
