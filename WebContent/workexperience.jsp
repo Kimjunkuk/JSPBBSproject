@@ -35,7 +35,7 @@
 		<li class="nav-item"><a class="nav-link" href="projects.jsp">Projects</a></li>
 		<li class="nav-item"><a class="nav-link"
 			href="workexperience.jsp">WorkExperiencee</a></li>
-		<li class="nav-item"><a class="nav-link" href="#">Assignments</a></li>
+		<li class="nav-item"><a class="nav-link" href="assignments.jsp">Assignments</a></li>
 		<%
 			if (userID == null) {
 		%>
@@ -54,10 +54,10 @@
 		%>
 	</ul>
 
-	<table style="width: 100%; margin-top:50px">
-		<tr style="vertical-align: top">
+	<table class="justify-content-center" style="margin-top:50px">
+		<tr style="vertical-align: top; max-width: 600px;">
 			<td
-				style="width: 50%; border-right: 3px solid white; padding-right: 10px; text-align: justify">
+				style=" border-top: 3px solid white; border-bottom: 3px solid white; padding-right: 10px; text-align: justify">
 				<div class="col ">
 					<div class="card mb-3 p-3 mb-2 bg-dark text-white">
 						<img src="..." class="card-img-top" alt="...">
@@ -70,14 +70,9 @@
 					</div>
 				</div>
 			</td>
-			<td style="padding-left: 10px; width: 50%"></td>
 		</tr>
 		<tr style="vertical-align: top">
-			<td
-				style="width: 50%; border-right: 3px solid white; padding-right: 10px; text-align: justify">
-
-			</td>
-			<td style="padding-left: 10px; width: 50%">
+			<td style="padding-left: 10px; ">
 				<div class="col">
 					<div class="card mb-3 p-3 mb-2 bg-dark text-white">
 						<img src="..." class="card-img-top" alt="...">

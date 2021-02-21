@@ -21,6 +21,7 @@
 <link rel="stylesheet" href="css/bootstrap.min.css">
 <link rel="stylesheet"
 	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<script src="https://code.iconify.design/1/1.0.7/iconify.min.js"></script>
 
 
 <!--This title tag shows us about what kind of website is-->
@@ -99,10 +100,17 @@
 					<p class="card-text" style="font-size: 19.2px">Hi, there!</p>
 					<p class="card-text" style="font-size: 19.2px">I'm a software
 						engineer.</p>
-					<p class="card-text" style="font-size: 19.2px">I make & maintain
-						websites and apps.</p>
-					<a href="https://github.com/Kimjunkuk"><i class="fa fa-github" style="font-size: 36px; margin-right: 24px;"></i></a> 
-					<a href="https://linkedin.com/in/junkukkim"><i class="fa fa-linkedin-square" style="font-size: 36px;"></i></a>
+					<p class="card-text" style="font-size: 19.2px">I make &
+						maintain websites and apps.</p>
+					<p>Thanks for visiting!</p>
+					<div style="margin-top:35px">
+						<a href="https://github.com/Kimjunkuk">
+						<i class="fa fa-github"style="font-size: 36px; margin-right: 24px;"></i></a> 
+						<a href="https://linkedin.com/in/junkukkim"><i class="fa fa-linkedin-square" style="font-size: 36px; margin-right: 24px;"></i></a> 
+						<a href="https://www.hackerrank.com/ehehwnwjs546?h_r=internal-search&hr_r=1"><span class="iconify" data-icon="simple-icons:hackerrank"
+							data-inline="false" style="font-size: 36px; vertical-align:top;"></span></a>
+					</div>
+
 
 				</div>
 			</div>
@@ -118,7 +126,7 @@
 
 		<!-- striped는 홀수와 짝수가 번갈아가면서 색상이 변경되도록 해주어 가독성을 높여주는 요소 -->
 		<div class="row">
-			<form method="post" action="skillbbs.jsp?sort_type=searchresult"
+			<form method="post" action="index.jsp?sort_type=searchresult"
 				enctype="multipart/from-data">
 				<!-- 검색 인자 입력 구간  -->
 				<table style="float: right;">
@@ -140,24 +148,24 @@
 				<thead>
 					<tr>
 						<th style="width: 10%;">No <a
-							href="skillbbs.jsp?sort_type=upnumber">▲</a><a
-							href="skillbbs.jsp?sort_type=downnumber">▼</a>
+							href="index.jsp?sort_type=upnumber">▲</a><a
+							href="index.jsp?sort_type=downnumber">▼</a>
 						</th>
 						<th style="width: 50%;">Title<a
-							href="skillbbs.jsp?sort_type=uptitle">▲</a><a
-							href="skillbbs.jsp?sort_type=downtitle">▼</a>
+							href="index.jsp?sort_type=uptitle">▲</a><a
+							href="index.jsp?sort_type=downtitle">▼</a>
 						</th>
 						<th style="width: 15%;">Author <a
-							href="skillbbs.jsp?sort_type=upname">▲</a><a
-							href="skillbbs.jsp?sort_type=downname">▼</a>
+							href="index.jsp?sort_type=upname">▲</a><a
+							href="index.jsp?sort_type=downname">▼</a>
 						</th>
 						<th style="width: 15%;">Date<a
-							href="skillbbs.jsp?sort_type=update">▲</a><a
-							href="skillbbs.jsp?sort_type=downdate">▼</a>
+							href="index.jsp?sort_type=update">▲</a><a
+							href="index.jsp?sort_type=downdate">▼</a>
 						</th>
 						<th style="width: 10%;">View<a
-							href="skillbbs.jsp?sort_type=upview">▲</a><a
-							href="skillbbs.jsp?sort_type=downview">▼</a>
+							href="index.jsp?sort_type=upview">▲</a><a
+							href="index.jsp?sort_type=downview">▼</a>
 						</th>
 					</tr>
 				</thead>
@@ -501,7 +509,7 @@
 				</tbody>
 
 			</table>
-			<a href="skillbbs.jsp?pageNumber=<%=pageNumber = 1%>">[First]</a>
+			<a href="index.jsp?pageNumber=<%=pageNumber = 1%>">[First]</a>
 			<%
 				// 페이징  처리
 				if (count > 0) {
@@ -520,19 +528,19 @@
 
 					if (startPage > pageBlock) { // 페이지 블록수보다 startPage가 클경우 이전 링크 생성
 			%>
-			<a href="skillbbs.jsp?pageNumber=<%=startPage - 10%>">[이전]</a>
+			<a href="index.jsp?pageNumber=<%=startPage - 10%>">[이전]</a>
 			<%
 				}
 
 					for (int i = startPage; i <= endPage; i++) { // 페이지 블록 번호
 						if (i == currentPage) { // 첫번째 패이지
 			%>
-			<a href="skillbbs.jsp?pageNumber=<%=i%>">[<%=i%>]
+			<a href="index.jsp?pageNumber=<%=i%>">[<%=i%>]
 			</a>
 			<%
 				} else { // 현재 페이지가 아닌 경우 링크 설정
 			%>
-			<a href="skillbbs.jsp?pageNumber=<%=i%>">[<%=i%>]
+			<a href="index.jsp?pageNumber=<%=i%>">[<%=i%>]
 			</a>
 			<%
 				}
@@ -540,13 +548,13 @@
 
 					if (endPage < pageCount) { // 현재 블록의 마지막 페이지보다 페이지 전체 블록수가 클경우 다음 링크 생성
 			%>
-			<a href="skillbbs.jsp?pageNumber=<%=startPage + 10%>"
+			<a href="index.jsp?pageNumber=<%=startPage + 10%>"
 				class="btn btn-success btn-arrow-left">[다음]</a>
 			<%
 				}
 				}
 			%>
-			<a href="skillbbs.jsp?pageNumber=<%=pageNumber = 4%>">[Last]</a> <a
+			<a href="index.jsp?pageNumber=<%=pageNumber = 4%>">[Last]</a> <a
 				href="write.jsp">[Write]</a>
 		</div>
 	</div>
