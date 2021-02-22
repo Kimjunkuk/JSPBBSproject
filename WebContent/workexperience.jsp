@@ -54,38 +54,111 @@
 		%>
 	</ul>
 
-	<table class="justify-content-center" style="margin-top:50px">
-		<tr style="vertical-align: top; max-width: 600px;">
+	<table
+		style="margin-top: 50px; max-width: 600px; align: center; margin-left: auto; margin-right: auto;">
+		<tr style="vertical-align: top;">
 			<td
-				style=" border-top: 3px solid white; border-bottom: 3px solid white; padding-right: 10px; text-align: justify">
+				style="border-top: 3px solid white; border-bottom: 3px solid white;">
 				<div class="col ">
 					<div class="card mb-3 p-3 mb-2 bg-dark text-white">
-						<img src="..." class="card-img-top" alt="...">
+						<a href="https://www.sistarcosmetics.com/"><img
+							src="..\img\sistarweb.JPG" class="card-img-top" alt="..."></a>
 						<div class="card-body">
-							<h5 class="card-title">Card title</h5>
-							<p class="card-text">This is a longer card with supporting
-								text below as a natural lead-in to additional content. This
-								content is a little bit longer.</p>
+							<a href="https://www.sistarcosmetics.com/"><h5
+									class="card-title">SistarCosmetics</h5></a>
+							<p class="card-text">Platform: Shopify</p>
+							<p class="card-text">Language: Rubby, Liquid</p>
 						</div>
 					</div>
 				</div>
 			</td>
 		</tr>
-		<tr style="vertical-align: top">
-			<td style="padding-left: 10px; ">
+		<tr class="justify-content-center"
+			style="border-bottom: 3px solid white;">
+			<td>
 				<div class="col">
 					<div class="card mb-3 p-3 mb-2 bg-dark text-white">
-						<img src="..." class="card-img-top" alt="...">
+						<img src="..\img\smbeauty.JPG" class="card-img-top" alt="...">
 						<div class="card-body">
-							<h5 class="card-title">Card title</h5>
-							<p class="card-text">This is a longer card with supporting
-								text below as a natural lead-in to additional content.</p>
+							<a href="https://smbeautyusa.com/"><h5 class="card-title">SMBeauty
+									USA</h5></a>
+							<p class="card-text">Platform: Shopify</p>
+							<p class="card-text">Language: Rubby, Liquid</p>
 						</div>
 					</div>
 				</div>
 			</td>
 		</tr>
+		<tr class="justify-content-center"
+			style="border-bottom: 3px solid white;">
+			<td>
+				<div class="col">
+					<div class="card mb-3 p-3 mb-2 bg-dark text-white">
+						<img src="..\img\smbeautyad.JPG" class="card-img-top" alt="...">
+						<div class="card-body">
+							<a
+								href="https://play.google.com/store/apps/details?id=com.smusacosmetics.mason.smbeautyusa"><h5
+									class="card-title">SMBeauty USA Android APP</h5></a>
+							<p class="card-text">Web APP</p>
+							<p class="card-text">Create the Web APP & Deploy</p>
+						</div>
+					</div>
+				</div>
+			</td>
+		</tr>
+		<tr class="justify-content-center"
+			style="border-bottom: 3px solid white;">
+			<td>
+				<div class="col">
+					<div class="card mb-3 p-3 mb-2 bg-dark text-white">
+						<img src="..\img\saplaya.JPG" class="card-img-top" alt="...">
+						<div class="card-body">
+							<a href="https://saplayaskincare.com/"><h5 class="card-title">Saplaya
+									Skincare</h5></a>
+							<p class="card-text">Platform: Shopify</p>
+							<p class="card-text">Language: Rubby, Liquid</p>
+						</div>
+					</div>
+				</div>
+			</td>
+		</tr>
+		<tr class="justify-content-center"
+			style="border-bottom: 3px solid white;">
+			<td>
+				<div class="col">
+					<div class="card mb-3 p-3 mb-2 bg-dark text-white">
+						<img src="..\img\sistarbeautyweb.JPG" class="card-img-top"
+							alt="...">
+						<div class="card-body">
+							<a href="https://sistarbeauty.com/"><h5 class="card-title">SistarBeauty</h5></a>
+							<p class="card-text">Platform: Shopify</p>
+							<p class="card-text">Language: Rubby, Liquid</p>
+						</div>
+					</div>
+				</div>
+			</td>
+		</tr>
+		<tr class="justify-content-center"
+			style="border-bottom: 3px solid white;">
+			<td>
+				<div class="col">
+					<div class="card mb-3 p-3 mb-2 bg-dark text-white">
+						<img src="..\img\sistarbeautyapp.JPG" class="card-img-top"
+							alt="...">
+						<div class="card-body">
+							<a
+								href="https://play.google.com/store/apps/details?id=com.smusacosmetics.mason.smbeautypickupcopy"><h5
+									class="card-title">SistarBeautyPickup Android APP</h5></a>
+							<p class="card-text">Web APP</p>
+							<p class="card-text">Create the Web APP & Deploy</p>
+						</div>
+					</div>
+				</div>
+			</td>
+		</tr>
+
 	</table>
+
 
 </body>
 </html>

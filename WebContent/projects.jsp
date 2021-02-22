@@ -33,7 +33,8 @@
 		<li class="nav-item"><a class="nav-link active"
 			aria-current="page" href="index.jsp">Home</a></li>
 		<li class="nav-item"><a class="nav-link" href="projects.jsp">Projects</a></li>
-		<li class="nav-item"><a class="nav-link" href="workexperience.jsp">WorkExperiencee</a></li>
+		<li class="nav-item"><a class="nav-link"
+			href="workexperience.jsp">WorkExperiencee</a></li>
 		<li class="nav-item"><a class="nav-link" href="assignments.jsp">Assignments</a></li>
 		<%
 			if (userID == null) {
@@ -42,13 +43,6 @@
 		</li>
 		<li class="nav-item"><a class="nav-link" href="join.jsp">Join</a>
 		</li>
-		<!-- <li class="nav-item dropdown"><a
-				class="nav-link dropdown-toggle" data-toggle="dropdown" href="#"
-				role="button" aria-haspopup="true" aria-expanded="false">CONNECT</a>
-				<div class="dropdown-menu">
-					<a class="dropdown-item" href="login.jsp">LOGIN</a> <a
-						class="dropdown-item" href="join.jsp">JOIN</a>
-				</div></li> -->
 		<%
 			} else {
 		%>
@@ -59,6 +53,33 @@
 			}
 		%>
 	</ul>
+
+
+	<table 
+		style="margin-top: 50px; align: center; margin-left: auto; margin-right: auto; max-width: 600px;">
+		<tr>
+			<td
+				style="border-top: 3px solid white; border-bottom: 3px solid white; ">
+				<div class="col ">
+					<div class="card mb-3 p-3 mb-2 bg-dark text-white">
+						<a href="http://masonlaboratory.com/index.jsp"><img
+							src="..\img\masonlab2.JPG" class="card-img-top" alt="..."></a>
+						<div class="card-body">
+							<a href="http://masonlaboratory.com/index.jsp"><h5
+									class="card-title">MasonLAB Personal Website</h5></a>
+							<p class="card-text">Server: Tomcat V9</p>
+							<p class="card-text">Hosting: Personal Hosting</p>
+							<p class="card-text">Language: Java, HTML, CSS, JS</p>
+							<p class="card-text">Github:</p>
+							<a href="https://github.com/Kimjunkuk/JSPBBSproject">https://github.com/Kimjunkuk/JSPBBSproject</a>
+						</div>
+					</div>
+				</div>
+			</td>
+		</tr>
+
+
+	</table>
 
 </body>
 </html>

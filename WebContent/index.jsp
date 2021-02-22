@@ -12,7 +12,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 
 <!--This meta tag defines web pages size that can resize web pages depends on device screen size-->
-<meta name="viewport" content="width=device-width" , initial-scale="1">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 
 <!--This link tag make this web site can use bootstrap's css-->
 <link rel="stylesheet" href="css/bootstrap-grid.css">
@@ -22,8 +22,17 @@
 <link rel="stylesheet"
 	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <script src="https://code.iconify.design/1/1.0.7/iconify.min.js"></script>
-
-
+<style>
+/*@midia: mobile view build*/
+@media ( max-width : 768px ) {
+	#pc-view {
+		display:none;
+	}
+	#mobile-view{
+	}
+	
+}
+</style>
 <!--This title tag shows us about what kind of website is-->
 <title>MasonLAB</title>
 
@@ -84,8 +93,6 @@
 	</div>
 
 
-
-
 	<div class="card mb-3 p-3 mb-2 bg-dark text-white"
 		style="max-width: 100%; border: 0;">
 		<div class="row g-0">
@@ -103,12 +110,19 @@
 					<p class="card-text" style="font-size: 19.2px">I make &
 						maintain websites and apps.</p>
 					<p>Thanks for visiting!</p>
-					<div style="margin-top:35px">
-						<a href="https://github.com/Kimjunkuk">
-						<i class="fa fa-github"style="font-size: 36px; margin-right: 24px;"></i></a> 
-						<a href="https://linkedin.com/in/junkukkim"><i class="fa fa-linkedin-square" style="font-size: 36px; margin-right: 24px;"></i></a> 
-						<a href="https://www.hackerrank.com/ehehwnwjs546?h_r=internal-search&hr_r=1"><span class="iconify" data-icon="simple-icons:hackerrank"
-							data-inline="false" style="font-size: 36px; vertical-align:top;"></span></a>
+					<p>
+						Contact:<a href="mailto:ehehwnwjs5052@gmail.com">
+							ehehwnwjs5052@gmail.com</a>
+					</p>
+					<div style="margin-top: 35px">
+						<a href="https://github.com/Kimjunkuk"> <i
+							class="fa fa-github" style="font-size: 36px; margin-right: 24px;"></i></a>
+						<a href="https://linkedin.com/in/junkukkim"><i
+							class="fa fa-linkedin-square"
+							style="font-size: 36px; margin-right: 24px;"></i></a> <a
+							href="https://www.hackerrank.com/ehehwnwjs546?h_r=internal-search&hr_r=1"><span
+							class="iconify" data-icon="simple-icons:hackerrank"
+							data-inline="false" style="font-size: 36px; vertical-align: top;"></span></a>
 					</div>
 
 
@@ -124,7 +138,7 @@
 		(TotalRecode :
 		<%=count%>)
 
-		<!-- striped는 홀수와 짝수가 번갈아가면서 색상이 변경되도록 해주어 가독성을 높여주는 요소 -->
+		<!-- striped는 홀수와 짝수가 번갈아가면서 색상이 변경되도록 해주어 가독성을 높여주는 요소  id="pc-view" -->
 		<div class="row">
 			<form method="post" action="index.jsp?sort_type=searchresult"
 				enctype="multipart/from-data">
@@ -155,7 +169,7 @@
 							href="index.jsp?sort_type=uptitle">▲</a><a
 							href="index.jsp?sort_type=downtitle">▼</a>
 						</th>
-						<th style="width: 15%;">Author <a
+						<th  style="width: 15%;">Author <a
 							href="index.jsp?sort_type=upname">▲</a><a
 							href="index.jsp?sort_type=downname">▼</a>
 						</th>
@@ -557,6 +571,8 @@
 			<a href="index.jsp?pageNumber=<%=pageNumber = 4%>">[Last]</a> <a
 				href="write.jsp">[Write]</a>
 		</div>
+		
+		
 	</div>
 
 
