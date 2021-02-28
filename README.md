@@ -1,11 +1,10 @@
 # JSPBBSproject
-JSPBBSproject
 
 Project Auth
 
 Pair programming project by JUNKUK KIM
 
-A fullstack project including signup and login forms, API with authentication and an authenticated endpoint with its content visible upon logging in. 🔐
+A fullstack project including signup and login forms 🔐
 
 ## :brain:Learning objectives
 
