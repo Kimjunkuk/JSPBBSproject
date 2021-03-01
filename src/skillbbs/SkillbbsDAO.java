@@ -13,16 +13,11 @@ public class SkillbbsDAO {
 
 	private ResultSet rs;
 	
-	//������
 	public SkillbbsDAO() {
 		try {
 			
 			Class.forName("org.mariadb.jdbc.Driver");
-			String dbURL ="jdbc:mariadb://67.167.223.168:3306/bbs?autoReconnect=true&amp;useSSL=false";
-			//?autoReconnect=true&amp;useSSL=false
-			//?serverTimezone=Asia/Seoul&useSSL=false
-			//?autoReconnect=true&amp;useSSL=false
-			//DB�� �ߺ����� ������쿡�� �ش� ���� �߻��Ǵ°����� �Ǵܵ�
+			String dbURL ="";
 			String dbID = "";
 			String dbPassword = "";
 			
@@ -33,7 +28,6 @@ public class SkillbbsDAO {
 		}
 	}
 	
-	//���� �ð��� �������� �Լ� (���� �ð� ����)
 	public String getDate() {
 		String SQL = "SELECT NOW()";
 		try {
