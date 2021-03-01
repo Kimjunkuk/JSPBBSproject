@@ -23,8 +23,8 @@ public class SkillbbsDAO {
 			//?serverTimezone=Asia/Seoul&useSSL=false
 			//?autoReconnect=true&amp;useSSL=false
 			//DB�� �ߺ����� ������쿡�� �ش� ���� �߻��Ǵ°����� �Ǵܵ�
-			String dbID = "root";
-			String dbPassword = "Dosxmffj505@#";
+			String dbID = "";
+			String dbPassword = "";
 			
 			
 			conn = DriverManager.getConnection(dbURL, dbID, dbPassword);
