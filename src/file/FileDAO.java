@@ -12,18 +12,18 @@ public class FileDAO {
 
 	private ResultSet rs;
 	
-	//»ı¼ºÀÚ
+	//ìƒì„±ì
 	public FileDAO() {
 		try {
 			
 			Class.forName("org.mariadb.jdbc.Driver");
-			String dbURL ="jdbc:mariadb://localhost:3306/FILE?autoReconnect=true&amp;useSSL=false";
+			String dbURL ="";
 			//?autoReconnect=true&amp;useSSL=false
 			//?serverTimezone=Asia/Seoul&useSSL=false
 			//?autoReconnect=true&amp;useSSL=false
-			//DB¿¡ Áßº¹°ªÀÌ ÀÖÀ»°æ¿ì¿¡µµ ÇØ´ç ¿À·ù ¹ß»ıµÇ´Â°ÍÀ¸·Î ÆÇ´ÜµÊ
-			String dbID = "root";
-			String dbPassword = "Dosxmffj505@#";
+			//DBì— ì¤‘ë³µê°’ì´ ìˆì„ê²½ìš°ì—ë„ í•´ë‹¹ ì˜¤ë¥˜ ë°œìƒë˜ëŠ”ê²ƒìœ¼ë¡œ íŒë‹¨ë¨
+			String dbID = "";
+			String dbPassword = "";
 			
 			
 			conn = DriverManager.getConnection(dbURL, dbID, dbPassword);
@@ -35,10 +35,10 @@ public class FileDAO {
 	public int upload(String fileName, String fileRealName) {
 		String SQL = "INSERT INTO FILE VALUES (?, ?)";
 		try {
-			PreparedStatement pstmt = conn.prepareStatement(SQL); //SQL¹®ÀåÀ» ½ÇÇà ÁØºñ´Ü°è·Î ¼³Á¤ÇÔ
-			pstmt.setString(1, fileName);//Ã¹¹øÂ° ¹°À½Ç¥¿¡ µé¾î°¥ °ª
-			pstmt.setString(2, fileRealName);//µÎ¹øÂ° ¹°À½Ç¥¿¡ µé¾î°¥ °ª
-			return pstmt.executeUpdate(); //Á¤»óÀûÀ¸·Î µ¥ÀÌÅÍ°¡ ¹İÈ¯µÇ´Â°æ¿ì 1ÀÇ °ªÀ» ¹İÈ¯ÇÏ¿© Á¤»óÀûÀ¸·Î ÁøÇà‰çÀ½À» ¾Ë¸²
+			PreparedStatement pstmt = conn.prepareStatement(SQL); //SQLë¬¸ì¥ì„ ì‹¤í–‰ ì¤€ë¹„ë‹¨ê³„ë¡œ ì„¤ì •í•¨
+			pstmt.setString(1, fileName);//ì²«ë²ˆì§¸ ë¬¼ìŒí‘œì— ë“¤ì–´ê°ˆ ê°’
+			pstmt.setString(2, fileRealName);//ë‘ë²ˆì§¸ ë¬¼ìŒí‘œì— ë“¤ì–´ê°ˆ ê°’
+			return pstmt.executeUpdate(); //ì •ìƒì ìœ¼ë¡œ ë°ì´í„°ê°€ ë°˜í™˜ë˜ëŠ”ê²½ìš° 1ì˜ ê°’ì„ ë°˜í™˜í•˜ì—¬ ì •ìƒì ìœ¼ë¡œ ì§„í–‰Â‰ç‘›ìŠµ ì•Œë¦¼
 		}catch(Exception e) {
 			e.printStackTrace();
 		}
