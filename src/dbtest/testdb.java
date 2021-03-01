@@ -16,18 +16,18 @@ public class testdb {
          try {
             Class.forName(driver);
             con = DriverManager.getConnection(
-                    "jdbc:mariadb://localhost:3306/BBS",
-                    "root",
-                    "Dosxmffj505@#");
+                    "",
+                    "",
+                    "");
             
             if( con != null ) {
-                System.out.println("DB 立加 己傍");
+                System.out.println("DB 鞝戩啀 靹标车");
             }
             
         } catch (ClassNotFoundException e) { 
-            System.out.println("靛扼捞滚 肺靛 角菩");
+            System.out.println("霌滊澕鞚措矂 搿滊摐 鞁ろ尐");
         } catch (SQLException e) {
-            System.out.println("DB 立加 角菩");
+            System.out.println("DB 鞝戩啀 鞁ろ尐");
             e.printStackTrace();
         }
     }
