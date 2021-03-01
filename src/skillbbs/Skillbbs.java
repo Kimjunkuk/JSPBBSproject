@@ -9,17 +9,11 @@ public class Skillbbs {
 	private String skillbbsContent;
 	private int skillbbsAvailable;
 	
-	private String saveFileName;//09182020 ÀÌ¹ÌÁö ¾÷·Îµå¸¦ À§ÇÑ DTO(Database Transfer Object)
+	private String saveFileName;//09182020 ï¿½Ì¹ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Îµå¸¦ ï¿½ï¿½ï¿½ï¿½ DTO(Database Transfer Object)
 	
-	private int skillbbsCnt; //12022020 Á¶È¸¼ö Áõ°¡½ÃÅ°±â À§ÇÑ º¯¼ö 
+	private int skillbbsCnt; //12022020 ï¿½ï¿½È¸ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Å°ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ 
 	
 	
-	public String getSaveFileName() {
-		return saveFileName;
-	}//09182020 ÀÌ¹ÌÁö ¾÷·Îµå¸¦ À§ÇÑ DTO
-	public void setSaveFileName(String saveFileName) {
-		this.saveFileName = saveFileName;
-	}//09182020 ÀÌ¹ÌÁö ¾÷·Îµå¸¦ À§ÇÑ DTO
 	public int getSkillbbsID() {
 		return skillbbsID;
 	}
@@ -58,9 +52,9 @@ public class Skillbbs {
 	}
 	public int getSkillbbsCnt() {
 		return skillbbsCnt;
-	}//12022020 Á¶È¸¼ö Áõ°¡½ÃÅ°±â À§ÇÑ getter
+	}//12022020 ï¿½ï¿½È¸ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Å°ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ getter
 	public void setSkillbbsCnt(int skillbbsCnt) {
 		this.skillbbsCnt = skillbbsCnt;
-	}//12022020 Á¶È¸¼ö Áõ°¡½ÃÅ°±â À§ÇÑ setter
+	}//12022020 ï¿½ï¿½È¸ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Å°ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ setter
 	
 }

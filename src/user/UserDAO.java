@@ -16,7 +16,7 @@ public class UserDAO {
     PreparedStatement pstmt;
     ResultSet rs;
 	
-//	//»ý¼ºÀÚ
+//	//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 //	public UserDAO() {
 //		try {
 //			//67.167.223.168
@@ -35,10 +35,10 @@ public class UserDAO {
 //			
 //			//conn = DriverManager.getConnection(dbURL, dbID, dbPassword);
 //		} catch (ClassNotFoundException e){
-//			System.out.println("µå¶óÀÌ¹ö ·Îµå ½ÇÆÐ");
+//			System.out.println("ï¿½ï¿½ï¿½ï¿½Ì¹ï¿½ ï¿½Îµï¿½ ï¿½ï¿½ï¿½ï¿½");
 //			e.printStackTrace();
 //		} catch (SQLException e) {
-//			System.out.println("DB Á¢¼Ó½ÇÆÐ");
+//			System.out.println("DB ï¿½ï¿½ï¿½Ó½ï¿½ï¿½ï¿½");
 //			e.printStackTrace();
 //		}
 //		
@@ -48,11 +48,11 @@ public class UserDAO {
 		try {
 			
 			Class.forName("org.mariadb.jdbc.Driver");
-			String dbURL ="jdbc:mariadb://67.167.223.168:3306/BBS?autoReconnect=true&amp;useSSL=false";
+			String dbURL ="jdbc:mariadb://67.167.223.168:3306/bbs?autoReconnect=true&amp;useSSL=false";
 			//?autoReconnect=true&amp;useSSL=false
 			//?serverTimezone=Asia/Seoul&useSSL=false
 			//?autoReconnect=true&amp;useSSL=false
-			//DB¿¡ Áßº¹°ªÀÌ ÀÖÀ»°æ¿ì¿¡µµ ÇØ´ç ¿À·ù ¹ß»ýµÇ´Â°ÍÀ¸·Î ÆÇ´ÜµÊ
+			//DBï¿½ï¿½ ï¿½ßºï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ì¿¡ï¿½ï¿½ ï¿½Ø´ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ß»ï¿½ï¿½Ç´Â°ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ç´Üµï¿½
 			String dbID = "root";
 			String dbPassword = "Dosxmffj505@#";
 			
@@ -67,7 +67,7 @@ public class UserDAO {
 
 	
 	public int login(String userID, String userPassword) {
-		String SQL = "SELECT userPassword FROM USER WHERE userID = ?";
+		String SQL = "SELECT userPassword FROM user WHERE userID = ?";
 		
 		try {
 			pstmt = conn.prepareStatement(SQL);
@@ -76,22 +76,22 @@ public class UserDAO {
 			
 			if(rs.next()) {
 				if(rs.getString(1).equals(userPassword)) {
-					return 1; //·Î±×ÀÎ ¼º°ø
+					return 1; //ï¿½Î±ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 				}
 				else
-					return 0; //ºñ¹Ð¹øÈ£ ºÒÀÏÄ¡
+					return 0; //ï¿½ï¿½Ð¹ï¿½È£ ï¿½ï¿½ï¿½ï¿½Ä¡
 			}
-			return -1; //¾ÆÀÌµð ¾øÀ½
+			return -1; //ï¿½ï¿½ï¿½Ìµï¿½ ï¿½ï¿½ï¿½ï¿½
 			
 		}catch(Exception e) {
 			e.printStackTrace();
 		}
-		return -2; //µ¥ÀÌÅÍ º£ÀÌ½º ¿À·ù
+		return -2; //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ì½ï¿½ ï¿½ï¿½ï¿½ï¿½
 	}
 	
-	//UserÅ¬·¡½º¸¦ ÀÌ¿ëÇÏ¿© ¸¸µé¾îÁú ¼ö ÀÖ´Â ÇÏ³ªÀÇ ÀÎ½ºÅÏ½º 
+	//UserÅ¬ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ì¿ï¿½ï¿½Ï¿ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½Ö´ï¿½ ï¿½Ï³ï¿½ï¿½ï¿½ ï¿½Î½ï¿½ï¿½Ï½ï¿½ 
 	public int join(User user) {
-		String SQL = "INSERT INTO USER VALUES (?, ?, ?, ?, ?)";
+		String SQL = "INSERT INTO user VALUES (?, ?, ?, ?, ?)";
 		
 		try {
 			pstmt = conn.prepareStatement(SQL);
@@ -100,7 +100,7 @@ public class UserDAO {
 			pstmt.setString(3,  user.getUserName());
 			pstmt.setString(4,  user.getUserGender());
 			pstmt.setString(5,  user.getUserEmail());
-			return pstmt.executeUpdate(); //ÇØ´ç statement¸¦ ½ÇÇàÇÑ °á°ú¸¦ ³ÖÀ» ¼ö ÀÖµµ·Ï ÁöÁ¤
+			return pstmt.executeUpdate(); //ï¿½Ø´ï¿½ statementï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½Öµï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 		}catch(Exception e) {
 			e.printStackTrace();
 		}

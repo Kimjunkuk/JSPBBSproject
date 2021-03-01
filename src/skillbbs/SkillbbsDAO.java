@@ -13,16 +13,16 @@ public class SkillbbsDAO {
 
 	private ResultSet rs;
 	
-	//»ý¼ºÀÚ
+	//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 	public SkillbbsDAO() {
 		try {
 			
 			Class.forName("org.mariadb.jdbc.Driver");
-			String dbURL ="jdbc:mariadb://67.167.223.168:3306/BBS?autoReconnect=true&amp;useSSL=false";
+			String dbURL ="jdbc:mariadb://67.167.223.168:3306/bbs?autoReconnect=true&amp;useSSL=false";
 			//?autoReconnect=true&amp;useSSL=false
 			//?serverTimezone=Asia/Seoul&useSSL=false
 			//?autoReconnect=true&amp;useSSL=false
-			//DB¿¡ Áßº¹°ªÀÌ ÀÖÀ»°æ¿ì¿¡µµ ÇØ´ç ¿À·ù ¹ß»ýµÇ´Â°ÍÀ¸·Î ÆÇ´ÜµÊ
+			//DBï¿½ï¿½ ï¿½ßºï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ì¿¡ï¿½ï¿½ ï¿½Ø´ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ß»ï¿½ï¿½Ç´Â°ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ç´Üµï¿½
 			String dbID = "root";
 			String dbPassword = "Dosxmffj505@#";
 			
@@ -33,11 +33,11 @@ public class SkillbbsDAO {
 		}
 	}
 	
-	//ÇöÁ¦ ½Ã°£À» °¡Á®¿À´Â ÇÔ¼ö (¼­¹ö ½Ã°£ ±âÁØ)
+	//ï¿½ï¿½ï¿½ï¿½ ï¿½Ã°ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ô¼ï¿½ (ï¿½ï¿½ï¿½ï¿½ ï¿½Ã°ï¿½ ï¿½ï¿½ï¿½ï¿½)
 	public String getDate() {
 		String SQL = "SELECT NOW()";
 		try {
-			PreparedStatement pstmt = conn.prepareStatement(SQL); //SQL¹®ÀåÀ» ½ÇÇà ÁØºñ´Ü°è·Î ¼³Á¤ÇÔ
+			PreparedStatement pstmt = conn.prepareStatement(SQL); //SQLï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Øºï¿½Ü°ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 			rs = pstmt.executeQuery();
 			if (rs.next()) {
 				return rs.getString(1);
@@ -48,32 +48,32 @@ public class SkillbbsDAO {
 		}catch(Exception e) {
 			e.printStackTrace();
 		}
-		return ""; //µ¥ÀÌÅÍº£ÀÌ½º ¿À·ù
+		return ""; //ï¿½ï¿½ï¿½ï¿½ï¿½Íºï¿½ï¿½Ì½ï¿½ ï¿½ï¿½ï¿½ï¿½
 	}
 	
 	
 	public int getNext() {
-		String SQL = "SELECT skillbbsID FROM SKILLBBS ORDER BY skillbbsID DESC";
+		String SQL = "SELECT skillbbsID FROM skillbbs ORDER BY skillbbsID DESC";
 		try {
-			PreparedStatement pstmt = conn.prepareStatement(SQL); //SQL¹®ÀåÀ» ½ÇÇà ÁØºñ´Ü°è·Î ¼³Á¤ÇÔ
+			PreparedStatement pstmt = conn.prepareStatement(SQL); //SQLï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Øºï¿½Ü°ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 			rs = pstmt.executeQuery();
 			if (rs.next()) {
 				return rs.getInt(1) +1;
 			}
-			return 1; //Ã¹¹øÂ° °Ô½Ã¹°ÀÎ °æ¿ì
+			return 1; //Ã¹ï¿½ï¿½Â° ï¿½Ô½Ã¹ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½
 			
 		}catch(Exception e) {
 			e.printStackTrace();
 		}
-		return -1; //µ¥ÀÌÅÍº£ÀÌ½º ¿À·ù
+		return -1; //ï¿½ï¿½ï¿½ï¿½ï¿½Íºï¿½ï¿½Ì½ï¿½ ï¿½ï¿½ï¿½ï¿½
 	}
 	
 	public int write(String skillbbsTitle, String userID, String skillbbsContent) {
-		String SQL = "INSERT INTO SKILLBBS VALUES (?, ?, ?, ?, ?, ?, ?)";
+		String SQL = "INSERT INTO skillbbs VALUES (?, ?, ?, ?, ?, ?, ?)";
 		try {
-			PreparedStatement pstmt = conn.prepareStatement(SQL); //SQL¹®ÀåÀ» ½ÇÇà ÁØºñ´Ü°è·Î ¼³Á¤ÇÔ
+			PreparedStatement pstmt = conn.prepareStatement(SQL); //SQLï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Øºï¿½Ü°ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 			
-			//¿©±â¼­ ÇÏ³ª¾¿ °ªÀ» ³Ö¾îÁÙ ¼ö ÀÖµµ·Ï ÇÑ´Ù.
+			//ï¿½ï¿½ï¿½â¼­ ï¿½Ï³ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ö¾ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½Öµï¿½ï¿½ï¿½ ï¿½Ñ´ï¿½.
 			pstmt.setInt(1, getNext());
 			pstmt.setString(2, skillbbsTitle);
 			pstmt.setString(3, userID);
@@ -82,35 +82,35 @@ public class SkillbbsDAO {
 			pstmt.setInt(6, 1);
 			pstmt.setInt(7, 0);
 	
-			return pstmt.executeUpdate(); //Ã¹¹øÂ° °Ô½Ã¹°ÀÎ °æ¿ì
+			return pstmt.executeUpdate(); //Ã¹ï¿½ï¿½Â° ï¿½Ô½Ã¹ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½
 			
 		}catch(Exception e) {
 			e.printStackTrace();
 		}
-		return -1; //µ¥ÀÌÅÍº£ÀÌ½º ¿À·ù
+		return -1; //ï¿½ï¿½ï¿½ï¿½ï¿½Íºï¿½ï¿½Ì½ï¿½ ï¿½ï¿½ï¿½ï¿½
 	}
 	
-	//skillbbsID ±âÁØ ³»¸²Â÷¼ø Á¤·Ä ÇÔ¼ö(Äõ¸® : DESC)
+	//skillbbsID ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ô¼ï¿½(ï¿½ï¿½ï¿½ï¿½ : DESC)
 	public ArrayList<Skillbbs> getList(int pageNumber){
 		
-		//DESC LIMIT : ÇÑÆäÀÌÁö ³ëÃâ °Ô½Ã¹° ¼ö // skillbbsAvailable =1  »èÁ¦µÇÁö ¾ÊÀº °Ô½Ã¹°¸¸ ³ëÃâ ½ÃÅ³°Í 
-		String SQL = "SELECT * FROM SKILLBBS WHERE skillbbsID < ? AND skillbbsAvailable = 1 ORDER BY skillbbsID DESC LIMIT 10";
+		//DESC LIMIT : ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ô½Ã¹ï¿½ ï¿½ï¿½ // skillbbsAvailable =1  ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ô½Ã¹ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Å³ï¿½ï¿½ 
+		String SQL = "SELECT * FROM skillbbs WHERE skillbbsID < ? AND skillbbsAvailable = 1 ORDER BY skillbbsID DESC LIMIT 10";
 		
-		//skillbbs¿¡¼­ ³ª¿Ã ¼ö ÀÖ´Â ÀÎ½ºÅÏ½º¸¦ º¸°üÇÏ´Â ArrayList»ý¼º 
+		//skillbbsï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½Ö´ï¿½ ï¿½Î½ï¿½ï¿½Ï½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï´ï¿½ ArrayListï¿½ï¿½ï¿½ï¿½ 
 		ArrayList<Skillbbs> list = new ArrayList<Skillbbs>();
 		
 		try {
-			PreparedStatement pstmt = conn.prepareStatement(SQL); //SQL¹®ÀåÀ» ½ÇÇà ÁØºñ´Ü°è·Î ¼³Á¤ÇÔ
+			PreparedStatement pstmt = conn.prepareStatement(SQL); //SQLï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Øºï¿½Ü°ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 			
-			//getNext´Â ±×´ÙÀ½À¸·Î ÀÛ¼ºµÉ ±ÛÀÇ ¹øÈ£¸¦ ÀÇ¹ÌÇÑ´Ù. ÀÌ¿Í°°ÀÌ Ç¥ÇöÇÏÁö ¾ÊÀ¸¸é ÀÛ¼º±ÛÀÌ 5°³°¡ ³Ñ¾î°¥¶§ ¸¶´Ù ´ÙÀ½ ÆäÀÌÁö·Î ³Ñ¾î°¡°Ô µÇ´Â ¹®Á¦°¡ ¹ß»ýÇÏ°Ô µÈ´Ù.
+			//getNextï¿½ï¿½ ï¿½×´ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Û¼ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½È£ï¿½ï¿½ ï¿½Ç¹ï¿½ï¿½Ñ´ï¿½. ï¿½Ì¿Í°ï¿½ï¿½ï¿½ Ç¥ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Û¼ï¿½ï¿½ï¿½ï¿½ï¿½ 5ï¿½ï¿½ï¿½ï¿½ ï¿½Ñ¾î°¥ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ñ¾î°¡ï¿½ï¿½ ï¿½Ç´ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ß»ï¿½ï¿½Ï°ï¿½ ï¿½È´ï¿½.
 			pstmt.setInt(1, getNext() - (pageNumber - 1 ) * 10);
 			
 			rs = pstmt.executeQuery();
 			while (rs.next()) {
 				Skillbbs skillbbs = new Skillbbs();
 				
-				//À§ÀÇ SQLÄõ¸®¿¡¼­ skillbbs¿¡ ´ã±ä ¸ðµç ¼Ó¼ºÀ» ´Ù »©¿Ã °ÍÀÌ±â ¶§¹®¿¡ ¾Æ·¡¿Í °°ÀÌ ÀÛ¼ºµÇ¾ú´Ù. 
-				//¾Æ·¡¿Í °°ÀÌ GetÀ¸·Î µ¥ÀÌÅÍ¸¦ ÀüºÎ ¹Þ¾Æ¼­ À§ÀÇ skillbbs·Î ½ÃÀÛÇÏ´Â º¯¼ö¿¡ ´ã¾ÆÁÖ´Â°ÍÀÌ´Ù.
+				//ï¿½ï¿½ï¿½ï¿½ SQLï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ skillbbsï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½Ó¼ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ì±ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Æ·ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Û¼ï¿½ï¿½Ç¾ï¿½ï¿½ï¿½. 
+				//ï¿½Æ·ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ Getï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Í¸ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Þ¾Æ¼ï¿½ ï¿½ï¿½ï¿½ï¿½ skillbbsï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï´ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Ö´Â°ï¿½ï¿½Ì´ï¿½.
 				skillbbs.setSkillbbsID(rs.getInt(1)); 
 				skillbbs.setSkillbbsTitle(rs.getString(2)); 
 				skillbbs.setUserID(rs.getString(3)); 
@@ -118,24 +118,24 @@ public class SkillbbsDAO {
 				skillbbs.setSkillbbsContent(rs.getString(5)); 
 				skillbbs.setSkillbbsAvailable(rs.getInt(6));
 				skillbbs.setSkillbbsCnt(rs.getInt(7)); 
-				list.add(skillbbs);//¸®½ºÆ®¿¡ ÇØ´ç ÀÎ½ºÅÏ½º¸¦ ´ã¾Æ¼­ ¹ÝÈ¯ÇÑ´Ù
+				list.add(skillbbs);//ï¿½ï¿½ï¿½ï¿½Æ®ï¿½ï¿½ ï¿½Ø´ï¿½ ï¿½Î½ï¿½ï¿½Ï½ï¿½ï¿½ï¿½ ï¿½ï¿½Æ¼ï¿½ ï¿½ï¿½È¯ï¿½Ñ´ï¿½
 			}
 			
 		}catch(Exception e) {
 			e.printStackTrace();
 		}
-		return list; // ArrayList ÇÔ¼ö´Â ¸®½ºÆ®¸¦ ¸®ÅÏÇÑ´Ù
+		return list; // ArrayList ï¿½Ô¼ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Æ®ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ñ´ï¿½
 	}
 	
 	
-	// ÁöÁ¤µÈ ÆäÀÌÁö ÀÌ»ó µ¥ÀÌÅÍ°¡ Á¸Àç ÇÒ°æ¿ì Á¦¾î ¸Þ¼Òµå
+	// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ì»ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Í°ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ò°ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Þ¼Òµï¿½
 	public boolean nextPage(int pageNumber) {
-		//DESC LIMIT : ÇÑÆäÀÌÁö ³ëÃâ °Ô½Ã¹° ¼ö // skillbbsAvailable =1  »èÁ¦µÇÁö ¾ÊÀº °Ô½Ã¹°¸¸ ³ëÃâ ½ÃÅ³°Í 
-		String SQL = "SELECT * FROM SKILLBBS WHERE skillbbsID < ? AND skillbbsAvailable = 1 ";
+		//DESC LIMIT : ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ô½Ã¹ï¿½ ï¿½ï¿½ // skillbbsAvailable =1  ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ô½Ã¹ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Å³ï¿½ï¿½ 
+		String SQL = "SELECT * FROM skillbbs WHERE skillbbsID < ? AND skillbbsAvailable = 1 ";
 		try {
-			PreparedStatement pstmt = conn.prepareStatement(SQL); //SQL¹®ÀåÀ» ½ÇÇà ÁØºñ´Ü°è·Î ¼³Á¤ÇÔ
+			PreparedStatement pstmt = conn.prepareStatement(SQL); //SQLï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Øºï¿½Ü°ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 			
-			//getNext´Â ±×´ÙÀ½À¸·Î ÀÛ¼ºµÉ ±ÛÀÇ ¹øÈ£¸¦ ÀÇ¹ÌÇÑ´Ù. ÀÌ¿Í°°ÀÌ Ç¥ÇöÇÏÁö ¾ÊÀ¸¸é ÀÛ¼º±ÛÀÌ 5°³°¡ ³Ñ¾î°¥¶§ ¸¶´Ù ´ÙÀ½ ÆäÀÌÁö·Î ³Ñ¾î°¡°Ô µÇ´Â ¹®Á¦°¡ ¹ß»ýÇÏ°Ô µÈ´Ù.
+			//getNextï¿½ï¿½ ï¿½×´ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Û¼ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½È£ï¿½ï¿½ ï¿½Ç¹ï¿½ï¿½Ñ´ï¿½. ï¿½Ì¿Í°ï¿½ï¿½ï¿½ Ç¥ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Û¼ï¿½ï¿½ï¿½ï¿½ï¿½ 5ï¿½ï¿½ï¿½ï¿½ ï¿½Ñ¾î°¥ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ñ¾î°¡ï¿½ï¿½ ï¿½Ç´ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ß»ï¿½ï¿½Ï°ï¿½ ï¿½È´ï¿½.
 			pstmt.setInt(1, getNext() - (pageNumber - 1 ) * 10);
 			
 			rs = pstmt.executeQuery();
@@ -146,17 +146,17 @@ public class SkillbbsDAO {
 		}catch(Exception e) {
 			e.printStackTrace();
 		}
-		return false; // ArrayList ÇÔ¼ö´Â ¸®½ºÆ®¸¦ ¸®ÅÏÇÑ´Ù
+		return false; // ArrayList ï¿½Ô¼ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Æ®ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ñ´ï¿½
 	}
 	
 	
-	// ÃÑ ·¹ÄÚµåÀÇ ¼ö¸¦ ±¸ÇÏ±â À§ÇÑ ÇÔ¼ö 
+	// ï¿½ï¿½ ï¿½ï¿½ï¿½Úµï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ï±ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ô¼ï¿½ 
 	public int getCount(int pageNumber) {
-		//DESC:³»¸² Â÷¼ø Á¤·Ä  LIMIT : ÇÑÆäÀÌÁö ³ëÃâ °Ô½Ã¹° ¼ö // skillbbsAvailable =1  »èÁ¦µÇÁö ¾ÊÀº °Ô½Ã¹°¸¸ ³ëÃâ ½ÃÅ³°Í 
+		//DESC:ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½  LIMIT : ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ô½Ã¹ï¿½ ï¿½ï¿½ // skillbbsAvailable =1  ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ô½Ã¹ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Å³ï¿½ï¿½ 
 		int count=0;
-		String SQL = "SELECT count(*) FROM SKILLBBS WHERE skillbbsAvailable = 1 ";
+		String SQL = "SELECT count(*) FROM skillbbs WHERE skillbbsAvailable = 1 ";
 		try {
-			PreparedStatement pstmt = conn.prepareStatement(SQL); //SQL¹®ÀåÀ» ½ÇÇà ÁØºñ´Ü°è·Î ¼³Á¤ÇÔ
+			PreparedStatement pstmt = conn.prepareStatement(SQL); //SQLï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Øºï¿½Ü°ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 			
 			
 			rs = pstmt.executeQuery();
@@ -167,18 +167,18 @@ public class SkillbbsDAO {
 		}catch(Exception e) {
 			e.printStackTrace();
 		}
-		return count; // ArrayList ÇÔ¼ö´Â ¸®½ºÆ®¸¦ ¸®ÅÏÇÑ´Ù
+		return count; // ArrayList ï¿½Ô¼ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Æ®ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ñ´ï¿½
 	}
 	
 	
-	//view¸¦ ´­·¶À»¶§ °Ô½Ã±ÛÀ» °¡Á®¿À´Â ÇÔ¼ö
+	//viewï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ô½Ã±ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ô¼ï¿½
 	public Skillbbs getSkillbbs(int skillbbsID) {
-		//skillbbsID¿¡ ÇØ´çÇÏ´Â °Ô½Ã±ÛÀÇ ¹øÈ£¸¦ ³Ö¾î¼­ ±×°ªÀ» SQL¿¡ ´ã¾Æ ±×´ë·Î °¡Á®¿À´Â°ÍÀÌ´Ù 
-		String SQL = "SELECT * FROM SKILLBBS WHERE skillbbsID = ? ";
+		//skillbbsIDï¿½ï¿½ ï¿½Ø´ï¿½ï¿½Ï´ï¿½ ï¿½Ô½Ã±ï¿½ï¿½ï¿½ ï¿½ï¿½È£ï¿½ï¿½ ï¿½Ö¾î¼­ ï¿½×°ï¿½ï¿½ï¿½ SQLï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½×´ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Â°ï¿½ï¿½Ì´ï¿½ 
+		String SQL = "SELECT * FROM skillbbs WHERE skillbbsID = ? ";
 		try {
-			PreparedStatement pstmt = conn.prepareStatement(SQL); //SQL¹®ÀåÀ» ½ÇÇà ÁØºñ´Ü°è·Î ¼³Á¤ÇÔ
+			PreparedStatement pstmt = conn.prepareStatement(SQL); //SQLï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Øºï¿½Ü°ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 			
-			//getNext´Â ±×´ÙÀ½À¸·Î ÀÛ¼ºµÉ ±ÛÀÇ ¹øÈ£¸¦ ÀÇ¹ÌÇÑ´Ù. ÀÌ¿Í°°ÀÌ Ç¥ÇöÇÏÁö ¾ÊÀ¸¸é ÀÛ¼º±ÛÀÌ 5°³°¡ ³Ñ¾î°¥¶§ ¸¶´Ù ´ÙÀ½ ÆäÀÌÁö·Î ³Ñ¾î°¡°Ô µÇ´Â ¹®Á¦°¡ ¹ß»ýÇÏ°Ô µÈ´Ù.
+			//getNextï¿½ï¿½ ï¿½×´ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Û¼ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½È£ï¿½ï¿½ ï¿½Ç¹ï¿½ï¿½Ñ´ï¿½. ï¿½Ì¿Í°ï¿½ï¿½ï¿½ Ç¥ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Û¼ï¿½ï¿½ï¿½ï¿½ï¿½ 5ï¿½ï¿½ï¿½ï¿½ ï¿½Ñ¾î°¥ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ñ¾î°¡ï¿½ï¿½ ï¿½Ç´ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ß»ï¿½ï¿½Ï°ï¿½ ï¿½È´ï¿½.
 			pstmt.setInt(1, skillbbsID);
 			
 			rs = pstmt.executeQuery();
@@ -187,7 +187,7 @@ public class SkillbbsDAO {
 				
 				Skillbbs skillbbs = new Skillbbs();
 				
-				//¾Æ·¡¿Í °°ÀÌ GetÀ¸·Î µ¥ÀÌÅÍ¸¦ ÀüºÎ ¹Þ¾Æ¼­ À§ÀÇ skillbbs¿¡ ´ã¾Æ getSkillbbsÇÔ¼ö¸¦ È£ÃâÇÑ ´ë»óÇÑÅ× ¹ÝÈ¯ÇØ ÁØ´Ù.
+				//ï¿½Æ·ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ Getï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Í¸ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Þ¾Æ¼ï¿½ ï¿½ï¿½ï¿½ï¿½ skillbbsï¿½ï¿½ ï¿½ï¿½ï¿½ getSkillbbsï¿½Ô¼ï¿½ï¿½ï¿½ È£ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½È¯ï¿½ï¿½ ï¿½Ø´ï¿½.
 				skillbbs.setSkillbbsID(rs.getInt(1)); 
 				skillbbs.setSkillbbsTitle(rs.getString(2)); 
 				skillbbs.setUserID(rs.getString(3)); 
@@ -202,36 +202,36 @@ public class SkillbbsDAO {
 		}catch(Exception e) {
 			e.printStackTrace();
 		}
-		return null; // ArrayList ÇÔ¼ö´Â ¸®½ºÆ®¸¦ ¸®ÅÏÇÑ´Ù
+		return null; // ArrayList ï¿½Ô¼ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Æ®ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ñ´ï¿½
 	}
 	
-	//°Ô½Ã¹° ¼öÁ¤ ÇÔ¼ö 
+	//ï¿½Ô½Ã¹ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ô¼ï¿½ 
 	public int update(int skillbbsID, String skillbbsTitle, String skillbbsContent) {
 		
-		//Æ¯Á¤ ¾ÆÀÌµð¿¡ ÇØ´çÇÏ´Â Á¦¸ñ°ú ³»¿ëÀ» ¹Ù²ãÁÖ°Ú´Ù´Â ³»¿ë
-		String SQL = "UPDATE SKILLBBS SET skillbbsTitle =?, skillbbsContent = ? WHERE skillbbsID = ?";
+		//Æ¯ï¿½ï¿½ ï¿½ï¿½ï¿½Ìµï¿½ ï¿½Ø´ï¿½ï¿½Ï´ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ù²ï¿½ï¿½Ö°Ú´Ù´ï¿½ ï¿½ï¿½ï¿½ï¿½
+		String SQL = "UPDATE skillbbs SET skillbbsTitle =?, skillbbsContent = ? WHERE skillbbsID = ?";
 		try {
-			PreparedStatement pstmt = conn.prepareStatement(SQL); //SQL¹®ÀåÀ» ½ÇÇà ÁØºñ´Ü°è·Î ¼³Á¤ÇÔ
+			PreparedStatement pstmt = conn.prepareStatement(SQL); //SQLï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Øºï¿½Ü°ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 			
 
 			pstmt.setString(1, skillbbsTitle);
 			pstmt.setString(2, skillbbsContent);
 			pstmt.setInt(3, skillbbsID);
 	
-			return pstmt.executeUpdate(); //Ã¹¹øÂ° °Ô½Ã¹°ÀÎ °æ¿ì
+			return pstmt.executeUpdate(); //Ã¹ï¿½ï¿½Â° ï¿½Ô½Ã¹ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½
 			
 		}catch(Exception e) {
 			e.printStackTrace();
 		}
-		return -1; //µ¥ÀÌÅÍº£ÀÌ½º ¿À·ù
+		return -1; //ï¿½ï¿½ï¿½ï¿½ï¿½Íºï¿½ï¿½Ì½ï¿½ ï¿½ï¿½ï¿½ï¿½
 	}
 	
-	//°Ô½Ã¹° »èÁ¦ ÇÔ¼ö
+	//ï¿½Ô½Ã¹ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ô¼ï¿½
 	public int delete(int skillbbsID) {
-		//Æ¯Á¤ ¾ÆÀÌµð¿¡ ÇØ´çÇÏ´Â Á¦¸ñ°ú ³»¿ëÀ» ¹Ù²ãÁÖ°Ú´Ù´Â ³»¿ë
-		String SQL = "UPDATE SKILLBBS SET skillbbsAvailable = 0 WHERE skillbbsID = ?";
+		//Æ¯ï¿½ï¿½ ï¿½ï¿½ï¿½Ìµï¿½ ï¿½Ø´ï¿½ï¿½Ï´ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ù²ï¿½ï¿½Ö°Ú´Ù´ï¿½ ï¿½ï¿½ï¿½ï¿½
+		String SQL = "UPDATE skillbbs SET skillbbsAvailable = 0 WHERE skillbbsID = ?";
 		try {
-			PreparedStatement pstmt = conn.prepareStatement(SQL); //SQL¹®ÀåÀ» ½ÇÇà ÁØºñ´Ü°è·Î ¼³Á¤ÇÔ
+			PreparedStatement pstmt = conn.prepareStatement(SQL); //SQLï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Øºï¿½Ü°ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 			pstmt.setInt(1, skillbbsID);
 
 			return pstmt.executeUpdate(); 
@@ -239,17 +239,17 @@ public class SkillbbsDAO {
 		}catch(Exception e) {
 			e.printStackTrace();
 		}
-		return -1; //µ¥ÀÌÅÍº£ÀÌ½º ¿À·ù
+		return -1; //ï¿½ï¿½ï¿½ï¿½ï¿½Íºï¿½ï¿½Ì½ï¿½ ï¿½ï¿½ï¿½ï¿½
 	
 	}
 	
-	//Á¶È¸¼ö Áõ°¡ ÇÔ¼ö
+	//ï¿½ï¿½È¸ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ô¼ï¿½
 	public int updateBoardCnt(int skillbbsID) {
-		//Æ¯Á¤ ¾ÆÀÌµð¿¡ ÇØ´çÇÏ´Â Á¶È¸¼ö¸¦ 1Áõ°¡ ½ÃÅ°°Ú´Ù´Â ³»¿ë
-		String SQL = "UPDATE SKILLBBS SET skillbbsCnt = skillbbsCnt+1 WHERE skillbbsID=?";
+		//Æ¯ï¿½ï¿½ ï¿½ï¿½ï¿½Ìµï¿½ ï¿½Ø´ï¿½ï¿½Ï´ï¿½ ï¿½ï¿½È¸ï¿½ï¿½ï¿½ï¿½ 1ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Å°ï¿½Ú´Ù´ï¿½ ï¿½ï¿½ï¿½ï¿½
+		String SQL = "UPDATE skillbbs SET skillbbsCnt = skillbbsCnt+1 WHERE skillbbsID=?";
 
 		try {
-			PreparedStatement pstmt = conn.prepareStatement(SQL); //SQL¹®ÀåÀ» ½ÇÇà ÁØºñ´Ü°è·Î ¼³Á¤ÇÔ
+			PreparedStatement pstmt = conn.prepareStatement(SQL); //SQLï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Øºï¿½Ü°ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 
 			pstmt.setInt(1, skillbbsID);
 
@@ -258,30 +258,30 @@ public class SkillbbsDAO {
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-		return -1; //µ¥ÀÌÅÍº£ÀÌ½º ¿À·ù
+		return -1; //ï¿½ï¿½ï¿½ï¿½ï¿½Íºï¿½ï¿½Ì½ï¿½ ï¿½ï¿½ï¿½ï¿½
 	}
 	
-	//skillbbsID ±âÁØ ¿À¸§ Â÷¼ø Á¤·Ä ÇÔ¼ö (Äõ¸®:ASC)
+	//skillbbsID ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ô¼ï¿½ (ï¿½ï¿½ï¿½ï¿½:ASC)
 	public ArrayList<Skillbbs> downgetList(int pageNumber){
 		
-		// LIMIT : ÇÑÆäÀÌÁö ³ëÃâ °Ô½Ã¹° ¼ö // skillbbsAvailable =1  »èÁ¦µÇÁö ¾ÊÀº °Ô½Ã¹°¸¸ ³ëÃâ ½ÃÅ³°Í 
-		String SQL = "SELECT * FROM SKILLBBS WHERE skillbbsID < ? AND skillbbsAvailable = 1 ORDER BY skillbbsID ASC LIMIT 10";
+		// LIMIT : ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ô½Ã¹ï¿½ ï¿½ï¿½ // skillbbsAvailable =1  ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ô½Ã¹ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Å³ï¿½ï¿½ 
+		String SQL = "SELECT * FROM skillbbs WHERE skillbbsID < ? AND skillbbsAvailable = 1 ORDER BY skillbbsID ASC LIMIT 10";
 		
-		//skillbbs¿¡¼­ ³ª¿Ã ¼ö ÀÖ´Â ÀÎ½ºÅÏ½º¸¦ º¸°üÇÏ´Â ArrayList»ý¼º 
+		//skillbbsï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½Ö´ï¿½ ï¿½Î½ï¿½ï¿½Ï½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï´ï¿½ ArrayListï¿½ï¿½ï¿½ï¿½ 
 		ArrayList<Skillbbs> list = new ArrayList<Skillbbs>();
 		
 		try {
-			PreparedStatement pstmt = conn.prepareStatement(SQL); //SQL¹®ÀåÀ» ½ÇÇà ÁØºñ´Ü°è·Î ¼³Á¤ÇÔ
+			PreparedStatement pstmt = conn.prepareStatement(SQL); //SQLï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Øºï¿½Ü°ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 			
-			//getNext´Â ±×´ÙÀ½À¸·Î ÀÛ¼ºµÉ ±ÛÀÇ ¹øÈ£¸¦ ÀÇ¹ÌÇÑ´Ù. ÀÌ¿Í°°ÀÌ Ç¥ÇöÇÏÁö ¾ÊÀ¸¸é ÀÛ¼º±ÛÀÌ 5°³°¡ ³Ñ¾î°¥¶§ ¸¶´Ù ´ÙÀ½ ÆäÀÌÁö·Î ³Ñ¾î°¡°Ô µÇ´Â ¹®Á¦°¡ ¹ß»ýÇÏ°Ô µÈ´Ù.
+			//getNextï¿½ï¿½ ï¿½×´ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Û¼ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½È£ï¿½ï¿½ ï¿½Ç¹ï¿½ï¿½Ñ´ï¿½. ï¿½Ì¿Í°ï¿½ï¿½ï¿½ Ç¥ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Û¼ï¿½ï¿½ï¿½ï¿½ï¿½ 5ï¿½ï¿½ï¿½ï¿½ ï¿½Ñ¾î°¥ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ñ¾î°¡ï¿½ï¿½ ï¿½Ç´ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ß»ï¿½ï¿½Ï°ï¿½ ï¿½È´ï¿½.
 			pstmt.setInt(1, getNext() - (pageNumber - 1 ) * 10);
 			
 			rs = pstmt.executeQuery();
 			while (rs.next()) {
 				Skillbbs skillbbs = new Skillbbs();
 				
-				//À§ÀÇ SQLÄõ¸®¿¡¼­ skillbbs¿¡ ´ã±ä ¸ðµç ¼Ó¼ºÀ» ´Ù »©¿Ã °ÍÀÌ±â ¶§¹®¿¡ ¾Æ·¡¿Í °°ÀÌ ÀÛ¼ºµÇ¾ú´Ù. 
-				//¾Æ·¡¿Í °°ÀÌ GetÀ¸·Î µ¥ÀÌÅÍ¸¦ ÀüºÎ ¹Þ¾Æ¼­ À§ÀÇ skillbbs·Î ½ÃÀÛÇÏ´Â º¯¼ö¿¡ ´ã¾ÆÁÖ´Â°ÍÀÌ´Ù.
+				//ï¿½ï¿½ï¿½ï¿½ SQLï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ skillbbsï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½Ó¼ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ì±ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Æ·ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Û¼ï¿½ï¿½Ç¾ï¿½ï¿½ï¿½. 
+				//ï¿½Æ·ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ Getï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Í¸ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Þ¾Æ¼ï¿½ ï¿½ï¿½ï¿½ï¿½ skillbbsï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï´ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Ö´Â°ï¿½ï¿½Ì´ï¿½.
 				skillbbs.setSkillbbsID(rs.getInt(1)); 
 				skillbbs.setSkillbbsTitle(rs.getString(2)); 
 				skillbbs.setUserID(rs.getString(3)); 
@@ -289,36 +289,36 @@ public class SkillbbsDAO {
 				skillbbs.setSkillbbsContent(rs.getString(5)); 
 				skillbbs.setSkillbbsAvailable(rs.getInt(6));
 				skillbbs.setSkillbbsCnt(rs.getInt(7)); 
-				list.add(skillbbs);//¸®½ºÆ®¿¡ ÇØ´ç ÀÎ½ºÅÏ½º¸¦ ´ã¾Æ¼­ ¹ÝÈ¯ÇÑ´Ù
+				list.add(skillbbs);//ï¿½ï¿½ï¿½ï¿½Æ®ï¿½ï¿½ ï¿½Ø´ï¿½ ï¿½Î½ï¿½ï¿½Ï½ï¿½ï¿½ï¿½ ï¿½ï¿½Æ¼ï¿½ ï¿½ï¿½È¯ï¿½Ñ´ï¿½
 			}
 			
 		}catch(Exception e) {
 			e.printStackTrace();
 		}
-		return list; // ArrayList ÇÔ¼ö´Â ¸®½ºÆ®¸¦ ¸®ÅÏÇÑ´Ù
+		return list; // ArrayList ï¿½Ô¼ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Æ®ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ñ´ï¿½
 	}
 	
-	//skillbbsTitle ±âÁØ ³»¸² Â÷¼ø Á¤·Ä ÇÔ¼ö (Äõ¸®:DESC)
+	//skillbbsTitle ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ô¼ï¿½ (ï¿½ï¿½ï¿½ï¿½:DESC)
 	public ArrayList<Skillbbs> upSkillbbstitle(int pageNumber){
 		
-		// LIMIT : ÇÑÆäÀÌÁö ³ëÃâ °Ô½Ã¹° ¼ö // skillbbsAvailable =1  »èÁ¦µÇÁö ¾ÊÀº °Ô½Ã¹°¸¸ ³ëÃâ ½ÃÅ³°Í 
-		String SQL = "SELECT * FROM SKILLBBS WHERE skillbbsID < ? AND skillbbsAvailable = 1 ORDER BY skillbbsTitle DESC LIMIT 10";
+		// LIMIT : ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ô½Ã¹ï¿½ ï¿½ï¿½ // skillbbsAvailable =1  ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ô½Ã¹ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Å³ï¿½ï¿½ 
+		String SQL = "SELECT * FROM skillbbs WHERE skillbbsID < ? AND skillbbsAvailable = 1 ORDER BY skillbbsTitle DESC LIMIT 10";
 		
-		//skillbbs¿¡¼­ ³ª¿Ã ¼ö ÀÖ´Â ÀÎ½ºÅÏ½º¸¦ º¸°üÇÏ´Â ArrayList»ý¼º 
+		//skillbbsï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½Ö´ï¿½ ï¿½Î½ï¿½ï¿½Ï½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï´ï¿½ ArrayListï¿½ï¿½ï¿½ï¿½ 
 		ArrayList<Skillbbs> list = new ArrayList<Skillbbs>();
 		
 		try {
-			PreparedStatement pstmt = conn.prepareStatement(SQL); //SQL¹®ÀåÀ» ½ÇÇà ÁØºñ´Ü°è·Î ¼³Á¤ÇÔ
+			PreparedStatement pstmt = conn.prepareStatement(SQL); //SQLï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Øºï¿½Ü°ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 			
-			//getNext´Â ±×´ÙÀ½À¸·Î ÀÛ¼ºµÉ ±ÛÀÇ ¹øÈ£¸¦ ÀÇ¹ÌÇÑ´Ù. ÀÌ¿Í°°ÀÌ Ç¥ÇöÇÏÁö ¾ÊÀ¸¸é ÀÛ¼º±ÛÀÌ 5°³°¡ ³Ñ¾î°¥¶§ ¸¶´Ù ´ÙÀ½ ÆäÀÌÁö·Î ³Ñ¾î°¡°Ô µÇ´Â ¹®Á¦°¡ ¹ß»ýÇÏ°Ô µÈ´Ù.
+			//getNextï¿½ï¿½ ï¿½×´ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Û¼ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½È£ï¿½ï¿½ ï¿½Ç¹ï¿½ï¿½Ñ´ï¿½. ï¿½Ì¿Í°ï¿½ï¿½ï¿½ Ç¥ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Û¼ï¿½ï¿½ï¿½ï¿½ï¿½ 5ï¿½ï¿½ï¿½ï¿½ ï¿½Ñ¾î°¥ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ñ¾î°¡ï¿½ï¿½ ï¿½Ç´ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ß»ï¿½ï¿½Ï°ï¿½ ï¿½È´ï¿½.
 			pstmt.setInt(1, getNext() - (pageNumber - 1 ) * 10);
 			
 			rs = pstmt.executeQuery();
 			while (rs.next()) {
 				Skillbbs skillbbs = new Skillbbs();
 				
-				//À§ÀÇ SQLÄõ¸®¿¡¼­ skillbbs¿¡ ´ã±ä ¸ðµç ¼Ó¼ºÀ» ´Ù »©¿Ã °ÍÀÌ±â ¶§¹®¿¡ ¾Æ·¡¿Í °°ÀÌ ÀÛ¼ºµÇ¾ú´Ù. 
-				//¾Æ·¡¿Í °°ÀÌ GetÀ¸·Î µ¥ÀÌÅÍ¸¦ ÀüºÎ ¹Þ¾Æ¼­ À§ÀÇ skillbbs·Î ½ÃÀÛÇÏ´Â º¯¼ö¿¡ ´ã¾ÆÁÖ´Â°ÍÀÌ´Ù.
+				//ï¿½ï¿½ï¿½ï¿½ SQLï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ skillbbsï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½Ó¼ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ì±ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Æ·ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Û¼ï¿½ï¿½Ç¾ï¿½ï¿½ï¿½. 
+				//ï¿½Æ·ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ Getï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Í¸ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Þ¾Æ¼ï¿½ ï¿½ï¿½ï¿½ï¿½ skillbbsï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï´ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Ö´Â°ï¿½ï¿½Ì´ï¿½.
 				skillbbs.setSkillbbsID(rs.getInt(1)); 
 				skillbbs.setSkillbbsTitle(rs.getString(2)); 
 				skillbbs.setUserID(rs.getString(3)); 
@@ -326,37 +326,37 @@ public class SkillbbsDAO {
 				skillbbs.setSkillbbsContent(rs.getString(5)); 
 				skillbbs.setSkillbbsAvailable(rs.getInt(6));
 				skillbbs.setSkillbbsCnt(rs.getInt(7)); 
-				list.add(skillbbs);//¸®½ºÆ®¿¡ ÇØ´ç ÀÎ½ºÅÏ½º¸¦ ´ã¾Æ¼­ ¹ÝÈ¯ÇÑ´Ù
+				list.add(skillbbs);//ï¿½ï¿½ï¿½ï¿½Æ®ï¿½ï¿½ ï¿½Ø´ï¿½ ï¿½Î½ï¿½ï¿½Ï½ï¿½ï¿½ï¿½ ï¿½ï¿½Æ¼ï¿½ ï¿½ï¿½È¯ï¿½Ñ´ï¿½
 			}
 
 			
 		}catch(Exception e) {
 			e.printStackTrace();
 		}
-		return list; // ArrayList ÇÔ¼ö´Â ¸®½ºÆ®¸¦ ¸®ÅÏÇÑ´Ù
+		return list; // ArrayList ï¿½Ô¼ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Æ®ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ñ´ï¿½
 	}
 	
-	//skillbbsTitle ±âÁØ ¿À¸§ Â÷¼ø Á¤·Ä ÇÔ¼ö (Äõ¸®:ASC)
+	//skillbbsTitle ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ô¼ï¿½ (ï¿½ï¿½ï¿½ï¿½:ASC)
 	public ArrayList<Skillbbs> downSkillbbstitle(int pageNumber){
 		
-		// LIMIT : ÇÑÆäÀÌÁö ³ëÃâ °Ô½Ã¹° ¼ö // skillbbsAvailable =1  »èÁ¦µÇÁö ¾ÊÀº °Ô½Ã¹°¸¸ ³ëÃâ ½ÃÅ³°Í 
-		String SQL = "SELECT * FROM SKILLBBS WHERE skillbbsID < ? AND skillbbsAvailable = 1 ORDER BY skillbbsTitle ASC LIMIT 10";
+		// LIMIT : ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ô½Ã¹ï¿½ ï¿½ï¿½ // skillbbsAvailable =1  ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ô½Ã¹ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Å³ï¿½ï¿½ 
+		String SQL = "SELECT * FROM skillbbs WHERE skillbbsID < ? AND skillbbsAvailable = 1 ORDER BY skillbbsTitle ASC LIMIT 10";
 		
-		//skillbbs¿¡¼­ ³ª¿Ã ¼ö ÀÖ´Â ÀÎ½ºÅÏ½º¸¦ º¸°üÇÏ´Â ArrayList»ý¼º 
+		//skillbbsï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½Ö´ï¿½ ï¿½Î½ï¿½ï¿½Ï½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï´ï¿½ ArrayListï¿½ï¿½ï¿½ï¿½ 
 		ArrayList<Skillbbs> list = new ArrayList<Skillbbs>();
 		
 		try {
-			PreparedStatement pstmt = conn.prepareStatement(SQL); //SQL¹®ÀåÀ» ½ÇÇà ÁØºñ´Ü°è·Î ¼³Á¤ÇÔ
+			PreparedStatement pstmt = conn.prepareStatement(SQL); //SQLï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Øºï¿½Ü°ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 			
-			//getNext´Â ±×´ÙÀ½À¸·Î ÀÛ¼ºµÉ ±ÛÀÇ ¹øÈ£¸¦ ÀÇ¹ÌÇÑ´Ù. ÀÌ¿Í°°ÀÌ Ç¥ÇöÇÏÁö ¾ÊÀ¸¸é ÀÛ¼º±ÛÀÌ 5°³°¡ ³Ñ¾î°¥¶§ ¸¶´Ù ´ÙÀ½ ÆäÀÌÁö·Î ³Ñ¾î°¡°Ô µÇ´Â ¹®Á¦°¡ ¹ß»ýÇÏ°Ô µÈ´Ù.
+			//getNextï¿½ï¿½ ï¿½×´ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Û¼ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½È£ï¿½ï¿½ ï¿½Ç¹ï¿½ï¿½Ñ´ï¿½. ï¿½Ì¿Í°ï¿½ï¿½ï¿½ Ç¥ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Û¼ï¿½ï¿½ï¿½ï¿½ï¿½ 5ï¿½ï¿½ï¿½ï¿½ ï¿½Ñ¾î°¥ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ñ¾î°¡ï¿½ï¿½ ï¿½Ç´ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ß»ï¿½ï¿½Ï°ï¿½ ï¿½È´ï¿½.
 			pstmt.setInt(1, getNext() - (pageNumber - 1 ) * 10);
 			
 			rs = pstmt.executeQuery();
 			while (rs.next()) {
 				Skillbbs skillbbs = new Skillbbs();
 				
-				//À§ÀÇ SQLÄõ¸®¿¡¼­ skillbbs¿¡ ´ã±ä ¸ðµç ¼Ó¼ºÀ» ´Ù »©¿Ã °ÍÀÌ±â ¶§¹®¿¡ ¾Æ·¡¿Í °°ÀÌ ÀÛ¼ºµÇ¾ú´Ù. 
-				//¾Æ·¡¿Í °°ÀÌ GetÀ¸·Î µ¥ÀÌÅÍ¸¦ ÀüºÎ ¹Þ¾Æ¼­ À§ÀÇ skillbbs·Î ½ÃÀÛÇÏ´Â º¯¼ö¿¡ ´ã¾ÆÁÖ´Â°ÍÀÌ´Ù.
+				//ï¿½ï¿½ï¿½ï¿½ SQLï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ skillbbsï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½Ó¼ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ì±ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Æ·ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Û¼ï¿½ï¿½Ç¾ï¿½ï¿½ï¿½. 
+				//ï¿½Æ·ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ Getï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Í¸ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Þ¾Æ¼ï¿½ ï¿½ï¿½ï¿½ï¿½ skillbbsï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï´ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Ö´Â°ï¿½ï¿½Ì´ï¿½.
 				skillbbs.setSkillbbsID(rs.getInt(1)); 
 				skillbbs.setSkillbbsTitle(rs.getString(2)); 
 				skillbbs.setUserID(rs.getString(3)); 
@@ -364,37 +364,37 @@ public class SkillbbsDAO {
 				skillbbs.setSkillbbsContent(rs.getString(5)); 
 				skillbbs.setSkillbbsAvailable(rs.getInt(6));
 				skillbbs.setSkillbbsCnt(rs.getInt(7)); 
-				list.add(skillbbs);//¸®½ºÆ®¿¡ ÇØ´ç ÀÎ½ºÅÏ½º¸¦ ´ã¾Æ¼­ ¹ÝÈ¯ÇÑ´Ù
+				list.add(skillbbs);//ï¿½ï¿½ï¿½ï¿½Æ®ï¿½ï¿½ ï¿½Ø´ï¿½ ï¿½Î½ï¿½ï¿½Ï½ï¿½ï¿½ï¿½ ï¿½ï¿½Æ¼ï¿½ ï¿½ï¿½È¯ï¿½Ñ´ï¿½
 			}
 
 			
 		}catch(Exception e) {
 			e.printStackTrace();
 		}
-		return list; // ArrayList ÇÔ¼ö´Â ¸®½ºÆ®¸¦ ¸®ÅÏÇÑ´Ù
+		return list; // ArrayList ï¿½Ô¼ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Æ®ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ñ´ï¿½
 	}
 	
-	//userID ±âÁØ ¿À¸§ Â÷¼ø Á¤·Ä ÇÔ¼ö (Äõ¸®:ASC)
+	//userID ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ô¼ï¿½ (ï¿½ï¿½ï¿½ï¿½:ASC)
 	public ArrayList<Skillbbs> upuserID(int pageNumber){
 		
-		// LIMIT : ÇÑÆäÀÌÁö ³ëÃâ °Ô½Ã¹° ¼ö // skillbbsAvailable =1  »èÁ¦µÇÁö ¾ÊÀº °Ô½Ã¹°¸¸ ³ëÃâ ½ÃÅ³°Í 
-		String SQL = "SELECT * FROM SKILLBBS WHERE skillbbsID < ? AND skillbbsAvailable = 1 ORDER BY userID ASC LIMIT 10";
+		// LIMIT : ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ô½Ã¹ï¿½ ï¿½ï¿½ // skillbbsAvailable =1  ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ô½Ã¹ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Å³ï¿½ï¿½ 
+		String SQL = "SELECT * FROM skillbbs WHERE skillbbsID < ? AND skillbbsAvailable = 1 ORDER BY userID ASC LIMIT 10";
 		
-		//skillbbs¿¡¼­ ³ª¿Ã ¼ö ÀÖ´Â ÀÎ½ºÅÏ½º¸¦ º¸°üÇÏ´Â ArrayList»ý¼º 
+		//skillbbsï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½Ö´ï¿½ ï¿½Î½ï¿½ï¿½Ï½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï´ï¿½ ArrayListï¿½ï¿½ï¿½ï¿½ 
 		ArrayList<Skillbbs> list = new ArrayList<Skillbbs>();
 		
 		try {
-			PreparedStatement pstmt = conn.prepareStatement(SQL); //SQL¹®ÀåÀ» ½ÇÇà ÁØºñ´Ü°è·Î ¼³Á¤ÇÔ
+			PreparedStatement pstmt = conn.prepareStatement(SQL); //SQLï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Øºï¿½Ü°ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 			
-			//getNext´Â ±×´ÙÀ½À¸·Î ÀÛ¼ºµÉ ±ÛÀÇ ¹øÈ£¸¦ ÀÇ¹ÌÇÑ´Ù. ÀÌ¿Í°°ÀÌ Ç¥ÇöÇÏÁö ¾ÊÀ¸¸é ÀÛ¼º±ÛÀÌ 5°³°¡ ³Ñ¾î°¥¶§ ¸¶´Ù ´ÙÀ½ ÆäÀÌÁö·Î ³Ñ¾î°¡°Ô µÇ´Â ¹®Á¦°¡ ¹ß»ýÇÏ°Ô µÈ´Ù.
+			//getNextï¿½ï¿½ ï¿½×´ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Û¼ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½È£ï¿½ï¿½ ï¿½Ç¹ï¿½ï¿½Ñ´ï¿½. ï¿½Ì¿Í°ï¿½ï¿½ï¿½ Ç¥ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Û¼ï¿½ï¿½ï¿½ï¿½ï¿½ 5ï¿½ï¿½ï¿½ï¿½ ï¿½Ñ¾î°¥ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ñ¾î°¡ï¿½ï¿½ ï¿½Ç´ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ß»ï¿½ï¿½Ï°ï¿½ ï¿½È´ï¿½.
 			pstmt.setInt(1, getNext() - (pageNumber - 1 ) * 10);
 			
 			rs = pstmt.executeQuery();
 			while (rs.next()) {
 				Skillbbs skillbbs = new Skillbbs();
 				
-				//À§ÀÇ SQLÄõ¸®¿¡¼­ skillbbs¿¡ ´ã±ä ¸ðµç ¼Ó¼ºÀ» ´Ù »©¿Ã °ÍÀÌ±â ¶§¹®¿¡ ¾Æ·¡¿Í °°ÀÌ ÀÛ¼ºµÇ¾ú´Ù. 
-				//¾Æ·¡¿Í °°ÀÌ GetÀ¸·Î µ¥ÀÌÅÍ¸¦ ÀüºÎ ¹Þ¾Æ¼­ À§ÀÇ skillbbs·Î ½ÃÀÛÇÏ´Â º¯¼ö¿¡ ´ã¾ÆÁÖ´Â°ÍÀÌ´Ù.
+				//ï¿½ï¿½ï¿½ï¿½ SQLï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ skillbbsï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½Ó¼ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ì±ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Æ·ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Û¼ï¿½ï¿½Ç¾ï¿½ï¿½ï¿½. 
+				//ï¿½Æ·ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ Getï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Í¸ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Þ¾Æ¼ï¿½ ï¿½ï¿½ï¿½ï¿½ skillbbsï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï´ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Ö´Â°ï¿½ï¿½Ì´ï¿½.
 				skillbbs.setSkillbbsID(rs.getInt(1)); 
 				skillbbs.setSkillbbsTitle(rs.getString(2)); 
 				skillbbs.setUserID(rs.getString(3)); 
@@ -402,37 +402,37 @@ public class SkillbbsDAO {
 				skillbbs.setSkillbbsContent(rs.getString(5)); 
 				skillbbs.setSkillbbsAvailable(rs.getInt(6));
 				skillbbs.setSkillbbsCnt(rs.getInt(7)); 
-				list.add(skillbbs);//¸®½ºÆ®¿¡ ÇØ´ç ÀÎ½ºÅÏ½º¸¦ ´ã¾Æ¼­ ¹ÝÈ¯ÇÑ´Ù
+				list.add(skillbbs);//ï¿½ï¿½ï¿½ï¿½Æ®ï¿½ï¿½ ï¿½Ø´ï¿½ ï¿½Î½ï¿½ï¿½Ï½ï¿½ï¿½ï¿½ ï¿½ï¿½Æ¼ï¿½ ï¿½ï¿½È¯ï¿½Ñ´ï¿½
 			}
 
 			
 		}catch(Exception e) {
 			e.printStackTrace();
 		}
-		return list; // ArrayList ÇÔ¼ö´Â ¸®½ºÆ®¸¦ ¸®ÅÏÇÑ´Ù
+		return list; // ArrayList ï¿½Ô¼ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Æ®ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ñ´ï¿½
 	}
 	
-	//userID ±âÁØ ³»¸² Â÷¼ø Á¤·Ä ÇÔ¼ö (Äõ¸®:DESC)
+	//userID ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ô¼ï¿½ (ï¿½ï¿½ï¿½ï¿½:DESC)
 	public ArrayList<Skillbbs> downuserID(int pageNumber){
 		
-		// LIMIT : ÇÑÆäÀÌÁö ³ëÃâ °Ô½Ã¹° ¼ö // skillbbsAvailable =1  »èÁ¦µÇÁö ¾ÊÀº °Ô½Ã¹°¸¸ ³ëÃâ ½ÃÅ³°Í 
-		String SQL = "SELECT * FROM SKILLBBS WHERE skillbbsID < ? AND skillbbsAvailable = 1 ORDER BY userID DESC LIMIT 10";
+		// LIMIT : ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ô½Ã¹ï¿½ ï¿½ï¿½ // skillbbsAvailable =1  ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ô½Ã¹ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Å³ï¿½ï¿½ 
+		String SQL = "SELECT * FROM skillbbs WHERE skillbbsID < ? AND skillbbsAvailable = 1 ORDER BY userID DESC LIMIT 10";
 		
-		//skillbbs¿¡¼­ ³ª¿Ã ¼ö ÀÖ´Â ÀÎ½ºÅÏ½º¸¦ º¸°üÇÏ´Â ArrayList»ý¼º 
+		//skillbbsï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½Ö´ï¿½ ï¿½Î½ï¿½ï¿½Ï½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï´ï¿½ ArrayListï¿½ï¿½ï¿½ï¿½ 
 		ArrayList<Skillbbs> list = new ArrayList<Skillbbs>();
 		
 		try {
-			PreparedStatement pstmt = conn.prepareStatement(SQL); //SQL¹®ÀåÀ» ½ÇÇà ÁØºñ´Ü°è·Î ¼³Á¤ÇÔ
+			PreparedStatement pstmt = conn.prepareStatement(SQL); //SQLï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Øºï¿½Ü°ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 			
-			//getNext´Â ±×´ÙÀ½À¸·Î ÀÛ¼ºµÉ ±ÛÀÇ ¹øÈ£¸¦ ÀÇ¹ÌÇÑ´Ù. ÀÌ¿Í°°ÀÌ Ç¥ÇöÇÏÁö ¾ÊÀ¸¸é ÀÛ¼º±ÛÀÌ 5°³°¡ ³Ñ¾î°¥¶§ ¸¶´Ù ´ÙÀ½ ÆäÀÌÁö·Î ³Ñ¾î°¡°Ô µÇ´Â ¹®Á¦°¡ ¹ß»ýÇÏ°Ô µÈ´Ù.
+			//getNextï¿½ï¿½ ï¿½×´ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Û¼ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½È£ï¿½ï¿½ ï¿½Ç¹ï¿½ï¿½Ñ´ï¿½. ï¿½Ì¿Í°ï¿½ï¿½ï¿½ Ç¥ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Û¼ï¿½ï¿½ï¿½ï¿½ï¿½ 5ï¿½ï¿½ï¿½ï¿½ ï¿½Ñ¾î°¥ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ñ¾î°¡ï¿½ï¿½ ï¿½Ç´ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ß»ï¿½ï¿½Ï°ï¿½ ï¿½È´ï¿½.
 			pstmt.setInt(1, getNext() - (pageNumber - 1 ) * 10);
 			
 			rs = pstmt.executeQuery();
 			while (rs.next()) {
 				Skillbbs skillbbs = new Skillbbs();
 				
-				//À§ÀÇ SQLÄõ¸®¿¡¼­ skillbbs¿¡ ´ã±ä ¸ðµç ¼Ó¼ºÀ» ´Ù »©¿Ã °ÍÀÌ±â ¶§¹®¿¡ ¾Æ·¡¿Í °°ÀÌ ÀÛ¼ºµÇ¾ú´Ù. 
-				//¾Æ·¡¿Í °°ÀÌ GetÀ¸·Î µ¥ÀÌÅÍ¸¦ ÀüºÎ ¹Þ¾Æ¼­ À§ÀÇ skillbbs·Î ½ÃÀÛÇÏ´Â º¯¼ö¿¡ ´ã¾ÆÁÖ´Â°ÍÀÌ´Ù.
+				//ï¿½ï¿½ï¿½ï¿½ SQLï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ skillbbsï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½Ó¼ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ì±ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Æ·ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Û¼ï¿½ï¿½Ç¾ï¿½ï¿½ï¿½. 
+				//ï¿½Æ·ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ Getï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Í¸ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Þ¾Æ¼ï¿½ ï¿½ï¿½ï¿½ï¿½ skillbbsï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï´ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Ö´Â°ï¿½ï¿½Ì´ï¿½.
 				skillbbs.setSkillbbsID(rs.getInt(1)); 
 				skillbbs.setSkillbbsTitle(rs.getString(2)); 
 				skillbbs.setUserID(rs.getString(3)); 
@@ -440,37 +440,37 @@ public class SkillbbsDAO {
 				skillbbs.setSkillbbsContent(rs.getString(5)); 
 				skillbbs.setSkillbbsAvailable(rs.getInt(6));
 				skillbbs.setSkillbbsCnt(rs.getInt(7)); 
-				list.add(skillbbs);//¸®½ºÆ®¿¡ ÇØ´ç ÀÎ½ºÅÏ½º¸¦ ´ã¾Æ¼­ ¹ÝÈ¯ÇÑ´Ù
+				list.add(skillbbs);//ï¿½ï¿½ï¿½ï¿½Æ®ï¿½ï¿½ ï¿½Ø´ï¿½ ï¿½Î½ï¿½ï¿½Ï½ï¿½ï¿½ï¿½ ï¿½ï¿½Æ¼ï¿½ ï¿½ï¿½È¯ï¿½Ñ´ï¿½
 			}
 
 			
 		}catch(Exception e) {
 			e.printStackTrace();
 		}
-		return list; // ArrayList ÇÔ¼ö´Â ¸®½ºÆ®¸¦ ¸®ÅÏÇÑ´Ù
+		return list; // ArrayList ï¿½Ô¼ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Æ®ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ñ´ï¿½
 	}
 	
-	//skillbbsDate ±âÁØ ¿À¸§ Â÷¼ø Á¤·Ä ÇÔ¼ö (Äõ¸®:ASC)
+	//skillbbsDate ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ô¼ï¿½ (ï¿½ï¿½ï¿½ï¿½:ASC)
 	public ArrayList<Skillbbs> upskillbbsDate(int pageNumber){
 		
-		// LIMIT : ÇÑÆäÀÌÁö ³ëÃâ °Ô½Ã¹° ¼ö // skillbbsAvailable =1  »èÁ¦µÇÁö ¾ÊÀº °Ô½Ã¹°¸¸ ³ëÃâ ½ÃÅ³°Í 
-		String SQL = "SELECT * FROM SKILLBBS WHERE skillbbsID < ? AND skillbbsAvailable = 1 ORDER BY skillbbsDate ASC LIMIT 10";
+		// LIMIT : ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ô½Ã¹ï¿½ ï¿½ï¿½ // skillbbsAvailable =1  ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ô½Ã¹ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Å³ï¿½ï¿½ 
+		String SQL = "SELECT * FROM skillbbs WHERE skillbbsID < ? AND skillbbsAvailable = 1 ORDER BY skillbbsDate ASC LIMIT 10";
 		
-		//skillbbs¿¡¼­ ³ª¿Ã ¼ö ÀÖ´Â ÀÎ½ºÅÏ½º¸¦ º¸°üÇÏ´Â ArrayList»ý¼º 
+		//skillbbsï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½Ö´ï¿½ ï¿½Î½ï¿½ï¿½Ï½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï´ï¿½ ArrayListï¿½ï¿½ï¿½ï¿½ 
 		ArrayList<Skillbbs> list = new ArrayList<Skillbbs>();
 		
 		try {
-			PreparedStatement pstmt = conn.prepareStatement(SQL); //SQL¹®ÀåÀ» ½ÇÇà ÁØºñ´Ü°è·Î ¼³Á¤ÇÔ
+			PreparedStatement pstmt = conn.prepareStatement(SQL); //SQLï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Øºï¿½Ü°ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 			
-			//getNext´Â ±×´ÙÀ½À¸·Î ÀÛ¼ºµÉ ±ÛÀÇ ¹øÈ£¸¦ ÀÇ¹ÌÇÑ´Ù. ÀÌ¿Í°°ÀÌ Ç¥ÇöÇÏÁö ¾ÊÀ¸¸é ÀÛ¼º±ÛÀÌ 5°³°¡ ³Ñ¾î°¥¶§ ¸¶´Ù ´ÙÀ½ ÆäÀÌÁö·Î ³Ñ¾î°¡°Ô µÇ´Â ¹®Á¦°¡ ¹ß»ýÇÏ°Ô µÈ´Ù.
+			//getNextï¿½ï¿½ ï¿½×´ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Û¼ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½È£ï¿½ï¿½ ï¿½Ç¹ï¿½ï¿½Ñ´ï¿½. ï¿½Ì¿Í°ï¿½ï¿½ï¿½ Ç¥ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Û¼ï¿½ï¿½ï¿½ï¿½ï¿½ 5ï¿½ï¿½ï¿½ï¿½ ï¿½Ñ¾î°¥ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ñ¾î°¡ï¿½ï¿½ ï¿½Ç´ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ß»ï¿½ï¿½Ï°ï¿½ ï¿½È´ï¿½.
 			pstmt.setInt(1, getNext() - (pageNumber - 1 ) * 10);
 			
 			rs = pstmt.executeQuery();
 			while (rs.next()) {
 				Skillbbs skillbbs = new Skillbbs();
 				
-				//À§ÀÇ SQLÄõ¸®¿¡¼­ skillbbs¿¡ ´ã±ä ¸ðµç ¼Ó¼ºÀ» ´Ù »©¿Ã °ÍÀÌ±â ¶§¹®¿¡ ¾Æ·¡¿Í °°ÀÌ ÀÛ¼ºµÇ¾ú´Ù. 
-				//¾Æ·¡¿Í °°ÀÌ GetÀ¸·Î µ¥ÀÌÅÍ¸¦ ÀüºÎ ¹Þ¾Æ¼­ À§ÀÇ skillbbs·Î ½ÃÀÛÇÏ´Â º¯¼ö¿¡ ´ã¾ÆÁÖ´Â°ÍÀÌ´Ù.
+				//ï¿½ï¿½ï¿½ï¿½ SQLï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ skillbbsï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½Ó¼ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ì±ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Æ·ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Û¼ï¿½ï¿½Ç¾ï¿½ï¿½ï¿½. 
+				//ï¿½Æ·ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ Getï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Í¸ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Þ¾Æ¼ï¿½ ï¿½ï¿½ï¿½ï¿½ skillbbsï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï´ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Ö´Â°ï¿½ï¿½Ì´ï¿½.
 				skillbbs.setSkillbbsID(rs.getInt(1)); 
 				skillbbs.setSkillbbsTitle(rs.getString(2)); 
 				skillbbs.setUserID(rs.getString(3)); 
@@ -478,37 +478,37 @@ public class SkillbbsDAO {
 				skillbbs.setSkillbbsContent(rs.getString(5)); 
 				skillbbs.setSkillbbsAvailable(rs.getInt(6));
 				skillbbs.setSkillbbsCnt(rs.getInt(7)); 
-				list.add(skillbbs);//¸®½ºÆ®¿¡ ÇØ´ç ÀÎ½ºÅÏ½º¸¦ ´ã¾Æ¼­ ¹ÝÈ¯ÇÑ´Ù
+				list.add(skillbbs);//ï¿½ï¿½ï¿½ï¿½Æ®ï¿½ï¿½ ï¿½Ø´ï¿½ ï¿½Î½ï¿½ï¿½Ï½ï¿½ï¿½ï¿½ ï¿½ï¿½Æ¼ï¿½ ï¿½ï¿½È¯ï¿½Ñ´ï¿½
 			}
 
 			
 		}catch(Exception e) {
 			e.printStackTrace();
 		}
-		return list; // ArrayList ÇÔ¼ö´Â ¸®½ºÆ®¸¦ ¸®ÅÏÇÑ´Ù
+		return list; // ArrayList ï¿½Ô¼ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Æ®ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ñ´ï¿½
 	}
 	
-	//skillbbsDate ±âÁØ ³»¸² Â÷¼ø Á¤·Ä ÇÔ¼ö (Äõ¸®:DESC)
+	//skillbbsDate ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ô¼ï¿½ (ï¿½ï¿½ï¿½ï¿½:DESC)
 	public ArrayList<Skillbbs> downskillbbsDate(int pageNumber){
 		
-		// LIMIT : ÇÑÆäÀÌÁö ³ëÃâ °Ô½Ã¹° ¼ö // skillbbsAvailable =1  »èÁ¦µÇÁö ¾ÊÀº °Ô½Ã¹°¸¸ ³ëÃâ ½ÃÅ³°Í 
-		String SQL = "SELECT * FROM SKILLBBS WHERE skillbbsID < ? AND skillbbsAvailable = 1 ORDER BY skillbbsDate DESC LIMIT 10";
+		// LIMIT : ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ô½Ã¹ï¿½ ï¿½ï¿½ // skillbbsAvailable =1  ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ô½Ã¹ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Å³ï¿½ï¿½ 
+		String SQL = "SELECT * FROM skillbbs WHERE skillbbsID < ? AND skillbbsAvailable = 1 ORDER BY skillbbsDate DESC LIMIT 10";
 		
-		//skillbbs¿¡¼­ ³ª¿Ã ¼ö ÀÖ´Â ÀÎ½ºÅÏ½º¸¦ º¸°üÇÏ´Â ArrayList»ý¼º 
+		//skillbbsï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½Ö´ï¿½ ï¿½Î½ï¿½ï¿½Ï½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï´ï¿½ ArrayListï¿½ï¿½ï¿½ï¿½ 
 		ArrayList<Skillbbs> list = new ArrayList<Skillbbs>();
 		
 		try {
-			PreparedStatement pstmt = conn.prepareStatement(SQL); //SQL¹®ÀåÀ» ½ÇÇà ÁØºñ´Ü°è·Î ¼³Á¤ÇÔ
+			PreparedStatement pstmt = conn.prepareStatement(SQL); //SQLï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Øºï¿½Ü°ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 			
-			//getNext´Â ±×´ÙÀ½À¸·Î ÀÛ¼ºµÉ ±ÛÀÇ ¹øÈ£¸¦ ÀÇ¹ÌÇÑ´Ù. ÀÌ¿Í°°ÀÌ Ç¥ÇöÇÏÁö ¾ÊÀ¸¸é ÀÛ¼º±ÛÀÌ 5°³°¡ ³Ñ¾î°¥¶§ ¸¶´Ù ´ÙÀ½ ÆäÀÌÁö·Î ³Ñ¾î°¡°Ô µÇ´Â ¹®Á¦°¡ ¹ß»ýÇÏ°Ô µÈ´Ù.
+			//getNextï¿½ï¿½ ï¿½×´ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Û¼ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½È£ï¿½ï¿½ ï¿½Ç¹ï¿½ï¿½Ñ´ï¿½. ï¿½Ì¿Í°ï¿½ï¿½ï¿½ Ç¥ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Û¼ï¿½ï¿½ï¿½ï¿½ï¿½ 5ï¿½ï¿½ï¿½ï¿½ ï¿½Ñ¾î°¥ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ñ¾î°¡ï¿½ï¿½ ï¿½Ç´ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ß»ï¿½ï¿½Ï°ï¿½ ï¿½È´ï¿½.
 			pstmt.setInt(1, getNext() - (pageNumber - 1 ) * 10);
 			
 			rs = pstmt.executeQuery();
 			while (rs.next()) {
 				Skillbbs skillbbs = new Skillbbs();
 				
-				//À§ÀÇ SQLÄõ¸®¿¡¼­ skillbbs¿¡ ´ã±ä ¸ðµç ¼Ó¼ºÀ» ´Ù »©¿Ã °ÍÀÌ±â ¶§¹®¿¡ ¾Æ·¡¿Í °°ÀÌ ÀÛ¼ºµÇ¾ú´Ù. 
-				//¾Æ·¡¿Í °°ÀÌ GetÀ¸·Î µ¥ÀÌÅÍ¸¦ ÀüºÎ ¹Þ¾Æ¼­ À§ÀÇ skillbbs·Î ½ÃÀÛÇÏ´Â º¯¼ö¿¡ ´ã¾ÆÁÖ´Â°ÍÀÌ´Ù.
+				//ï¿½ï¿½ï¿½ï¿½ SQLï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ skillbbsï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½Ó¼ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ì±ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Æ·ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Û¼ï¿½ï¿½Ç¾ï¿½ï¿½ï¿½. 
+				//ï¿½Æ·ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ Getï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Í¸ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Þ¾Æ¼ï¿½ ï¿½ï¿½ï¿½ï¿½ skillbbsï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï´ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Ö´Â°ï¿½ï¿½Ì´ï¿½.
 				skillbbs.setSkillbbsID(rs.getInt(1)); 
 				skillbbs.setSkillbbsTitle(rs.getString(2)); 
 				skillbbs.setUserID(rs.getString(3)); 
@@ -516,36 +516,36 @@ public class SkillbbsDAO {
 				skillbbs.setSkillbbsContent(rs.getString(5)); 
 				skillbbs.setSkillbbsAvailable(rs.getInt(6));
 				skillbbs.setSkillbbsCnt(rs.getInt(7)); 
-				list.add(skillbbs);//¸®½ºÆ®¿¡ ÇØ´ç ÀÎ½ºÅÏ½º¸¦ ´ã¾Æ¼­ ¹ÝÈ¯ÇÑ´Ù
+				list.add(skillbbs);//ï¿½ï¿½ï¿½ï¿½Æ®ï¿½ï¿½ ï¿½Ø´ï¿½ ï¿½Î½ï¿½ï¿½Ï½ï¿½ï¿½ï¿½ ï¿½ï¿½Æ¼ï¿½ ï¿½ï¿½È¯ï¿½Ñ´ï¿½
 			}
 			
 		}catch(Exception e) {
 			e.printStackTrace();
 		}
-		return list; // ArrayList ÇÔ¼ö´Â ¸®½ºÆ®¸¦ ¸®ÅÏÇÑ´Ù
+		return list; // ArrayList ï¿½Ô¼ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Æ®ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ñ´ï¿½
 	}
 	
-	//skillbbsCnt ±âÁØ ¿À¸§ Â÷¼ø Á¤·Ä ÇÔ¼ö (Äõ¸®:ASC)
+	//skillbbsCnt ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ô¼ï¿½ (ï¿½ï¿½ï¿½ï¿½:ASC)
 	public ArrayList<Skillbbs> upskillbbsCnt(int pageNumber){
 		
-		// LIMIT : ÇÑÆäÀÌÁö ³ëÃâ °Ô½Ã¹° ¼ö // skillbbsAvailable =1  »èÁ¦µÇÁö ¾ÊÀº °Ô½Ã¹°¸¸ ³ëÃâ ½ÃÅ³°Í 
-		String SQL = "SELECT * FROM SKILLBBS WHERE skillbbsID < ? AND skillbbsAvailable = 1 ORDER BY skillbbsCnt ASC LIMIT 10";
+		// LIMIT : ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ô½Ã¹ï¿½ ï¿½ï¿½ // skillbbsAvailable =1  ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ô½Ã¹ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Å³ï¿½ï¿½ 
+		String SQL = "SELECT * FROM skillbbs WHERE skillbbsID < ? AND skillbbsAvailable = 1 ORDER BY skillbbsCnt ASC LIMIT 10";
 		
-		//skillbbs¿¡¼­ ³ª¿Ã ¼ö ÀÖ´Â ÀÎ½ºÅÏ½º¸¦ º¸°üÇÏ´Â ArrayList»ý¼º 
+		//skillbbsï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½Ö´ï¿½ ï¿½Î½ï¿½ï¿½Ï½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï´ï¿½ ArrayListï¿½ï¿½ï¿½ï¿½ 
 		ArrayList<Skillbbs> list = new ArrayList<Skillbbs>();
 		
 		try {
-			PreparedStatement pstmt = conn.prepareStatement(SQL); //SQL¹®ÀåÀ» ½ÇÇà ÁØºñ´Ü°è·Î ¼³Á¤ÇÔ
+			PreparedStatement pstmt = conn.prepareStatement(SQL); //SQLï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Øºï¿½Ü°ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 			
-			//getNext´Â ±×´ÙÀ½À¸·Î ÀÛ¼ºµÉ ±ÛÀÇ ¹øÈ£¸¦ ÀÇ¹ÌÇÑ´Ù. ÀÌ¿Í°°ÀÌ Ç¥ÇöÇÏÁö ¾ÊÀ¸¸é ÀÛ¼º±ÛÀÌ 5°³°¡ ³Ñ¾î°¥¶§ ¸¶´Ù ´ÙÀ½ ÆäÀÌÁö·Î ³Ñ¾î°¡°Ô µÇ´Â ¹®Á¦°¡ ¹ß»ýÇÏ°Ô µÈ´Ù.
+			//getNextï¿½ï¿½ ï¿½×´ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Û¼ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½È£ï¿½ï¿½ ï¿½Ç¹ï¿½ï¿½Ñ´ï¿½. ï¿½Ì¿Í°ï¿½ï¿½ï¿½ Ç¥ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Û¼ï¿½ï¿½ï¿½ï¿½ï¿½ 5ï¿½ï¿½ï¿½ï¿½ ï¿½Ñ¾î°¥ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ñ¾î°¡ï¿½ï¿½ ï¿½Ç´ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ß»ï¿½ï¿½Ï°ï¿½ ï¿½È´ï¿½.
 			pstmt.setInt(1, getNext() - (pageNumber - 1 ) * 10);
 			
 			rs = pstmt.executeQuery();
 			while (rs.next()) {
 				Skillbbs skillbbs = new Skillbbs();
 				
-				//À§ÀÇ SQLÄõ¸®¿¡¼­ skillbbs¿¡ ´ã±ä ¸ðµç ¼Ó¼ºÀ» ´Ù »©¿Ã °ÍÀÌ±â ¶§¹®¿¡ ¾Æ·¡¿Í °°ÀÌ ÀÛ¼ºµÇ¾ú´Ù. 
-				//¾Æ·¡¿Í °°ÀÌ GetÀ¸·Î µ¥ÀÌÅÍ¸¦ ÀüºÎ ¹Þ¾Æ¼­ À§ÀÇ skillbbs·Î ½ÃÀÛÇÏ´Â º¯¼ö¿¡ ´ã¾ÆÁÖ´Â°ÍÀÌ´Ù.
+				//ï¿½ï¿½ï¿½ï¿½ SQLï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ skillbbsï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½Ó¼ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ì±ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Æ·ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Û¼ï¿½ï¿½Ç¾ï¿½ï¿½ï¿½. 
+				//ï¿½Æ·ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ Getï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Í¸ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Þ¾Æ¼ï¿½ ï¿½ï¿½ï¿½ï¿½ skillbbsï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï´ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Ö´Â°ï¿½ï¿½Ì´ï¿½.
 				skillbbs.setSkillbbsID(rs.getInt(1)); 
 				skillbbs.setSkillbbsTitle(rs.getString(2)); 
 				skillbbs.setUserID(rs.getString(3)); 
@@ -553,37 +553,37 @@ public class SkillbbsDAO {
 				skillbbs.setSkillbbsContent(rs.getString(5)); 
 				skillbbs.setSkillbbsAvailable(rs.getInt(6));
 				skillbbs.setSkillbbsCnt(rs.getInt(7)); 
-				list.add(skillbbs);//¸®½ºÆ®¿¡ ÇØ´ç ÀÎ½ºÅÏ½º¸¦ ´ã¾Æ¼­ ¹ÝÈ¯ÇÑ´Ù
+				list.add(skillbbs);//ï¿½ï¿½ï¿½ï¿½Æ®ï¿½ï¿½ ï¿½Ø´ï¿½ ï¿½Î½ï¿½ï¿½Ï½ï¿½ï¿½ï¿½ ï¿½ï¿½Æ¼ï¿½ ï¿½ï¿½È¯ï¿½Ñ´ï¿½
 			}
 			
 		}catch(Exception e) {
 			e.printStackTrace();
 		}
-		return list; // ArrayList ÇÔ¼ö´Â ¸®½ºÆ®¸¦ ¸®ÅÏÇÑ´Ù
+		return list; // ArrayList ï¿½Ô¼ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Æ®ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ñ´ï¿½
 	}
 	
-	//skillbbsDate ±âÁØ ³»¸² Â÷¼ø Á¤·Ä ÇÔ¼ö (Äõ¸®:DESC)
+	//skillbbsDate ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ô¼ï¿½ (ï¿½ï¿½ï¿½ï¿½:DESC)
 	public ArrayList<Skillbbs> downskillbbsCnt(int pageNumber){
 		
-		// LIMIT : ÇÑÆäÀÌÁö ³ëÃâ °Ô½Ã¹° ¼ö // skillbbsAvailable =1  »èÁ¦µÇÁö ¾ÊÀº °Ô½Ã¹°¸¸ ³ëÃâ ½ÃÅ³°Í 
-		String SQL = "SELECT * FROM SKILLBBS WHERE skillbbsID < ? AND skillbbsAvailable = 1 ORDER BY skillbbsCnt DESC LIMIT 10";
+		// LIMIT : ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ô½Ã¹ï¿½ ï¿½ï¿½ // skillbbsAvailable =1  ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ô½Ã¹ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Å³ï¿½ï¿½ 
+		String SQL = "SELECT * FROM skillbbs WHERE skillbbsID < ? AND skillbbsAvailable = 1 ORDER BY skillbbsCnt DESC LIMIT 10";
 		
 		
-		//skillbbs¿¡¼­ ³ª¿Ã ¼ö ÀÖ´Â ÀÎ½ºÅÏ½º¸¦ º¸°üÇÏ´Â ArrayList»ý¼º 
+		//skillbbsï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½Ö´ï¿½ ï¿½Î½ï¿½ï¿½Ï½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï´ï¿½ ArrayListï¿½ï¿½ï¿½ï¿½ 
 		ArrayList<Skillbbs> list = new ArrayList<Skillbbs>();
 		
 		try {
-			PreparedStatement pstmt = conn.prepareStatement(SQL); //SQL¹®ÀåÀ» ½ÇÇà ÁØºñ´Ü°è·Î ¼³Á¤ÇÔ
+			PreparedStatement pstmt = conn.prepareStatement(SQL); //SQLï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Øºï¿½Ü°ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 			
-			//getNext´Â ±×´ÙÀ½À¸·Î ÀÛ¼ºµÉ ±ÛÀÇ ¹øÈ£¸¦ ÀÇ¹ÌÇÑ´Ù. ÀÌ¿Í°°ÀÌ Ç¥ÇöÇÏÁö ¾ÊÀ¸¸é ÀÛ¼º±ÛÀÌ 5°³°¡ ³Ñ¾î°¥¶§ ¸¶´Ù ´ÙÀ½ ÆäÀÌÁö·Î ³Ñ¾î°¡°Ô µÇ´Â ¹®Á¦°¡ ¹ß»ýÇÏ°Ô µÈ´Ù.
+			//getNextï¿½ï¿½ ï¿½×´ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Û¼ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½È£ï¿½ï¿½ ï¿½Ç¹ï¿½ï¿½Ñ´ï¿½. ï¿½Ì¿Í°ï¿½ï¿½ï¿½ Ç¥ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Û¼ï¿½ï¿½ï¿½ï¿½ï¿½ 5ï¿½ï¿½ï¿½ï¿½ ï¿½Ñ¾î°¥ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ñ¾î°¡ï¿½ï¿½ ï¿½Ç´ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ß»ï¿½ï¿½Ï°ï¿½ ï¿½È´ï¿½.
 			pstmt.setInt(1, getNext() - (pageNumber - 1 ) * 10);
 			
 			rs = pstmt.executeQuery();
 			while (rs.next()) {
 				Skillbbs skillbbs = new Skillbbs();
 				
-				//À§ÀÇ SQLÄõ¸®¿¡¼­ skillbbs¿¡ ´ã±ä ¸ðµç ¼Ó¼ºÀ» ´Ù »©¿Ã °ÍÀÌ±â ¶§¹®¿¡ ¾Æ·¡¿Í °°ÀÌ ÀÛ¼ºµÇ¾ú´Ù. 
-				//¾Æ·¡¿Í °°ÀÌ GetÀ¸·Î µ¥ÀÌÅÍ¸¦ ÀüºÎ ¹Þ¾Æ¼­ À§ÀÇ skillbbs·Î ½ÃÀÛÇÏ´Â º¯¼ö¿¡ ´ã¾ÆÁÖ´Â°ÍÀÌ´Ù.
+				//ï¿½ï¿½ï¿½ï¿½ SQLï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ skillbbsï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½Ó¼ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ì±ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Æ·ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Û¼ï¿½ï¿½Ç¾ï¿½ï¿½ï¿½. 
+				//ï¿½Æ·ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ Getï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Í¸ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Þ¾Æ¼ï¿½ ï¿½ï¿½ï¿½ï¿½ skillbbsï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï´ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Ö´Â°ï¿½ï¿½Ì´ï¿½.
 				skillbbs.setSkillbbsID(rs.getInt(1)); 
 				skillbbs.setSkillbbsTitle(rs.getString(2)); 
 				skillbbs.setUserID(rs.getString(3)); 
@@ -591,29 +591,29 @@ public class SkillbbsDAO {
 				skillbbs.setSkillbbsContent(rs.getString(5)); 
 				skillbbs.setSkillbbsAvailable(rs.getInt(6));
 				skillbbs.setSkillbbsCnt(rs.getInt(7)); 
-				list.add(skillbbs);//¸®½ºÆ®¿¡ ÇØ´ç ÀÎ½ºÅÏ½º¸¦ ´ã¾Æ¼­ ¹ÝÈ¯ÇÑ´Ù
+				list.add(skillbbs);//ï¿½ï¿½ï¿½ï¿½Æ®ï¿½ï¿½ ï¿½Ø´ï¿½ ï¿½Î½ï¿½ï¿½Ï½ï¿½ï¿½ï¿½ ï¿½ï¿½Æ¼ï¿½ ï¿½ï¿½È¯ï¿½Ñ´ï¿½
 			}
 			
 		}catch(Exception e) {
 			e.printStackTrace();
 		}
-		return list; // ArrayList ÇÔ¼ö´Â ¸®½ºÆ®¸¦ ¸®ÅÏÇÑ´Ù
+		return list; // ArrayList ï¿½Ô¼ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Æ®ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ñ´ï¿½
 	}
 	
-	//skillbbsDate ±âÁØ ³»¸² Â÷¼ø Á¤·Ä ÇÔ¼ö (Äõ¸®:DESC)
+	//skillbbsDate ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ô¼ï¿½ (ï¿½ï¿½ï¿½ï¿½:DESC)
 	public ArrayList<Skillbbs> searchresultlist(int pageNumber, String strType, String strString){
 
-		// LIMIT : ÇÑÆäÀÌÁö ³ëÃâ °Ô½Ã¹° ¼ö // skillbbsAvailable =1  »èÁ¦µÇÁö ¾ÊÀº °Ô½Ã¹°¸¸ ³ëÃâ ½ÃÅ³°Í 
-		String SQL = "SELECT * FROM SKILLBBS WHERE skillbbsID < ? AND skillbbsAvailable = 1 AND "+strType+" like ?";
+		// LIMIT : ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ô½Ã¹ï¿½ ï¿½ï¿½ // skillbbsAvailable =1  ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ô½Ã¹ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Å³ï¿½ï¿½ 
+		String SQL = "SELECT * FROM skillbbs WHERE skillbbsID < ? AND skillbbsAvailable = 1 AND "+strType+" like ?";
 		//SELECT * FROM SKILLBBS WHERE skillbbsTitle AND skillbbsAvailable = 1 ORDER BY skillbbsID DESC like '%" + text + "%'  skillbbsID < ? AND skillbbsAvailable = 1
 
-		//skillbbs¿¡¼­ ³ª¿Ã ¼ö ÀÖ´Â ÀÎ½ºÅÏ½º¸¦ º¸°üÇÏ´Â ArrayList»ý¼º 
+		//skillbbsï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½Ö´ï¿½ ï¿½Î½ï¿½ï¿½Ï½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï´ï¿½ ArrayListï¿½ï¿½ï¿½ï¿½ 
 		ArrayList<Skillbbs> list = new ArrayList<Skillbbs>();
 
 		try {
-			PreparedStatement pstmt = conn.prepareStatement(SQL); //SQL¹®ÀåÀ» ½ÇÇà ÁØºñ´Ü°è·Î ¼³Á¤ÇÔ
+			PreparedStatement pstmt = conn.prepareStatement(SQL); //SQLï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Øºï¿½Ü°ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 			
-			//getNext´Â ±×´ÙÀ½À¸·Î ÀÛ¼ºµÉ ±ÛÀÇ ¹øÈ£¸¦ ÀÇ¹ÌÇÑ´Ù. ÀÌ¿Í°°ÀÌ Ç¥ÇöÇÏÁö ¾ÊÀ¸¸é ÀÛ¼º±ÛÀÌ 5°³°¡ ³Ñ¾î°¥¶§ ¸¶´Ù ´ÙÀ½ ÆäÀÌÁö·Î ³Ñ¾î°¡°Ô µÇ´Â ¹®Á¦°¡ ¹ß»ýÇÏ°Ô µÈ´Ù.
+			//getNextï¿½ï¿½ ï¿½×´ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Û¼ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½È£ï¿½ï¿½ ï¿½Ç¹ï¿½ï¿½Ñ´ï¿½. ï¿½Ì¿Í°ï¿½ï¿½ï¿½ Ç¥ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Û¼ï¿½ï¿½ï¿½ï¿½ï¿½ 5ï¿½ï¿½ï¿½ï¿½ ï¿½Ñ¾î°¥ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ñ¾î°¡ï¿½ï¿½ ï¿½Ç´ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ß»ï¿½ï¿½Ï°ï¿½ ï¿½È´ï¿½.
 			pstmt.setInt(1, getNext() - (pageNumber - 1 ) * 10);
 			pstmt.setString(2, "%"+strString+"%");
 			
@@ -622,8 +622,8 @@ public class SkillbbsDAO {
 			while (rs.next()) {
 				Skillbbs skillbbs = new Skillbbs();
 				
-				//À§ÀÇ SQLÄõ¸®¿¡¼­ skillbbs¿¡ ´ã±ä ¸ðµç ¼Ó¼ºÀ» ´Ù »©¿Ã °ÍÀÌ±â ¶§¹®¿¡ ¾Æ·¡¿Í °°ÀÌ ÀÛ¼ºµÇ¾ú´Ù. 
-				//¾Æ·¡¿Í °°ÀÌ GetÀ¸·Î µ¥ÀÌÅÍ¸¦ ÀüºÎ ¹Þ¾Æ¼­ À§ÀÇ skillbbs·Î ½ÃÀÛÇÏ´Â º¯¼ö¿¡ ´ã¾ÆÁÖ´Â°ÍÀÌ´Ù.
+				//ï¿½ï¿½ï¿½ï¿½ SQLï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ skillbbsï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½Ó¼ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ì±ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Æ·ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Û¼ï¿½ï¿½Ç¾ï¿½ï¿½ï¿½. 
+				//ï¿½Æ·ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ Getï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Í¸ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Þ¾Æ¼ï¿½ ï¿½ï¿½ï¿½ï¿½ skillbbsï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï´ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Ö´Â°ï¿½ï¿½Ì´ï¿½.
 				skillbbs.setSkillbbsID(rs.getInt(1)); 
 				skillbbs.setSkillbbsTitle(rs.getString(2)); 
 				skillbbs.setUserID(rs.getString(3)); 
@@ -631,13 +631,13 @@ public class SkillbbsDAO {
 				skillbbs.setSkillbbsContent(rs.getString(5)); 
 				skillbbs.setSkillbbsAvailable(rs.getInt(6));
 				skillbbs.setSkillbbsCnt(rs.getInt(7)); 
-				list.add(skillbbs);//¸®½ºÆ®¿¡ ÇØ´ç ÀÎ½ºÅÏ½º¸¦ ´ã¾Æ¼­ ¹ÝÈ¯ÇÑ´Ù
+				list.add(skillbbs);//ï¿½ï¿½ï¿½ï¿½Æ®ï¿½ï¿½ ï¿½Ø´ï¿½ ï¿½Î½ï¿½ï¿½Ï½ï¿½ï¿½ï¿½ ï¿½ï¿½Æ¼ï¿½ ï¿½ï¿½È¯ï¿½Ñ´ï¿½
 			}
 			
 		}catch(Exception e) {
 			e.printStackTrace();
 		}
-		return list; // ArrayList ÇÔ¼ö´Â ¸®½ºÆ®¸¦ ¸®ÅÏÇÑ´Ù
+		return list; // ArrayList ï¿½Ô¼ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Æ®ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ñ´ï¿½
 	}
 	
 }

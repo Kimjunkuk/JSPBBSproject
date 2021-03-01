@@ -248,8 +248,8 @@
 
 						<!-- substring 함수를 이용하여 데이터를 형식을 원하는 형식으로 잘라 표현  -->
 						<td style="text-align: center;"><%=listupnumber.get(i).getSkillbbsDate().substring(0, 11)
-							+ listupnumber.get(i).getSkillbbsDate().substring(11, 13) + "시"
-							+ listupnumber.get(i).getSkillbbsDate().substring(14, 16) + "분"%></td>
+							+ listupnumber.get(i).getSkillbbsDate().substring(11, 13) + ":"
+							+ listupnumber.get(i).getSkillbbsDate().substring(14, 16) + ""%></td>
 						<td style="text-align: center;"><%=listupnumber.get(i).getSkillbbsCnt()%></td>
 					</tr>
 					<%
@@ -274,8 +274,8 @@
 
 						<!-- substring 함수를 이용하여 데이터를 형식을 원하는 형식으로 잘라 표현  -->
 						<td style="text-align: center;"><%=listdownnumber.get(i).getSkillbbsDate().substring(0, 11)
-							+ listdownnumber.get(i).getSkillbbsDate().substring(11, 13) + "시"
-							+ listdownnumber.get(i).getSkillbbsDate().substring(14, 16) + "분"%></td>
+							+ listdownnumber.get(i).getSkillbbsDate().substring(11, 13) + ":"
+							+ listdownnumber.get(i).getSkillbbsDate().substring(14, 16) + ""%></td>
 						<td style="text-align: center;"><%=listdownnumber.get(i).getSkillbbsCnt()%></td>
 					</tr>
 					<%
@@ -300,8 +300,8 @@
 
 						<!-- substring 함수를 이용하여 데이터를 형식을 원하는 형식으로 잘라 표현  -->
 						<td style="text-align: center;"><%=list.get(i).getSkillbbsDate().substring(0, 11)
-							+ list.get(i).getSkillbbsDate().substring(11, 13) + "시"
-							+ list.get(i).getSkillbbsDate().substring(14, 16) + "분"%></td>
+							+ list.get(i).getSkillbbsDate().substring(11, 13) + ":"
+							+ list.get(i).getSkillbbsDate().substring(14, 16) + ""%></td>
 						<td style="text-align: center;"><%=list.get(i).getSkillbbsCnt()%></td>
 					</tr>
 					<%
@@ -326,8 +326,8 @@
 
 						<!-- substring 함수를 이용하여 데이터를 형식을 원하는 형식으로 잘라 표현  -->
 						<td style="text-align: center;"><%=list.get(i).getSkillbbsDate().substring(0, 11)
-							+ list.get(i).getSkillbbsDate().substring(11, 13) + "시"
-							+ list.get(i).getSkillbbsDate().substring(14, 16) + "분"%></td>
+							+ list.get(i).getSkillbbsDate().substring(11, 13) + ":"
+							+ list.get(i).getSkillbbsDate().substring(14, 16) + ""%></td>
 						<td style="text-align: center;"><%=list.get(i).getSkillbbsCnt()%></td>
 					</tr>
 					<%
@@ -352,8 +352,8 @@
 
 						<!-- substring 함수를 이용하여 데이터를 형식을 원하는 형식으로 잘라 표현  -->
 						<td style="text-align: center;"><%=list.get(i).getSkillbbsDate().substring(0, 11)
-							+ list.get(i).getSkillbbsDate().substring(11, 13) + "시"
-							+ list.get(i).getSkillbbsDate().substring(14, 16) + "분"%></td>
+							+ list.get(i).getSkillbbsDate().substring(11, 13) + ":"
+							+ list.get(i).getSkillbbsDate().substring(14, 16) + ""%></td>
 						<td style="text-align: center;"><%=list.get(i).getSkillbbsCnt()%></td>
 					</tr>
 					<%
@@ -378,8 +378,8 @@
 
 						<!-- substring 함수를 이용하여 데이터를 형식을 원하는 형식으로 잘라 표현  -->
 						<td style="text-align: center;"><%=list.get(i).getSkillbbsDate().substring(0, 11)
-							+ list.get(i).getSkillbbsDate().substring(11, 13) + "시"
-							+ list.get(i).getSkillbbsDate().substring(14, 16) + "분"%></td>
+							+ list.get(i).getSkillbbsDate().substring(11, 13) + ":"
+							+ list.get(i).getSkillbbsDate().substring(14, 16) + ""%></td>
 						<td style="text-align: center;"><%=list.get(i).getSkillbbsCnt()%></td>
 					</tr>
 					<%
@@ -404,8 +404,8 @@
 
 						<!-- substring 함수를 이용하여 데이터를 형식을 원하는 형식으로 잘라 표현  -->
 						<td style="text-align: center;"><%=list.get(i).getSkillbbsDate().substring(0, 11)
-							+ list.get(i).getSkillbbsDate().substring(11, 13) + "시"
-							+ list.get(i).getSkillbbsDate().substring(14, 16) + "분"%></td>
+							+ list.get(i).getSkillbbsDate().substring(11, 13) + ":"
+							+ list.get(i).getSkillbbsDate().substring(14, 16) + ""%></td>
 						<td style="text-align: center;"><%=list.get(i).getSkillbbsCnt()%></td>
 					</tr>
 					<%
@@ -430,8 +430,8 @@
 
 						<!-- substring 함수를 이용하여 데이터를 형식을 원하는 형식으로 잘라 표현  -->
 						<td style="text-align: center;"><%=list.get(i).getSkillbbsDate().substring(0, 11)
-							+ list.get(i).getSkillbbsDate().substring(11, 13) + "시"
-							+ list.get(i).getSkillbbsDate().substring(14, 16) + "분"%></td>
+							+ list.get(i).getSkillbbsDate().substring(11, 13) + ":"
+							+ list.get(i).getSkillbbsDate().substring(14, 16) + ""%></td>
 						<td style="text-align: center;"><%=list.get(i).getSkillbbsCnt()%></td>
 					</tr>
 					<%
@@ -456,8 +456,8 @@
 
 						<!-- substring 함수를 이용하여 데이터를 형식을 원하는 형식으로 잘라 표현  -->
 						<td style="text-align: center;"><%=list.get(i).getSkillbbsDate().substring(0, 11)
-							+ list.get(i).getSkillbbsDate().substring(11, 13) + "시"
-							+ list.get(i).getSkillbbsDate().substring(14, 16) + "분"%></td>
+							+ list.get(i).getSkillbbsDate().substring(11, 13) + ":"
+							+ list.get(i).getSkillbbsDate().substring(14, 16) + ""%></td>
 						<td style="text-align: center;"><%=list.get(i).getSkillbbsCnt()%></td>
 					</tr>
 					<%
@@ -482,8 +482,8 @@
 
 						<!-- substring 함수를 이용하여 데이터를 형식을 원하는 형식으로 잘라 표현  -->
 						<td style="text-align: center;"><%=list.get(i).getSkillbbsDate().substring(0, 11)
-							+ list.get(i).getSkillbbsDate().substring(11, 13) + "시"
-							+ list.get(i).getSkillbbsDate().substring(14, 16) + "분"%></td>
+							+ list.get(i).getSkillbbsDate().substring(11, 13) + ":"
+							+ list.get(i).getSkillbbsDate().substring(14, 16) + ""%></td>
 						<td style="text-align: center;"><%=list.get(i).getSkillbbsCnt()%></td>
 					</tr>
 					<%
@@ -508,8 +508,8 @@
 
 						<!-- substring 함수를 이용하여 데이터를 형식을 원하는 형식으로 잘라 표현  -->
 						<td style="text-align: center;"><%=list.get(i).getSkillbbsDate().substring(0, 11)
-							+ list.get(i).getSkillbbsDate().substring(11, 13) + "시"
-							+ list.get(i).getSkillbbsDate().substring(14, 16) + "분"%></td>
+							+ list.get(i).getSkillbbsDate().substring(11, 13) + ":"
+							+ list.get(i).getSkillbbsDate().substring(14, 16) + ""%></td>
 						<td style="text-align: center;"><%=list.get(i).getSkillbbsCnt()%></td>
 					</tr>
 					<%
