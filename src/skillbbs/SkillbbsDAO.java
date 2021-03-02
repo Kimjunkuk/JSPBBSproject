@@ -17,9 +17,9 @@ public class SkillbbsDAO {
 		try {
 			
 			Class.forName("org.mariadb.jdbc.Driver");
-			String dbURL ="";
-			String dbID = "";
-			String dbPassword = "";
+			String dbURL ="jdbc:mariadb://67.167.223.168:3306/bbs?autoReconnect=true&amp;useSSL=false";
+			String dbID = "root";
+			String dbPassword = "Dosxmffj505@#";
 			
 			
 			conn = DriverManager.getConnection(dbURL, dbID, dbPassword);
