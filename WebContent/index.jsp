@@ -22,18 +22,7 @@
 <link rel="stylesheet"
 	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <script src="https://code.iconify.design/1/1.0.7/iconify.min.js"></script>
-<style>
-/*@midia: mobile view build*/
-@media ( max-width : 768px ) {
-	#pc-view {
-		display:none;
-	}
-	#mobile-view{
-	}
-	
-}
-</style>
-<!--This title tag shows us about what kind of website is-->
+
 <title>MasonLAB</title>
 
 </head>
