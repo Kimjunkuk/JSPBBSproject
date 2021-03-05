@@ -51,6 +51,68 @@
 				.getElementById('chart_div'));
 		chart.draw(data, options);
 	}
+
+	google.charts.load('current', {
+		'packages' : [ 'geochart' ],
+		// Note: you will need to get a mapsApiKey for your project.
+		// See: https://developers.google.com/chart/interactive/docs/basic_load_libs#load-settings
+		'mapsApiKey' : 'AIzaSyD-9tSrke72PouQMnMX-a7eZSW0jkFMBWY'
+	});
+	google.charts.setOnLoadCallback(drawRegionsMap);
+
+	function drawRegionsMap() {
+		var data = google.visualization.arrayToDataTable([
+				[ 'Country', 'Popularity' ], [ 'Germany', 200 ],
+				[ 'United States', 300 ], [ 'Brazil', 400 ], [ 'Canada', 500 ],
+				[ 'France', 600 ], [ 'RU', 700 ] ]);
+
+		var options = {};
+
+		var chart = new google.visualization.GeoChart(document
+				.getElementById('regions_div'));
+
+		chart.draw(data, options);
+	}
+
+	google.charts.load('current', {
+		'packages' : [ 'gauge' ]
+	});
+	google.charts.setOnLoadCallback(drawChart);
+
+	function drawChart() {
+
+		var data = google.visualization.arrayToDataTable([
+				[ 'Label', 'Value' ], [ 'Memory', 80 ], [ 'CPU', 55 ],
+				[ 'Network', 68 ] ]);
+
+		var options = {
+			width : 400,
+			height : 120,
+			redFrom : 90,
+			redTo : 100,
+			yellowFrom : 75,
+			yellowTo : 90,
+			minorTicks : 5
+		};
+
+		var chart = new google.visualization.Gauge(document
+				.getElementById('chart_div'));
+
+		chart.draw(data, options);
+
+		setInterval(function() {
+			data.setValue(0, 1, 40 + Math.round(60 * Math.random()));
+			chart.draw(data, options);
+		}, 13000);
+		setInterval(function() {
+			data.setValue(1, 1, 40 + Math.round(60 * Math.random()));
+			chart.draw(data, options);
+		}, 5000);
+		setInterval(function() {
+			data.setValue(2, 1, 60 + Math.round(20 * Math.random()));
+			chart.draw(data, options);
+		}, 26000);
+	}
 </script>
 
 
@@ -101,6 +163,30 @@
 					<div class="card mb-3 p-3 mb-2 bg-dark text-white">
 						<!--Div that will hold the pie chart-->
 						<div id="chart_div" class="card-body"></div>
+
+					</div>
+				</div>
+			</td>
+		</tr>
+		<tr>
+			<td
+				style="border-top: 3px solid white; border-bottom: 3px solid white;">
+				<div class="col ">
+					<div class="card mb-3 p-3 mb-2 bg-dark text-white">
+						<!--Div that will hold the pie chart-->
+						<div id="regions_div" style="width: 900px; height: 500px;"></div>
+
+					</div>
+				</div>
+			</td>
+		</tr>
+		<tr>
+			<td
+				style="border-top: 3px solid white; border-bottom: 3px solid white;">
+				<div class="col ">
+					<div class="card mb-3 p-3 mb-2 bg-dark text-white">
+						<!--Div that will hold the pie chart-->
+						<div id="chart_div" style="width: 400px; height: 120px;"></div>
 
 					</div>
 				</div>
