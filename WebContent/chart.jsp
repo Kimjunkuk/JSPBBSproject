@@ -96,7 +96,7 @@
 		};
 
 		var chart = new google.visualization.Gauge(document
-				.getElementById('chart_div'));
+				.getElementById('chart_div2'));
 
 		chart.draw(data, options);
 
@@ -186,7 +186,7 @@
 				<div class="col ">
 					<div class="card mb-3 p-3 mb-2 bg-dark text-white">
 						<!--Div that will hold the pie chart-->
-						<div id="chart_div" style="width: 400px; height: 120px;"></div>
+						<div id="chart_div2" style="width: 400px; height: 120px;"></div>
 
 					</div>
 				</div>
