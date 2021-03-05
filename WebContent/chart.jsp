@@ -142,18 +142,6 @@
 				</div>
 			</td>
 		</tr>
-		<tr>
-			<td
-				style="border-top: 3px solid white; border-bottom: 3px solid white;">
-				<div class="col ">
-					<div class="card mb-3 p-3 mb-2 bg-dark text-white">
-						<!--Div that will hold the pie chart-->
-						<div id="chart_div2" class="card-body" style="width: 400px; height: 120px;"></div>
-
-					</div>
-				</div>
-			</td>
-		</tr>
 
 
 	</table>
