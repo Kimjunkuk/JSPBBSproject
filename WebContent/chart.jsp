@@ -100,7 +100,7 @@
 				<div class="col ">
 					<div class="card mb-3 p-3 mb-2 bg-dark text-white">
 						<!--Div that will hold the pie chart-->
-						<div id="chart_div card-body"></div>
+						<div id="chart_div" class="card-body"></div>
 
 					</div>
 				</div>
