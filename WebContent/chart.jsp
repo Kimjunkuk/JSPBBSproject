@@ -99,9 +99,6 @@
 				style="border-top: 3px solid white; border-bottom: 3px solid white;">
 				<div class="col ">
 					<div class="card mb-3 p-3 mb-2 bg-dark text-white">
-						<a href="http://masonlaboratory.com/index.jsp"><img
-							src="..\img\masonlab2.JPG" class="card-img-top" alt="..."></a>
-
 						<!--Div that will hold the pie chart-->
 						<div id="chart_div card-body"></div>
 
