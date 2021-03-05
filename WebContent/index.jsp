@@ -22,7 +22,46 @@
 <link rel="stylesheet"
 	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <script src="https://code.iconify.design/1/1.0.7/iconify.min.js"></script>
+<script type="text/javascript"
+	src="https://www.gstatic.com/charts/loader.js"></script>
+<script type="text/javascript">
+      google.charts.load('current', {'packages':['gauge']});
+      google.charts.setOnLoadCallback(drawChart);
 
+      function drawChart() {
+
+        var data = google.visualization.arrayToDataTable([
+          ['Label', 'Value'],
+          ['Memory', 80],
+          ['CPU', 55],
+          ['Network', 68]
+        ]);
+
+        var options = {
+          width: 400, height: 120,
+          redFrom: 90, redTo: 100,
+          yellowFrom:75, yellowTo: 90,
+          minorTicks: 5
+        };
+
+        var chart = new google.visualization.Gauge(document.getElementById('chart_div'));
+
+        chart.draw(data, options);
+
+        setInterval(function() {
+          data.setValue(0, 1, 40 + Math.round(60 * Math.random()));
+          chart.draw(data, options);
+        }, 13000);
+        setInterval(function() {
+          data.setValue(1, 1, 40 + Math.round(60 * Math.random()));
+          chart.draw(data, options);
+        }, 5000);
+        setInterval(function() {
+          data.setValue(2, 1, 60 + Math.round(20 * Math.random()));
+          chart.draw(data, options);
+        }, 26000);
+      }
+    </script>
 <title>MasonLAB</title>
 
 </head>
@@ -77,9 +116,9 @@
 		</ul>
 
 	</div>
-	
-	
-	
+
+
+
 	<div class="card mb-3 p-3 mb-2 bg-dark text-white"
 		style="max-width: 100%; border: 0;">
 		<div class="row g-0">
@@ -90,7 +129,10 @@
 			</div>
 			<div class="col-md-8">
 				<div class="card-body">
-					<h1>MasonKim(JUNKUK KIM)</h1>
+					<h1>MasonKim(JUNKUK KIM)</h1><br>
+					
+					<h1>Server Computational resources</h1>
+					<div id="chart_div" style="width: 400px; height: 120px;"></div><br>
 					<p class="card-text" style="font-size: 19.2px">Hi, there!</p>
 					<p class="card-text" style="font-size: 19.2px">I'm a software
 						engineer.</p>
@@ -156,7 +198,7 @@
 							href="index.jsp?sort_type=uptitle">▲</a><a
 							href="index.jsp?sort_type=downtitle">▼</a>
 						</th>
-						<th  style="width: 15%;">Author <a
+						<th style="width: 15%;">Author <a
 							href="index.jsp?sort_type=upname">▲</a><a
 							href="index.jsp?sort_type=downname">▼</a>
 						</th>
@@ -558,8 +600,8 @@
 			<a href="index.jsp?pageNumber=<%=pageNumber = 4%>">[Last]</a> <a
 				href="write.jsp">[Write]</a>
 		</div>
-		
-		
+
+
 	</div>
 
 

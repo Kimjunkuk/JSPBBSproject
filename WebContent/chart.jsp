@@ -74,45 +74,7 @@
 		chart.draw(data, options);
 	}
 
-	google.charts.load('current', {
-		'packages' : [ 'gauge' ]
-	});
-	google.charts.setOnLoadCallback(drawChart);
 
-	function drawChart() {
-
-		var data = google.visualization.arrayToDataTable([
-				[ 'Label', 'Value' ], [ 'Memory', 80 ], [ 'CPU', 55 ],
-				[ 'Network', 68 ] ]);
-
-		var options = {
-			width : 400,
-			height : 120,
-			redFrom : 90,
-			redTo : 100,
-			yellowFrom : 75,
-			yellowTo : 90,
-			minorTicks : 5
-		};
-
-		var chart = new google.visualization.Gauge(document
-				.getElementById('chart_div2'));
-
-		chart.draw(data, options);
-
-		setInterval(function() {
-			data.setValue(0, 1, 40 + Math.round(60 * Math.random()));
-			chart.draw(data, options);
-		}, 13000);
-		setInterval(function() {
-			data.setValue(1, 1, 40 + Math.round(60 * Math.random()));
-			chart.draw(data, options);
-		}, 5000);
-		setInterval(function() {
-			data.setValue(2, 1, 60 + Math.round(20 * Math.random()));
-			chart.draw(data, options);
-		}, 26000);
-	}
 </script>
 
 
@@ -174,7 +136,7 @@
 				<div class="col ">
 					<div class="card mb-3 p-3 mb-2 bg-dark text-white">
 						<!--Div that will hold the pie chart-->
-						<div id="regions_div" style="width: 900px; height: 500px;"></div>
+						<div id="regions_div" class="card-body" style="width: 900px; height: 500px;"></div>
 
 					</div>
 				</div>
@@ -186,7 +148,7 @@
 				<div class="col ">
 					<div class="card mb-3 p-3 mb-2 bg-dark text-white">
 						<!--Div that will hold the pie chart-->
-						<div id="chart_div2" style="width: 400px; height: 120px;"></div>
+						<div id="chart_div2" class="card-body" style="width: 400px; height: 120px;"></div>
 
 					</div>
 				</div>
