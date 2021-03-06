@@ -130,7 +130,6 @@
 			<div class="col-md-8">
 				<div class="card-body">
 					<h1>MasonKim(JUNKUK KIM)</h1><br>
-					
 					<h1>Server Computational resources</h1>
 					<div id="chart_div" style="width: 400px; height: 120px;"></div><br>
 					<p class="card-text" style="font-size: 19.2px">Hi, there!</p>
