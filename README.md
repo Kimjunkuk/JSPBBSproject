@@ -29,7 +29,7 @@ MariaDB
 
 Apache Tomcat
 
-## :scissors: Sercure
+## :scissors: Sercurity
 
 
 
